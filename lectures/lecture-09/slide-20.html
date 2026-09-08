@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="html-slides v0.9.4 (custom RTL blueprint - multi-file)">
+<title>المحاضرة 09 &middot; تطبيق عملي 3: سلة مشتريات المتجر الإلكتروني &mdash; شريحة 20</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@600;700;800;900&family=Fira+Code:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body data-next="slide-21.html" data-prev="slide-19.html">
+<div class="deck">
+  <div class="progress-bar"><div class="progress-fill" style="width:69.0%"></div></div>
+  <div class="brand-logo"><img src="logo.jpg" alt="الشعار"></div>
+  <section class="slide active">
+    <span class="slide-index-badge">20 / 29</span>
+    <div class="slide-content">
+
+      <div class="eyebrow">تطبيقات عملية &middot; 3</div>
+      <h1 class="slide-title">تطبيق 3: بناء سلة تسوق متكاملة بـ $_SESSION</h1>
+      <p class="slide-text">إدارة عناصر السلة والكميات وتحديثها فورياً في جلسة الزائر عبر صفحات المتجر المختلفة:</p>
+      <div class="exercise-grid">
+        <div class="question-card">
+          <div class="qlabel">المطلوب البرمجي</div>
+          <p>تهيئة مصفوفة <code>$_SESSION['cart']</code>، وإضافة منتج مع زيادة كميته إن كان موجوداً، وحساب إجمالي السلة.</p>
+        </div>
+        <div class="code-window">
+          <div class="code-titlebar">
+            <span class="code-dot red"></span><span class="code-dot yellow"></span><span class="code-dot green"></span>
+            <span class="code-filename">cart.php</span>
+          </div>
+          <pre class="code-body"><span class="tok-fn">session_start</span>();
+<span class="tok-kw">if</span> (!<span class="tok-kw">isset</span>(<span class="tok-var">$_SESSION</span>[<span class="tok-str">'cart'</span>])) {
+    <span class="tok-var">$_SESSION</span>[<span class="tok-str">'cart'</span>] = [];
+}
+
+<span class="tok-cmt">// إضافة منتج بالـ ID</span>
+<span class="tok-var">$id</span> = <span class="tok-var">$_GET</span>[<span class="tok-str">'add'</span>] ?? <span class="tok-kw">null</span>;
+<span class="tok-kw">if</span> (<span class="tok-var">$id</span>) {
+    <span class="tok-kw">if</span> (<span class="tok-kw">isset</span>(<span class="tok-var">$_SESSION</span>[<span class="tok-str">'cart'</span>][<span class="tok-var">$id</span>])) {
+        <span class="tok-var">$_SESSION</span>[<span class="tok-str">'cart'</span>][<span class="tok-var">$id</span>][<span class="tok-str">'qty'</span>]++;
+    } <span class="tok-kw">else</span> {
+        <span class="tok-var">$_SESSION</span>[<span class="tok-str">'cart'</span>][<span class="tok-var">$id</span>] = [<span class="tok-str">'title'</span> =&gt; <span class="tok-str">'ماوس'</span>, <span class="tok-str">'price'</span> =&gt; <span class="tok-num">300</span>, <span class="tok-str">'qty'</span> =&gt; <span class="tok-num">1</span>];
+    }
+}</pre>
+        </div>
+        <div class="browser-window">
+          <div class="browser-titlebar">
+            <div class="browser-dots"><span class="r"></span><span class="y"></span><span class="g"></span></div>
+            <div class="browser-address">localhost/cart.php</div>
+          </div>
+          <div class="browser-viewport">
+            <div class="output-ascii" style="direction:rtl;text-align:start;padding:0.75rem;font-size:0.85rem;">
+محتويات سلة المشتريات 🛒
+────────────────────────
+1. ماوس الألعاب | الكمية: 2 | السعر: 600 ج.م
+2. لوحة مفاتيح ميكانيكية | الكمية: 1 | السعر: 800 ج.م
+
+المجموع الإجمالي: 1400 ج.م
+[ إتمام الشراء 💳 ]  [ تفريغ السلة 🗑️ ]
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <div class="nav-dots">
+    <span class="slide-nav-dot" onclick="window.location.href='slide-01.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-02.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-03.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-04.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-05.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-06.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-07.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-08.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-09.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-10.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-11.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-12.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-13.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-14.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-15.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-16.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-17.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-18.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-19.html'"></span>
+<span class="slide-nav-dot active" onclick="window.location.href='slide-20.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-21.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-22.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-23.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-24.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-25.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-26.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-27.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-28.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-29.html'"></span>
+  </div>
+  <div class="nav-controls">
+    <button class="nav-btn" onclick="window.location.href='slide-21.html'">
+      التالي
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg>
+    </button>
+    <span class="counter">20 / 29</span>
+    <button class="nav-btn" onclick="window.location.href='slide-19.html'">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+      السابق
+    </button>
+  </div>
+</div>
+<script src="script.js"></script>
+<script class="slide-notes" type="application/json">
+{
+  "title": "تطبيق 3: سلة المشتريات",
+  "script": "هذا النمط البرمجي هو أساس كل متاجر الويب؛ سلة الجلسة تبقى مع الزائر وهو يتنقل بين الأقسام حتى يقرر الشراء.",
+  "notes": [
+    "تهيئة مصفوفة السلة بالجلسة",
+    "التحقق من وجود المنتج وزيادة كميته",
+    "حساب الإجمالي النهائي"
+  ]
+}
+</script>
+</body>
+</html>

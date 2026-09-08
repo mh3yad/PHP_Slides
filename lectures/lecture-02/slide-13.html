@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="html-slides v0.9.4 (custom RTL blueprint - multi-file)" name="generator"/>
+<title>لوغاريتم — المعاملات المنطقية: بوابات المنطق</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&amp;family=Fira+Code:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="styles.css" rel="stylesheet"/>
+</head>
+<body data-next="slide-14.html" data-prev="slide-12.html">
+<div class="brand-logo"><img alt="شعار لوغاريتم" src="assets/logo.jpg"/></div>
+<div class="progress-bar"><div class="progress-fill" style="width:50.0%"></div></div>
+<div class="deck" id="deck">
+<div class="slide active" data-slide="12">
+<div class="slide-index-badge">13 / 26</div>
+<div class="slide-content">
+<div class="eyebrow">بوابات المنطق — Logical Operators</div>
+<h1 class="slide-title">المعاملات المنطقية: دمج الشروط واتخاذ القرارات</h1>
+<p class="slide-text">بنستخدمها عشان نربط شرطين أو أكتر مع بعض ونطلع بقرار نهائي واحد (صح True أو غلط False):</p>
+
+<div class="flow-steps">
+  <div class="flow-step">
+    <div class="flow-icon" style="color: var(--accent);">&amp;&amp; / and</div>
+    <div class="flow-title">بوابة AND (الصارمة)</div>
+    <div class="flow-desc">
+      لازم <strong>كل الشروط تتحقق مع بعض</strong>. لو شرط واحد بس وقع، النتيجة كلها بتبقى <code>False</code>.
+    </div>
+  </div>
+
+  <div class="flow-arrow">
+    <svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"></polyline></svg>
+  </div>
+
+  <div class="flow-step">
+    <div class="flow-icon" style="color: #34d399;">|| / or</div>
+    <div class="flow-title">بوابة OR (المتسامحة)</div>
+    <div class="flow-desc">
+      كفاية عليها <strong>شرط واحد بس</strong> يتحقق. النتيجة بتبقى <code>True</code> ما دام فيه طرف واحد صادق.
+    </div>
+  </div>
+
+  <div class="flow-arrow">
+    <svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"></polyline></svg>
+  </div>
+
+  <div class="flow-step">
+    <div class="flow-icon" style="color: #f87171;">! / NOT</div>
+    <div class="flow-title">بوابة النفي (العاكسة)</div>
+    <div class="flow-desc">
+      بتقلب المنطق: لو الحاجة <code>True</code> بتخليها <code>False</code>، ولو <code>False</code> بتخليها <code>True</code>.
+    </div>
+  </div>
+</div>
+
+<div style="margin-top: clamp(0.8rem, 2vh, 1.4rem); background: rgba(251,191,36,0.08); border: 1px solid rgba(251,191,36,0.3); border-radius: 8px; padding: 0.5rem 1rem; font-size: var(--small-size); color: #fcd34d; direction: rtl; text-align: right; font-weight: 700;">
+  ⚡ <strong>خد بالك:</strong> دايماً بنستخدم <code>&amp;&amp;</code> و <code>||</code> وبنبعد عن <code>and</code> و <code>or</code> عشان أولوية التنفيذ مع علامة التعيين = !
+</div>
+
+</div>
+</div>
+</div>
+<div class="nav-dots">
+<a class="slide-nav-dot" href="slide-01.html"></a>
+<a class="slide-nav-dot" href="slide-02.html"></a>
+<a class="slide-nav-dot" href="slide-03.html"></a>
+<a class="slide-nav-dot" href="slide-04.html"></a>
+<a class="slide-nav-dot" href="slide-05.html"></a>
+<a class="slide-nav-dot" href="slide-06.html"></a>
+<a class="slide-nav-dot" href="slide-07.html"></a>
+<a class="slide-nav-dot" href="slide-08.html"></a>
+<a class="slide-nav-dot" href="slide-09.html"></a>
+<a class="slide-nav-dot" href="slide-10.html"></a>
+<a class="slide-nav-dot" href="slide-11.html"></a>
+<a class="slide-nav-dot" href="slide-12.html"></a>
+<a class="slide-nav-dot active" href="slide-13.html"></a>
+<a class="slide-nav-dot" href="slide-14.html"></a>
+<a class="slide-nav-dot" href="slide-15.html"></a>
+<a class="slide-nav-dot" href="slide-16.html"></a>
+<a class="slide-nav-dot" href="slide-17.html"></a>
+<a class="slide-nav-dot" href="slide-18.html"></a>
+<a class="slide-nav-dot" href="slide-19.html"></a>
+<a class="slide-nav-dot" href="slide-20.html"></a>
+<a class="slide-nav-dot" href="slide-21.html"></a>
+<a class="slide-nav-dot" href="slide-22.html"></a>
+<a class="slide-nav-dot" href="slide-23.html"></a>
+<a class="slide-nav-dot" href="slide-24.html"></a>
+<a class="slide-nav-dot" href="slide-25.html"></a>
+<a class="slide-nav-dot" href="slide-26.html"></a>
+</div>
+<div class="nav-controls">
+<a class="nav-btn" href="slide-14.html">
+    التالي
+    <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.4" viewbox="0 0 24 24"><polyline points="9 18 15 12 9 6"></polyline></svg>
+</a>
+<span class="counter">13 / 26</span>
+<a class="nav-btn" href="slide-12.html">
+<svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.4" viewbox="0 0 24 24"><polyline points="9 18 15 12 9 6" transform="rotate(180 12 12)"></polyline></svg>
+    السابق
+</a>
+</div>
+<script src="script.js"></script>
+<script class="slide-notes" type="application/json">
+{
+  "title": "مقدمة المعاملات المنطقية",
+  "script": "دي بوابات المنطق الأساسية: AND هي المدير الصارم اللي عايز كل الطلبات، OR هي المدير المتسامح اللي أي بديل بيرضيه، و NOT وظيفتها تعكس القرار.",
+  "notes": [
+    "التعريف ببوابات AND و OR و NOT",
+    "التأكيد على سبب تفضيل && و || على and و or"
+  ]
+}
+</script>
+</body>
+</html>

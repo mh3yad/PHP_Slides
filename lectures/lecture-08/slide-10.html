@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>المحاضرة 08 &middot; القراءة والكتابة السريعة للملفات &mdash; شريحة 10</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@600;700;800;900&family=Fira+Code:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body data-next="slide-11.html" data-prev="slide-09.html">
+<div class="deck">
+  <div class="progress-bar"><div class="progress-fill" style="width:38.5%"></div></div>
+  <div class="brand-logo"><img src="logo.jpg" alt="الشعار"></div>
+  <section class="slide active">
+    <span class="slide-index-badge">10 / 26</span>
+    <div class="slide-content">
+
+      <div class="eyebrow">نظام الملفات &middot; 1</div>
+      <h1 class="slide-title">القراءة والكتابة السريعة للملفات</h1>
+      <p class="slide-text">أسهل وأسرع طريقتين للتعامل مع الملفات الصغيرة والمتوسطة بسطر واحد فقط دون تعقيد:</p>
+      <div class="grid-2">
+        <ul class="bullet-list">
+          <li><code>file_get_contents($path)</code>: قراءة محتوى الملف بالكامل في متغير نصي واحد.</li>
+          <li><code>file_put_contents($path, $data)</code>: كتابة النص في الملف (تنشئه إن لم يوجد، وتستبدل محتواه تلقائياً).</li>
+          <li><strong>الإلحاق بـ <code>FILE_APPEND</code>:</strong> كتابة نص في نهاية الملف دون مسح المحتوى القديم (مثالي لسجلات الزيارات والأخطاء Logs).</li>
+          <li><strong>قفل الكتابة بـ <code>LOCK_EX</code>:</strong> قفل الملف حصرياً أثناء الكتابة لمنع التضارب بين الزوار المتزامنين.</li>
+        </ul>
+        <div class="code-window">
+          <div class="code-titlebar">
+            <span class="code-dot red"></span><span class="code-dot yellow"></span><span class="code-dot green"></span>
+            <span class="code-filename">file_quick.php</span>
+          </div>
+          <pre class="code-body"><span class="tok-var">$file</span> = <span class="tok-str">"log.txt"</span>;
+
+<span class="tok-cmt">// كتابة سطر جديد مع الإلحاق والقفل الحصري</span>
+<span class="tok-var">$line</span> = <span class="tok-str">"زيارة جديدة: "</span> . <span class="tok-fn">date</span>(<span class="tok-str">"Y-m-d H:i:s"</span>) . <span class="tok-str">"\n"</span>;
+<span class="tok-fn">file_put_contents</span>(<span class="tok-var">$file</span>, <span class="tok-var">$line</span>, <span class="tok-kw">FILE_APPEND</span> | <span class="tok-kw">LOCK_EX</span>);
+
+<span class="tok-cmt">// قراءة الملف كاملاً وعرضه</span>
+<span class="tok-var">$content</span> = <span class="tok-fn">file_get_contents</span>(<span class="tok-var">$file</span>);
+<span class="tok-kw">echo</span> <span class="tok-fn">nl2br</span>(<span class="tok-var">$content</span>);</pre>
+        </div>
+      </div>
+    </div>
+  </section>
+  <div class="nav-dots">
+    <span class="slide-nav-dot" onclick="window.location.href='slide-01.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-02.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-03.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-04.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-05.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-06.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-07.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-08.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-09.html'"></span>
+<span class="slide-nav-dot active" onclick="window.location.href='slide-10.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-11.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-12.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-13.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-14.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-15.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-16.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-17.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-18.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-19.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-20.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-21.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-22.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-23.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-24.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-25.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-26.html'"></span>
+  </div>
+  <div class="nav-controls">
+    <button class="nav-btn" onclick="window.location.href='slide-11.html'">
+      التالي
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg>
+    </button>
+    <span class="counter">10 / 26</span>
+    <button class="nav-btn" onclick="window.location.href='slide-09.html'">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+      السابق
+    </button>
+  </div>
+</div>
+<script src="script.js"></script>
+<script class="slide-notes" type="application/json">
+{
+  "title": "القراءة والكتابة السريعة",
+  "script": "في 80% من مهام تطوير الويب اليومية، file_get_contents و file_put_contents هما كل ما تحتاج إليه لقراءة الإعدادات أو كتابة سجلات الزيارات.",
+  "notes": [
+    "file_get_contents للقراءة السريعة",
+    "file_put_contents للكتابة وإنشاء الملفات",
+    "علم FILE_APPEND للإلحاق",
+    "علم LOCK_EX لمنع التضارب"
+  ]
+}
+</script>
+</body>
+</html>

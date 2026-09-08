@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>المحاضرة 04 &middot; حلقات التكرار في PHP &mdash; شريحة 15</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@600;700;800;900&family=Fira+Code:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body data-prev="slide-14.html" data-next="slide-16.html">
+<div class="deck">
+  <div class="progress-bar"><div class="progress-fill" style="width:68.2%"></div></div>
+  <div class="brand-logo"><img src="logo.jpg" alt="الشعار"></div>
+  <section class="slide active ">
+    <span class="slide-index-badge">15 / 22</span>
+    <div class="slide-content">
+      <div class="eyebrow">الحلقات التكرارية &middot; مثال</div>
+      <h1 class="slide-title">مثال: continue</h1>
+      <p class="slide-text">نفس الحلقة، بس دلوقتي بنستخدم <code>continue</code> عشان نتخطى الرقم 5 بس ونكمل الباقي.</p>
+      <div class="grid-2">
+      <div class="code-window">
+        <div class="code-titlebar">
+          <span class="code-dot red"></span><span class="code-dot yellow"></span><span class="code-dot green"></span>
+          <span class="code-filename">continue.php</span>
+        </div>
+        <pre class="code-body"><span class="tok-kw">for</span> (<span class="tok-var">$i</span> = <span class="tok-num">1</span>; <span class="tok-var">$i</span> &lt;= <span class="tok-num">10</span>; <span class="tok-var">$i</span>++) {
+    <span class="tok-kw">if</span> (<span class="tok-var">$i</span> == <span class="tok-num">5</span>) {
+        <span class="tok-kw">continue</span>;
+    }
+    <span class="tok-kw">echo</span> <span class="tok-var">$i</span> . <span class="tok-str">&quot; &quot;</span>;
+}
+<span class="tok-cmt">// الناتج: <span class="tok-num">1</span> <span class="tok-num">2</span> <span class="tok-num">3</span> <span class="tok-num">4</span> <span class="tok-num">6</span> <span class="tok-num">7</span> <span class="tok-num">8</span> <span class="tok-num">9</span> <span class="tok-num">10</span></span></pre>
+      </div>
+      <ul class="bullet-list">
+        <li><strong>أخطاء شائعة:</strong></li>
+        <li>استخدام <code>break</code> بدل <code>continue</code> &larr; بيوقف الحلقة بدل ما يتخطى عنصر</li>
+        <li>مش عارفين إن <code>break 2</code> بيوقف حلقتين متداخلتين مع بعض</li>
+      </ul>
+      </div>
+    </div>
+  </section>
+  <div class="nav-dots">
+    <span class="slide-nav-dot" onclick="window.location.href='slide-01.html'"></span>
+    <span class="slide-nav-dot" onclick="window.location.href='slide-02.html'"></span>
+    <span class="slide-nav-dot" onclick="window.location.href='slide-03.html'"></span>
+    <span class="slide-nav-dot" onclick="window.location.href='slide-04.html'"></span>
+    <span class="slide-nav-dot" onclick="window.location.href='slide-05.html'"></span>
+    <span class="slide-nav-dot" onclick="window.location.href='slide-06.html'"></span>
+    <span class="slide-nav-dot" onclick="window.location.href='slide-07.html'"></span>
+    <span class="slide-nav-dot" onclick="window.location.href='slide-08.html'"></span>
+    <span class="slide-nav-dot" onclick="window.location.href='slide-09.html'"></span>
+    <span class="slide-nav-dot" onclick="window.location.href='slide-10.html'"></span>
+    <span class="slide-nav-dot" onclick="window.location.href='slide-11.html'"></span>
+    <span class="slide-nav-dot" onclick="window.location.href='slide-12.html'"></span>
+    <span class="slide-nav-dot" onclick="window.location.href='slide-13.html'"></span>
+    <span class="slide-nav-dot" onclick="window.location.href='slide-14.html'"></span>
+    <span class="slide-nav-dot active" onclick="window.location.href='slide-15.html'"></span>
+    <span class="slide-nav-dot" onclick="window.location.href='slide-16.html'"></span>
+    <span class="slide-nav-dot" onclick="window.location.href='slide-17.html'"></span>
+    <span class="slide-nav-dot" onclick="window.location.href='slide-18.html'"></span>
+    <span class="slide-nav-dot" onclick="window.location.href='slide-19.html'"></span>
+    <span class="slide-nav-dot" onclick="window.location.href='slide-20.html'"></span>
+    <span class="slide-nav-dot" onclick="window.location.href='slide-21.html'"></span>
+    <span class="slide-nav-dot" onclick="window.location.href='slide-22.html'"></span>
+  </div>
+<div class="nav-controls">
+  <a class="nav-btn" href="slide-16.html">
+    التالي
+    <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.4"
+      viewbox="0 0 24 24">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </a>
+  <span class="counter">15 / 26</span>
+  <a class="nav-btn" href="slide-14.html">
+    <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.4"
+      viewbox="0 0 24 24">
+      <polyline points="9 18 15 12 9 6" transform="rotate(180 12 12)"></polyline>
+    </svg>
+    السابق
+  </a>
+</div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>

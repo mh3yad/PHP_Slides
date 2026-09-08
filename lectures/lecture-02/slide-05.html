@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="html-slides v0.9.4 (custom RTL blueprint - multi-file)" name="generator"/>
+<title>لوغاريتم — فحص الزوجي والفردي مع باقي القسمة</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&amp;family=Fira+Code:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="styles.css" rel="stylesheet"/>
+</head>
+<body data-next="slide-06.html" data-prev="slide-04.html">
+<div class="brand-logo"><img alt="شعار لوغاريتم" src="assets/logo.jpg"/></div>
+<div class="progress-bar"><div class="progress-fill" style="width:19.2%"></div></div>
+<div class="deck" id="deck">
+<div class="slide active" data-slide="4">
+<div class="slide-index-badge">05 / 26</div>
+<div class="slide-content">
+<div class="eyebrow">تطبيقات ذكية — Modulo Applications</div>
+<h1 class="slide-title">السحر البرمجي لـ (%): فحص الأعداد الزوجية والفردية</h1>
+<p class="slide-text">معامل باقي القسمة (%) بيعرفك هل الرقم بيقبل القسمة من غير باقي ولا لأ، وده المعيار لمعرفة الزوجي والفردي:</p>
+
+<div class="grid-2">
+  <div class="code-window">
+    <div class="code-titlebar">
+      <span class="code-dot red"></span><span class="code-dot yellow"></span><span class="code-dot green"></span>
+      <span class="code-filename">odd_even.php</span>
+    </div>
+    <pre class="code-body">&lt;<span class="tok-kw">?php</span>
+
+<span class="tok-var">$num1</span> = <span class="tok-num">14</span>;
+<span class="tok-var">$num2</span> = <span class="tok-num">19</span>;
+
+<span class="tok-cmt">// القاعدة: أي رقم % 2 = 0 يبقى زوجي (Even)</span>
+<span class="tok-var">$rem1</span> = <span class="tok-var">$num1</span> % <span class="tok-num">2</span>; <span class="tok-cmt">// 14 / 2 = 7 والباقي 0</span>
+<span class="tok-fn">echo</span> <span class="tok-str">"14 % 2 = "</span> . <span class="tok-var">$rem1</span> . <span class="tok-str">" --&gt; زوجي (Even)&lt;br&gt;"</span>;
+
+<span class="tok-cmt">// أي رقم % 2 != 0 يبقى فردي (Odd)</span>
+<span class="tok-var">$rem2</span> = <span class="tok-var">$num2</span> % <span class="tok-num">2</span>; <span class="tok-cmt">// 19 / 2 = 9 والباقي 1</span>
+<span class="tok-fn">echo</span> <span class="tok-str">"19 % 2 = "</span> . <span class="tok-var">$rem2</span> . <span class="tok-str">" --&gt; فردي (Odd)"</span>;
+
+<span class="tok-kw">?&gt;</span></pre>
+  </div>
+
+  <div class="browser-window">
+    <div class="browser-titlebar">
+      <div class="browser-dots"><span class="r"></span><span class="y"></span><span class="g"></span></div>
+      <div class="browser-address">localhost/odd_even.php</div>
+    </div>
+    <div class="browser-viewport" style="flex-direction: column; align-items: stretch; justify-content: flex-start; padding: 0.8rem; gap: 0.6rem; background: #0f111e; min-height: 180px;">
+      <div class="output-ascii" style="direction: ltr; font-size: clamp(0.72rem, 1.1vw, 0.88rem); color: #e2e8f0; line-height: 1.6;">14 % 2 = 0 --&gt; زوجي (Even)
+19 % 2 = 1 --&gt; فردي (Odd)</div>
+      
+      <div style="display: flex; flex-direction: column; gap: 0.4rem; margin-top: auto; direction: rtl; text-align: right;">
+        <div style="background: rgba(16,185,129,0.12); border: 1px solid rgba(16,185,129,0.3); border-radius: 6px; padding: 0.4rem 0.65rem; font-size: 0.78rem; color: #34d399; direction: rtl; text-align: right;">
+          ✅ <strong>العدد الزوجي (Even):</strong> <code>$number % 2 == 0</code> (بيقبل القسمة على 2 ومن غير باقي خالص)
+        </div>
+        <div style="background: rgba(239,68,68,0.12); border: 1px solid rgba(239,68,68,0.3); border-radius: 6px; padding: 0.4rem 0.65rem; font-size: 0.78rem; color: #f87171; direction: rtl; text-align: right;">
+          ⚠️ <strong>العدد الفردي (Odd):</strong> <code>$number % 2 != 0</code> (دايماً بيتبقالك 1 بعد القسمة)
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</div>
+</div>
+</div>
+<div class="nav-dots">
+<a class="slide-nav-dot" href="slide-01.html"></a>
+<a class="slide-nav-dot" href="slide-02.html"></a>
+<a class="slide-nav-dot" href="slide-03.html"></a>
+<a class="slide-nav-dot" href="slide-04.html"></a>
+<a class="slide-nav-dot active" href="slide-05.html"></a>
+<a class="slide-nav-dot" href="slide-06.html"></a>
+<a class="slide-nav-dot" href="slide-07.html"></a>
+<a class="slide-nav-dot" href="slide-08.html"></a>
+<a class="slide-nav-dot" href="slide-09.html"></a>
+<a class="slide-nav-dot" href="slide-10.html"></a>
+<a class="slide-nav-dot" href="slide-11.html"></a>
+<a class="slide-nav-dot" href="slide-12.html"></a>
+<a class="slide-nav-dot" href="slide-13.html"></a>
+<a class="slide-nav-dot" href="slide-14.html"></a>
+<a class="slide-nav-dot" href="slide-15.html"></a>
+<a class="slide-nav-dot" href="slide-16.html"></a>
+<a class="slide-nav-dot" href="slide-17.html"></a>
+<a class="slide-nav-dot" href="slide-18.html"></a>
+<a class="slide-nav-dot" href="slide-19.html"></a>
+<a class="slide-nav-dot" href="slide-20.html"></a>
+<a class="slide-nav-dot" href="slide-21.html"></a>
+<a class="slide-nav-dot" href="slide-22.html"></a>
+<a class="slide-nav-dot" href="slide-23.html"></a>
+<a class="slide-nav-dot" href="slide-24.html"></a>
+<a class="slide-nav-dot" href="slide-25.html"></a>
+<a class="slide-nav-dot" href="slide-26.html"></a>
+</div>
+<div class="nav-controls">
+<a class="nav-btn" href="slide-06.html">
+    التالي
+    <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.4" viewbox="0 0 24 24"><polyline points="9 18 15 12 9 6"></polyline></svg>
+</a>
+<span class="counter">5 / 26</span>
+<a class="nav-btn" href="slide-04.html">
+<svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.4" viewbox="0 0 24 24"><polyline points="9 18 15 12 9 6" transform="rotate(180 12 12)"></polyline></svg>
+    السابق
+</a>
+</div>
+<script src="script.js"></script>
+<script class="slide-notes" type="application/json">
+{
+  "title": "فحص الزوجي والفردي",
+  "script": "من أشهر أسئلة الإنترفيوهات للمبتدئين: إزاي تعرف الرقم زوجي ولا فردي في كود PHP؟ الإجابة دايماً هي باقي القسمة على 2.",
+  "notes": [
+    "تطبيق مباشر على باقي القسمة",
+    "تأكيد أن الباقي مع 2 هو إما 0 (زوجي) أو 1 (فردي)"
+  ]
+}
+</script>
+</body>
+</html>

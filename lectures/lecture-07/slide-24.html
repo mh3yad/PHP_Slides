@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>المحاضرة 07 &middot; الحماية من XSS و SQL Injection &mdash; شريحة 24</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@600;700;800;900&family=Fira+Code:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body data-next="slide-25.html" data-prev="slide-23.html">
+<div class="deck">
+  <div class="progress-bar"><div class="progress-fill" style="width:70.6%"></div></div>
+  <div class="brand-logo"><img src="logo.jpg" alt="الشعار"></div>
+  <section class="slide active">
+    <span class="slide-index-badge">24 / 34</span>
+    <div class="slide-content">
+
+      <div class="eyebrow">الأمان والتحقق &middot; 4</div>
+      <h1 class="slide-title">الحماية من XSS و SQL Injection</h1>
+      <p class="slide-text">أخطر هجومين يستهدفان تطبيقات الويب عبر النماذج، وكيفية التصدي لهما نهائياً:</p>
+      <div class="naming-grid">
+        <div class="naming-card rules">
+          <div class="naming-card-title">🛡️ هجوم XSS (Cross-Site Scripting)</div>
+          <ul class="bullet-list">
+            <li><strong>الخطر:</strong> كتابة المستخدم كود <code>&lt;script&gt;</code> لسرقة كوكيز وجلسات الزوار الآخرين</li>
+            <li><strong>خط الدفاع:</strong> استخدام <code>htmlspecialchars($data, ENT_QUOTES, 'UTF-8')</code> عند طباعة أي مدخل للمستخدم</li>
+            <li>تشفير الوسوم يمنع المتصفح من تنفيذ الكود ويجعله يقرأه كنص جامد فقط</li>
+          </ul>
+        </div>
+        <div class="naming-card conventions">
+          <div class="naming-card-title">🛡️ هجوم SQL Injection</div>
+          <ul class="bullet-list">
+            <li><strong>الخطر:</strong> حقن أوامر SQL (مثل <code>' OR 1=1 --</code>) للتلاعب بقاعدة البيانات وسرقتها أو مسحها</li>
+            <li><strong>خط الدفاع:</strong> استخدام <strong>Prepared Statements و Parameter Binding</strong> عبر مكتبة PDO</li>
+            <li><strong>ممنوع منعاً باتاً:</strong> دمج مدخلات المستخدم مباشرة في نص استعلام SQL عبر علامة <code>.</code></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+  <div class="nav-dots">
+    <span class="slide-nav-dot" onclick="window.location.href='slide-01.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-02.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-03.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-04.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-05.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-06.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-07.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-08.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-09.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-10.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-11.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-12.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-13.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-14.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-15.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-16.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-17.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-18.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-19.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-20.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-21.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-22.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-23.html'"></span>
+<span class="slide-nav-dot active" onclick="window.location.href='slide-24.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-25.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-26.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-27.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-28.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-29.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-30.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-31.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-32.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-33.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-34.html'"></span>
+  </div>
+  <div class="nav-controls">
+    <button class="nav-btn" onclick="window.location.href='slide-25.html'">
+      التالي
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg>
+    </button>
+    <span class="counter">24 / 34</span>
+    <button class="nav-btn" onclick="window.location.href='slide-23.html'">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+      السابق
+    </button>
+  </div>
+</div>
+<script src="script.js"></script>
+<script class="slide-notes" type="application/json">
+{
+  "title": "التصدي لـ XSS و SQL Injection",
+  "script": "هاتان الثغرتان تمثلان أكبر خطرين في قائمة OWASP Top 10. معالجة الأولى بـ htmlspecialchars، ومعالجة الثانية بـ Prepared Statements.",
+  "notes": [
+    "حماية XSS بتعقيم العرض",
+    "حماية SQL Injection بـ Prepared Statements",
+    "فصل كود الاستعلام عن بيانات المدخلات"
+  ]
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+
+<html dir="rtl" lang="ar">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="html-slides v0.9.4 (custom RTL blueprint - multi-file)" name="generator"/>
+<title>لوغاريتم — أشهر أخطاء الـ Syntax والـ Parse</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&amp;family=Fira+Code:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="styles.css" rel="stylesheet"/>
+</head>
+<body data-next="slide-28.html" data-prev="slide-26.html">
+<div class="brand-logo"><img alt="شعار لوغاريتم" src="assets/logo.jpg"/></div>
+<div class="progress-bar"><div class="progress-fill" style="width:90.0%"></div></div>
+<div class="deck" id="deck">
+<div class="slide active" data-slide="26">
+<div class="slide-index-badge">27 / 30</div>
+<div class="slide-content">
+<div class="eyebrow">أخطاء الـ Compile — Parse Errors</div>
+<h1 class="slide-title">أشهر أخطاء الـ Syntax والـ Parse</h1>
+<p class="slide-text">أخطاء كتابية بسيطة تمنع تشغيل السكربت بالكامل. لاحظ الخطأ ورسالة المتصفح المقابلة له:</p>
+<div class="grid-2">
+<div class="code-window">
+<div class="code-titlebar">
+<span class="code-dot red"></span><span class="code-dot yellow"></span><span class="code-dot green"></span>
+<span class="code-filename">syntax_errors.php</span>
+</div>
+<pre class="code-body"><span class="tok-cmt">// 1. نسيان الفاصلة المنقوطة (Missing Semicolon)</span>
+<span class="tok-var">$name</span> = <span class="tok-str">"Ali"</span> <span class="tok-cmt">// ❌ ناقص الفاصلة المنقوطة ;</span>
+<span class="tok-fn">echo</span> <span class="tok-str">"Welcome"</span>;
+
+<span class="tok-cmt">// 2. خطأ إملائي في الكلمة (Typo in echo)</span>
+<span class="tok-kw">ech</span> <span class="tok-str">"Hello World"</span>; <span class="tok-cmt">// ❌ كتبت ech بدل echo</span>
+
+<span class="tok-cmt">// 3. نسيان إغلاق علامة التنصيص (Unclosed Quote)</span>
+<span class="tok-var">$msg</span> = <span class="tok-str">"Hello World;</span> <span class="tok-cmt">// ❌ لم تغلق الـ quote</span>
+
+<span class="tok-cmt">// 4. نسيان أو خطأ في إغلاق الوسم ?&gt; عند دمجه مع HTML</span></pre>
+</div>
+<div class="browser-window">
+<div class="browser-titlebar">
+<div class="browser-dots"><span class="r"></span><span class="y"></span><span class="g"></span></div>
+<div class="browser-address">localhost/syntax_errors.php</div>
+</div>
+<div class="browser-viewport" style="flex-direction: column; align-items: stretch; justify-content: flex-start; padding: 0.6rem; gap: 0.5rem; background: #0f111e; min-height: 180px;">
+<div style="background: rgba(239,68,68,0.12); border: 1px solid rgba(239,68,68,0.35); border-radius: 6px; padding: 0.45rem 0.6rem; font-family: 'Fira Code', monospace; font-size: clamp(0.65rem, 0.95vw, 0.78rem); color: #fca5a5; line-height: 1.4; direction: ltr;">
+<strong>Parse error:</strong> syntax error, unexpected token "echo", expecting ";" in <strong>syntax_errors.php</strong> on line <strong>3</strong>
+</div>
+<div style="background: rgba(245,158,11,0.12); border: 1px solid rgba(245,158,11,0.35); border-radius: 6px; padding: 0.45rem 0.6rem; font-family: 'Fira Code', monospace; font-size: clamp(0.65rem, 0.95vw, 0.78rem); color: #fcd34d; line-height: 1.4; direction: ltr;">
+<strong>Fatal error:</strong> Uncaught Error: Call to undefined function ech() in <strong>syntax_errors.php</strong> on line <strong>6</strong>
+</div>
+<div style="background: rgba(239,68,68,0.12); border: 1px solid rgba(239,68,68,0.35); border-radius: 6px; padding: 0.45rem 0.6rem; font-family: 'Fira Code', monospace; font-size: clamp(0.65rem, 0.95vw, 0.78rem); color: #fca5a5; line-height: 1.4; direction: ltr;">
+<strong>Parse error:</strong> syntax error, unterminated string literal in <strong>syntax_errors.php</strong> on line <strong>9</strong>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="nav-dots">
+<a class="slide-nav-dot" href="slide-01.html"></a>
+<a class="slide-nav-dot" href="slide-02.html"></a>
+<a class="slide-nav-dot" href="slide-03.html"></a>
+<a class="slide-nav-dot" href="slide-04.html"></a>
+<a class="slide-nav-dot" href="slide-05.html"></a>
+<a class="slide-nav-dot" href="slide-06.html"></a>
+<a class="slide-nav-dot" href="slide-07.html"></a>
+<a class="slide-nav-dot" href="slide-08.html"></a>
+<a class="slide-nav-dot" href="slide-09.html"></a>
+<a class="slide-nav-dot" href="slide-10.html"></a>
+<a class="slide-nav-dot" href="slide-11.html"></a>
+<a class="slide-nav-dot" href="slide-12.html"></a>
+<a class="slide-nav-dot" href="slide-13.html"></a>
+<a class="slide-nav-dot" href="slide-14.html"></a>
+<a class="slide-nav-dot" href="slide-15.html"></a>
+<a class="slide-nav-dot" href="slide-16.html"></a>
+<a class="slide-nav-dot" href="slide-17.html"></a>
+<a class="slide-nav-dot" href="slide-18.html"></a>
+<a class="slide-nav-dot" href="slide-19.html"></a>
+<a class="slide-nav-dot" href="slide-20.html"></a>
+<a class="slide-nav-dot" href="slide-21.html"></a>
+<a class="slide-nav-dot" href="slide-22.html"></a>
+<a class="slide-nav-dot" href="slide-23.html"></a>
+<a class="slide-nav-dot" href="slide-24.html"></a>
+<a class="slide-nav-dot" href="slide-25.html"></a>
+<a class="slide-nav-dot" href="slide-26.html"></a>
+<a class="slide-nav-dot active" href="slide-27.html"></a>
+<a class="slide-nav-dot" href="slide-28.html"></a>
+<a class="slide-nav-dot" href="slide-29.html"></a>
+<a class="slide-nav-dot" href="slide-30.html"></a>
+</div>
+<div class="nav-controls">
+<a class="nav-btn" href="slide-28.html">
+    التالي
+    <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.4" viewbox="0 0 24 24"><polyline points="9 18 15 12 9 6"></polyline></svg>
+</a>
+<span class="counter">27 / 30</span>
+<a class="nav-btn" href="slide-26.html">
+<svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.4" viewbox="0 0 24 24"><polyline points="9 18 15 12 9 6" transform="rotate(180 12 12)"></polyline></svg>
+    السابق
+  </a>
+</div>
+<script src="script.js"></script>
+<script class="slide-notes" type="application/json">{
+  "26": {
+    "title": "أشهر أخطاء الـ Syntax والـ Parse",
+    "notes": "نبّه على أن مفسر PHP يذكر السطر الذي توقف عنده، وأحيانًا يكون السطر الفعلي للخطأ هو السطر السابق له مباشرة."
+  }
+}</script>
+</body>
+</html>

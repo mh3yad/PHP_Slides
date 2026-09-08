@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="html-slides v0.9.4 (custom RTL blueprint - multi-file)">
+<title>المحاضرة 09 &middot; الحل الهندسي: معمارية إدارة الحالة &mdash; شريحة 04</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@600;700;800;900&family=Fira+Code:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body data-next="slide-05.html" data-prev="slide-03.html">
+<div class="deck">
+  <div class="progress-bar"><div class="progress-fill" style="width:13.8%"></div></div>
+  <div class="brand-logo"><img src="logo.jpg" alt="الشعار"></div>
+  <section class="slide active">
+    <span class="slide-index-badge">04 / 29</span>
+    <div class="slide-content">
+
+      <div class="eyebrow">مفهوم الحالة &middot; 2</div>
+      <h1 class="slide-title">الحل الهندسي: تكامل العميل والخادم في إدارة الحالة</h1>
+      <p class="slide-text">للتغلب على معضلة الويب، توفر تقنيات الويب آليتين رئيسيتين متكاملتين تختلفان في مكان حفظ البيانات:</p>
+      <div class="naming-grid">
+        <div class="naming-card rules">
+          <div class="naming-card-title">🍪 جانب العميل: الكوكيز (Cookies)</div>
+          <ul class="bullet-list">
+            <li><strong>مكان التخزين:</strong> داخل متصفح المستخدم على جهازه الشخصي.</li>
+            <li><strong>آلية الإرسال:</strong> يعيد المتصفح إرسالها تلقائياً في ترويسات HTTP مع كل طلب لنفس النطاق.</li>
+            <li><strong>الاستخدام:</strong> تفضيلات العرض (Dark Mode)، اللغة المختارة، وتتبع المعرفات.</li>
+          </ul>
+        </div>
+        <div class="naming-card conventions">
+          <div class="naming-card-title">🔒 جانب الخادم: الجلسات (Sessions)</div>
+          <ul class="bullet-list">
+            <li><strong>مكان التخزين:</strong> ملفات آمنة أو ذاكرة مؤقتة على سيرفر الويب نفسه.</li>
+            <li><strong>حلقة الوصل:</strong> يملك المتصفح فقط معرّف الجلسة العشوائي (Session ID) كرمز وصول.</li>
+            <li><strong>الاستخدام:</strong> بيانات المصادقة الحساسة، الصلاحيات، وسلة المشتريات.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+  <div class="nav-dots">
+    <span class="slide-nav-dot" onclick="window.location.href='slide-01.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-02.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-03.html'"></span>
+<span class="slide-nav-dot active" onclick="window.location.href='slide-04.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-05.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-06.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-07.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-08.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-09.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-10.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-11.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-12.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-13.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-14.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-15.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-16.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-17.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-18.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-19.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-20.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-21.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-22.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-23.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-24.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-25.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-26.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-27.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-28.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-29.html'"></span>
+  </div>
+  <div class="nav-controls">
+    <button class="nav-btn" onclick="window.location.href='slide-05.html'">
+      التالي
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg>
+    </button>
+    <span class="counter">04 / 29</span>
+    <button class="nav-btn" onclick="window.location.href='slide-03.html'">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+      السابق
+    </button>
+  </div>
+</div>
+<script src="script.js"></script>
+<script class="slide-notes" type="application/json">
+{
+  "title": "معمارية إدارة الحالة",
+  "script": "الكوكيز في يد العميل، والجلسات في خزانة السيرفر. العميل لا يملك سوى مفتاح الخزانة Session ID، وبذلك نجمع بين سهولة تتبع العميل وأمان البيانات الحساسة بالخادم.",
+  "notes": [
+    "الكوكيز بالمتصفح Client-side",
+    "الجلسات بالخادم Server-side",
+    "Session ID كحلقة وصل آمنة"
+  ]
+}
+</script>
+</body>
+</html>

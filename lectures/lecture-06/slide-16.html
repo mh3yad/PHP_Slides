@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>المحاضرة 06 &middot; مثال 2: دالة العداد counter() &mdash; شريحة 16</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@600;700;800;900&family=Fira+Code:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body data-next="slide-17.html" data-prev="slide-15.html">
+<div class="deck">
+  <div class="progress-bar"><div class="progress-fill" style="width:57.1%"></div></div>
+  <div class="brand-logo"><img src="logo.jpg" alt="الشعار"></div>
+  <section class="slide active">
+    <span class="slide-index-badge">16 / 28</span>
+    <div class="slide-content">
+
+      <div class="eyebrow">نطاق المتغيرات &middot; مثال 2</div>
+      <h1 class="slide-title">مثال 2: دالة العداد counter() بمتغير static</h1>
+      <p class="slide-text">بناء دالة عداد تحتفظ بالقيمة وتزيد في كل استدعاء باستخدام متغير <code>static</code>.</p>
+      <div class="exercise-grid">
+        <div class="question-card">
+          <div class="qlabel">السؤال</div>
+          <p>عرّف دالة <code>counter()</code> تستخدم <code>static $count = 0</code>. مع كل استدعاء، قم بزيادة $count واطبعه. استدعِ الدالة 3 مرات متتالية.</p>
+        </div>
+        <div class="code-window">
+          <div class="code-titlebar">
+            <span class="code-dot red"></span><span class="code-dot yellow"></span><span class="code-dot green"></span>
+            <span class="code-filename">counter.php</span>
+          </div>
+          <pre class="code-body"><span class="tok-kw">function</span> <span class="tok-fn">counter</span>() {
+    <span class="tok-kw">static</span> <span class="tok-var">$count</span> = <span class="tok-num">0</span>;
+    <span class="tok-var">$count</span>++;
+    <span class="tok-kw">echo</span> <span class="tok-var">$count</span> . <span class="tok-str">" "</span>;
+}
+
+<span class="tok-fn">counter</span>();
+<span class="tok-fn">counter</span>();
+<span class="tok-fn">counter</span>();</pre>
+        </div>
+        <div class="browser-window">
+          <div class="browser-titlebar">
+            <div class="browser-dots"><span class="r"></span><span class="y"></span><span class="g"></span></div>
+            <div class="browser-address">localhost/counter.php</div>
+          </div>
+          <div class="browser-viewport">
+            <pre class="output-ascii">1 2 3 </pre>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <div class="nav-dots">
+    <span class="slide-nav-dot" onclick="window.location.href='slide-01.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-02.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-03.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-04.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-05.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-06.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-07.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-08.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-09.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-10.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-11.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-12.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-13.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-14.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-15.html'"></span>
+<span class="slide-nav-dot active" onclick="window.location.href='slide-16.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-17.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-18.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-19.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-20.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-21.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-22.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-23.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-24.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-25.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-26.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-27.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-28.html'"></span>
+  </div>
+  <div class="nav-controls">
+    <button class="nav-btn" onclick="window.location.href='slide-17.html'">
+      التالي
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg>
+    </button>
+    <span class="counter">16 / 28</span>
+    <button class="nav-btn" onclick="window.location.href='slide-15.html'">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+      السابق
+    </button>
+  </div>
+</div>
+<script src="script.js"></script>
+<script class="slide-notes" type="application/json">
+{
+  "title": "مثال دالة counter() بالمتغير الساكن",
+  "script": "عند الاستدعاء الأول طبعت 1، وفي الثاني تذكرت الـ 1 وأصبحت 2، وفي الثالث أصبحت 3. النتيجة هي 1 2 3.",
+  "notes": [
+    "تعريف static $count = 0",
+    "الزيادة التراكمية في كل استدعاء",
+    "المخرجات 1 2 3"
+  ]
+}
+</script>
+</body>
+</html>

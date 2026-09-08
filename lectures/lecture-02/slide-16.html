@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="html-slides v0.9.4 (custom RTL blueprint - multi-file)" name="generator"/>
+<title>لوغاريتم — تطبيق عملي لبوابة AND: السن والمرتب</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&amp;family=Fira+Code:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="styles.css" rel="stylesheet"/>
+</head>
+<body data-next="slide-17.html" data-prev="slide-15.html">
+<div class="brand-logo"><img alt="شعار لوغاريتم" src="assets/logo.jpg"/></div>
+<div class="progress-bar"><div class="progress-fill" style="width:61.5%"></div></div>
+<div class="deck" id="deck">
+<div class="slide active" data-slide="15">
+<div class="slide-index-badge">16 / 26</div>
+<div class="slide-content">
+<div class="eyebrow">تطبيق واقعي — Real-world AND Gate</div>
+<h1 class="slide-title">بوابة AND عملياً: موافقة  (السن والمرتب)</h1>
+<p class="slide-text">الشرط:  بيتقبل بس لو السن أكبر من 25 <strong>و</strong> المرتب أكتر من 5000 <code>($age > 25 && $salary > 5000)</code>:</p>
+
+<div class="cases-grid">
+  <div class="case-card pass">
+    <div class="case-header">
+      <span class="case-title">الحالة 1: الشرطين اتحققوا</span>
+      <span class="case-status pass">مقبول (1) True</span>
+    </div>
+    <div class="case-vars">$age = 30; $salary = 7000;</div>
+    <div class="case-expr">(30 &gt; 25) &amp;&amp; (7000 &gt; 5000) --&gt; True &amp;&amp; True</div>
+    <p style="font-size: var(--small-size); color: var(--text-muted); margin: 0; direction: rtl; text-align: right;">السن تمام والمرتب تمام، فـ القرض اتقبل على طول.</p>
+  </div>
+
+  <div class="case-card fail">
+    <div class="case-header">
+      <span class="case-title">الحالة 2: السن تمام بس المرتب قليل</span>
+      <span class="case-status fail">مرفوض (0) False</span>
+    </div>
+    <div class="case-vars">$age = 30; $salary = 4000;</div>
+    <div class="case-expr">(30 &gt; 25) &amp;&amp; (4000 &gt; 5000) --&gt; True &amp;&amp; False</div>
+    <p style="font-size: var(--small-size); color: var(--text-muted); margin: 0; direction: rtl; text-align: right;">رغم إن السن فوق 25، بس المرتب مش كافي فـ اترفض.</p>
+  </div>
+
+  <div class="case-card fail">
+    <div class="case-header">
+      <span class="case-title">الحالة 3: المرتب عالي بس السن صغير</span>
+      <span class="case-status fail">مرفوض (0) False</span>
+    </div>
+    <div class="case-vars">$age = 22; $salary = 7000;</div>
+    <div class="case-expr">(22 &gt; 25) &amp;&amp; (7000 &gt; 5000) --&gt; False &amp;&amp; True</div>
+    <p style="font-size: var(--small-size); color: var(--text-muted); margin: 0; direction: rtl; text-align: right;">المرتب ممتاز، بس شرط السن مكملش فـ اترفض فوراً.</p>
+  </div>
+
+  <div class="case-card fail">
+    <div class="case-header">
+      <span class="case-title">الحالة 4: ولا شرط من الاتنين اتحقق</span>
+      <span class="case-status fail">مرفوض (0) False</span>
+    </div>
+    <div class="case-vars">$age = 20; $salary = 3000;</div>
+    <div class="case-expr">(20 &gt; 25) &amp;&amp; (3000 &gt; 5000) --&gt; False &amp;&amp; False</div>
+    <p style="font-size: var(--small-size); color: var(--text-muted); margin: 0; direction: rtl; text-align: right;">ولا السن نافع ولا المرتب نافع، فـ النتيجة سلبية تماماً.</p>
+  </div>
+</div>
+
+</div>
+</div>
+</div>
+<div class="nav-dots">
+<a class="slide-nav-dot" href="slide-01.html"></a>
+<a class="slide-nav-dot" href="slide-02.html"></a>
+<a class="slide-nav-dot" href="slide-03.html"></a>
+<a class="slide-nav-dot" href="slide-04.html"></a>
+<a class="slide-nav-dot" href="slide-05.html"></a>
+<a class="slide-nav-dot" href="slide-06.html"></a>
+<a class="slide-nav-dot" href="slide-07.html"></a>
+<a class="slide-nav-dot" href="slide-08.html"></a>
+<a class="slide-nav-dot" href="slide-09.html"></a>
+<a class="slide-nav-dot" href="slide-10.html"></a>
+<a class="slide-nav-dot" href="slide-11.html"></a>
+<a class="slide-nav-dot" href="slide-12.html"></a>
+<a class="slide-nav-dot" href="slide-13.html"></a>
+<a class="slide-nav-dot" href="slide-14.html"></a>
+<a class="slide-nav-dot" href="slide-15.html"></a>
+<a class="slide-nav-dot active" href="slide-16.html"></a>
+<a class="slide-nav-dot" href="slide-17.html"></a>
+<a class="slide-nav-dot" href="slide-18.html"></a>
+<a class="slide-nav-dot" href="slide-19.html"></a>
+<a class="slide-nav-dot" href="slide-20.html"></a>
+<a class="slide-nav-dot" href="slide-21.html"></a>
+<a class="slide-nav-dot" href="slide-22.html"></a>
+<a class="slide-nav-dot" href="slide-23.html"></a>
+<a class="slide-nav-dot" href="slide-24.html"></a>
+<a class="slide-nav-dot" href="slide-25.html"></a>
+<a class="slide-nav-dot" href="slide-26.html"></a>
+</div>
+<div class="nav-controls">
+<a class="nav-btn" href="slide-17.html">
+    التالي
+    <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.4" viewbox="0 0 24 24"><polyline points="9 18 15 12 9 6"></polyline></svg>
+</a>
+<span class="counter">16 / 26</span>
+<a class="nav-btn" href="slide-15.html">
+<svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.4" viewbox="0 0 24 24"><polyline points="9 18 15 12 9 6" transform="rotate(180 12 12)"></polyline></svg>
+    السابق
+</a>
+</div>
+<script src="script.js"></script>
+<script class="slide-notes" type="application/json">
+{
+  "title": "تطبيق بوابة AND على السن والمرتب",
+  "script": "هنا بنشوف الـ 4 حالات للسن والمرتب مع بوابة AND: حالة واحدة بس اللي البنك بيوافق فيها على العميل، والتلات حالات التانيين بيترفضوا.",
+  "notes": [
+    "تطبيق شروط السن والمرتب بقيم ثابتة",
+    "استعراض الحالات الأربع مع مخرجاتها المنطقية"
+  ]
+}
+</script>
+</body>
+</html>

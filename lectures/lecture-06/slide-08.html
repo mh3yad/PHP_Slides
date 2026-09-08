@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>المحاضرة 06 &middot; أخطاء شائعة: الإرجاع والمعاملات &mdash; شريحة 08</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@600;700;800;900&family=Fira+Code:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body data-next="slide-09.html" data-prev="slide-07.html">
+<div class="deck">
+  <div class="progress-bar"><div class="progress-fill" style="width:28.6%"></div></div>
+  <div class="brand-logo"><img src="logo.jpg" alt="الشعار"></div>
+  <section class="slide active">
+    <span class="slide-index-badge">08 / 28</span>
+    <div class="slide-content">
+
+      <div class="eyebrow">احذر هذه الأخطاء &middot; 1</div>
+      <h1 class="slide-title">أخطاء شائعة: الإرجاع والمعاملات</h1>
+      <p class="slide-text">خطآن يقع فيهما الكثير من المبرمجين المبتدئين عند التعامل مع المعاملات وقيم الإرجاع:</p>
+      <div class="naming-grid">
+        <div class="naming-card rules">
+          <div class="naming-card-title">❌ نسيان جملة return</div>
+          <ul class="bullet-list">
+            <li>الدالة تنفذ العملية ولكن <strong>لا تعيد أي قيمة</strong> للمستدعي</li>
+            <li>في PHP، الدالة التي تنتهي بدون return تُرجع تلقائياً <code>null</code></li>
+            <li>كود خاطئ:
+              <pre class="code-body" style="padding:0.4rem 0.6rem;font-size:0.75rem;"><span class="tok-kw">function</span> <span class="tok-fn">calc</span>(<span class="tok-var">$a</span>, <span class="tok-var">$b</span>) {
+    <span class="tok-var">$a</span> + <span class="tok-var">$b</span>; <span class="tok-cmt">// نسيان return!</span>
+}
+<span class="tok-kw">echo</span> <span class="tok-fn">calc</span>(<span class="tok-num">2</span>, <span class="tok-num">3</span>); <span class="tok-cmt">// لن يطبع شيئاً (null)</span></pre>
+            </li>
+          </ul>
+        </div>
+        <div class="naming-card conventions">
+          <div class="naming-card-title">⚠️ تمرير عدد معاملات غير مطابق</div>
+          <ul class="bullet-list">
+            <li>إذا طلبت الدالة معاملين واستدعيتها بمعامل واحد فقط:</li>
+            <li>تُلقي PHP خطأً قاتلاً فورياً (Fatal Error):
+              <br><code>ArgumentCountError: Too few arguments</code>
+            </li>
+            <li>كود مسبب للخطأ:
+              <pre class="code-body" style="padding:0.4rem 0.6rem;font-size:0.75rem;"><span class="tok-kw">function</span> <span class="tok-fn">sub</span>(<span class="tok-var">$a</span>, <span class="tok-var">$b</span>) { <span class="tok-kw">return</span> <span class="tok-var">$a</span> - <span class="tok-var">$b</span>; }
+<span class="tok-fn">sub</span>(<span class="tok-num">10</span>); <span class="tok-cmt">// Fatal Error!</span></pre>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+  <div class="nav-dots">
+    <span class="slide-nav-dot" onclick="window.location.href='slide-01.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-02.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-03.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-04.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-05.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-06.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-07.html'"></span>
+<span class="slide-nav-dot active" onclick="window.location.href='slide-08.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-09.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-10.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-11.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-12.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-13.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-14.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-15.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-16.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-17.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-18.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-19.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-20.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-21.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-22.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-23.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-24.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-25.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-26.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-27.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-28.html'"></span>
+  </div>
+  <div class="nav-controls">
+    <button class="nav-btn" onclick="window.location.href='slide-09.html'">
+      التالي
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg>
+    </button>
+    <span class="counter">08 / 28</span>
+    <button class="nav-btn" onclick="window.location.href='slide-07.html'">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+      السابق
+    </button>
+  </div>
+</div>
+<script src="script.js"></script>
+<script class="slide-notes" type="application/json">
+{
+  "title": "أخطاء شائعة في الإرجاع والمعاملات",
+  "script": "ركز على أن نسيان return لا يظهر خطأ صريحاً في الـ Syntax ولكنه خطأ منطقي (Logical Bug) يرجع null. أما نقص المعاملات في PHP الحديثة فيوقف تنفيذ البرنامج تماماً بـ ArgumentCountError.",
+  "notes": [
+    "نسيان return ينتج null صامتاً",
+    "عدم تطابق عدد المعاملات يسبب ArgumentCountError"
+  ]
+}
+</script>
+</body>
+</html>

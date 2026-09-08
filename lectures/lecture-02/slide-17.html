@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="html-slides v0.9.4 (custom RTL blueprint - multi-file)" name="generator"/>
+<title>لوغاريتم — تطبيق عملي لبوابة OR: السن والمرتب</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&amp;family=Fira+Code:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="styles.css" rel="stylesheet"/>
+</head>
+<body data-next="slide-18.html" data-prev="slide-16.html">
+<div class="brand-logo"><img alt="شعار لوغاريتم" src="assets/logo.jpg"/></div>
+<div class="progress-bar"><div class="progress-fill" style="width:65.4%"></div></div>
+<div class="deck" id="deck">
+<div class="slide active" data-slide="16">
+<div class="slide-index-badge">17 / 26</div>
+<div class="slide-content">
+<div class="eyebrow">تطبيق واقعي — Real-world OR Gate</div>
+<h1 class="slide-title">بوابة OR عملياً: مبادرة الدعم (السن أو المرتب)</h1>
+<p class="slide-text">الشرط: بيستحق الدعم لو مسن (العمر > 60) <strong>أو</strong> دخله على قده (المرتب < 3000) <code>($age > 60 || $salary < 3000)</code>:</p>
+
+<div class="cases-grid">
+  <div class="case-card pass">
+    <div class="case-header">
+      <span class="case-title">الحالة 1: الشرطين اتحققوا مع بعض</span>
+      <span class="case-status pass">مستحق (1) True</span>
+    </div>
+    <div class="case-vars">$age = 65; $salary = 2000;</div>
+    <div class="case-expr">(65 &gt; 60) || (2000 &lt; 3000) --&gt; True || True</div>
+    <p style="font-size: var(--small-size); color: var(--text-muted); margin: 0; direction: rtl; text-align: right;">شمله شرط السن وشرط الدخل مع بعض، فـ استحق الدعم بجدارة.</p>
+  </div>
+
+  <div class="case-card pass">
+    <div class="case-header">
+      <span class="case-title">الحالة 2: انطبق عليه شرط السن بس</span>
+      <span class="case-status pass">مستحق (1) True</span>
+    </div>
+    <div class="case-vars">$age = 65; $salary = 5000;</div>
+    <div class="case-expr">(65 &gt; 60) || (5000 &lt; 3000) --&gt; True || False</div>
+    <p style="font-size: var(--small-size); color: var(--text-muted); margin: 0; direction: rtl; text-align: right;">مرتبه عالي بس عشان سنه فوق 60 دخل المبادرة على طول.</p>
+  </div>
+
+  <div class="case-card pass">
+    <div class="case-header">
+      <span class="case-title">الحالة 3: انطبق عليه شرط الدخل بس</span>
+      <span class="case-status pass">مستحق (1) True</span>
+    </div>
+    <div class="case-vars">$age = 40; $salary = 2000;</div>
+    <div class="case-expr">(40 &gt; 60) || (2000 &lt; 3000) --&gt; False || True</div>
+    <p style="font-size: var(--small-size); color: var(--text-muted); margin: 0; direction: rtl; text-align: right;">سنه صغير بس دخله على قده، فـ بوابة OR وافقت عليه.</p>
+  </div>
+
+  <div class="case-card fail">
+    <div class="case-header">
+      <span class="case-title">الحالة 4: ولا شرط من الاتنين نفع</span>
+      <span class="case-status fail">غير مستحق (0) False</span>
+    </div>
+    <div class="case-vars">$age = 40; $salary = 5000;</div>
+    <div class="case-expr">(40 &gt; 60) || (5000 &lt; 3000) --&gt; False || False</div>
+    <p style="font-size: var(--small-size); color: var(--text-muted); margin: 0; direction: rtl; text-align: right;">سنه صغير ودخله مش قليل، فـ منفعش معاه أي شرط.</p>
+  </div>
+</div>
+
+</div>
+</div>
+</div>
+<div class="nav-dots">
+<a class="slide-nav-dot" href="slide-01.html"></a>
+<a class="slide-nav-dot" href="slide-02.html"></a>
+<a class="slide-nav-dot" href="slide-03.html"></a>
+<a class="slide-nav-dot" href="slide-04.html"></a>
+<a class="slide-nav-dot" href="slide-05.html"></a>
+<a class="slide-nav-dot" href="slide-06.html"></a>
+<a class="slide-nav-dot" href="slide-07.html"></a>
+<a class="slide-nav-dot" href="slide-08.html"></a>
+<a class="slide-nav-dot" href="slide-09.html"></a>
+<a class="slide-nav-dot" href="slide-10.html"></a>
+<a class="slide-nav-dot" href="slide-11.html"></a>
+<a class="slide-nav-dot" href="slide-12.html"></a>
+<a class="slide-nav-dot" href="slide-13.html"></a>
+<a class="slide-nav-dot" href="slide-14.html"></a>
+<a class="slide-nav-dot" href="slide-15.html"></a>
+<a class="slide-nav-dot" href="slide-16.html"></a>
+<a class="slide-nav-dot active" href="slide-17.html"></a>
+<a class="slide-nav-dot" href="slide-18.html"></a>
+<a class="slide-nav-dot" href="slide-19.html"></a>
+<a class="slide-nav-dot" href="slide-20.html"></a>
+<a class="slide-nav-dot" href="slide-21.html"></a>
+<a class="slide-nav-dot" href="slide-22.html"></a>
+<a class="slide-nav-dot" href="slide-23.html"></a>
+<a class="slide-nav-dot" href="slide-24.html"></a>
+<a class="slide-nav-dot" href="slide-25.html"></a>
+<a class="slide-nav-dot" href="slide-26.html"></a>
+</div>
+<div class="nav-controls">
+<a class="nav-btn" href="slide-18.html">
+    التالي
+    <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.4" viewbox="0 0 24 24"><polyline points="9 18 15 12 9 6"></polyline></svg>
+</a>
+<span class="counter">17 / 26</span>
+<a class="nav-btn" href="slide-16.html">
+<svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.4" viewbox="0 0 24 24"><polyline points="9 18 15 12 9 6" transform="rotate(180 12 12)"></polyline></svg>
+    السابق
+</a>
+</div>
+<script src="script.js"></script>
+<script class="slide-notes" type="application/json">
+{
+  "title": "تطبيق بوابة OR على السن والمرتب",
+  "script": "في المثال ده استخدمنا بوابة OR المتسامحة: 3 حالات كسبوا الدعم، وحالة واحدة بس اللي اترفضت عشان ولا شرط من الاتنين كان متوفر.",
+  "notes": [
+    "تطبيق شروط السن والدخل مع OR",
+    "استعراض الحالات الأربع وإبراز مرونة شرط OR"
+  ]
+}
+</script>
+</body>
+</html>

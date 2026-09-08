@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>المحاضرة 03 &middot; If / Else &mdash; شريحة 05</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@600;700;800;900&family=Fira+Code:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="extra.css">
+</head>
+<body data-prev="slide-04.html" data-next="slide-06.html">
+<div class="deck">
+  <div class="progress-bar"><div class="progress-fill" style="width:22.7%"></div></div>
+  <div class="brand-logo"><img src="logo.jpg" alt="الشعار"></div>
+  <section class="slide active ">
+    <span class="slide-index-badge">05 / 22</span>
+    <div class="slide-content">
+
+      <div class="eyebrow">جملة If &middot; else</div>
+      <h1 class="slide-title">If / Else &mdash; قرار بين حالتين</h1>
+      <div class="grid-2">
+        <ul class="bullet-list">
+          <li><code>else</code> بتشتغل لما شرط الـ <code>if</code> متحققش.</li>
+          <li>كده بتضمن إن فيه استجابة في الحالتين: صح أو غلط.</li>
+        </ul>
+        <div class="code-window">
+          <div class="code-titlebar">
+            <span class="code-dot red"></span><span class="code-dot yellow"></span><span class="code-dot green"></span>
+            <span class="code-filename">if-else.php</span>
+          </div>
+          <pre class="code-body">&lt;<span class="tok-kw">?php</span>
+<span class="tok-var">$score</span> = <span class="tok-num">55</span>;
+
+<span class="tok-kw">if</span> (<span class="tok-var">$score</span> &gt;= <span class="tok-num">60</span>) {
+    <span class="tok-fn">echo</span> <span class="tok-str">"Pass"</span>;
+} <span class="tok-kw">else</span> {
+    <span class="tok-fn">echo</span> <span class="tok-str">"Fail"</span>;
+}
+<span class="tok-cmt">// Output: Fail</span></pre>
+        </div>
+      </div>
+
+    </div>
+  </section>
+  <div class="nav-dots">
+    <span class="slide-nav-dot" onclick="window.location.href='slide-01.html'"></span>
+    <span class="slide-nav-dot" onclick="window.location.href='slide-02.html'"></span>
+    <span class="slide-nav-dot" onclick="window.location.href='slide-03.html'"></span>
+    <span class="slide-nav-dot" onclick="window.location.href='slide-04.html'"></span>
+    <span class="slide-nav-dot active" onclick="window.location.href='slide-05.html'"></span>
+    <span class="slide-nav-dot" onclick="window.location.href='slide-06.html'"></span>
+    <span class="slide-nav-dot" onclick="window.location.href='slide-07.html'"></span>
+    <span class="slide-nav-dot" onclick="window.location.href='slide-08.html'"></span>
+    <span class="slide-nav-dot" onclick="window.location.href='slide-09.html'"></span>
+    <span class="slide-nav-dot" onclick="window.location.href='slide-10.html'"></span>
+    <span class="slide-nav-dot" onclick="window.location.href='slide-11.html'"></span>
+    <span class="slide-nav-dot" onclick="window.location.href='slide-12.html'"></span>
+    <span class="slide-nav-dot" onclick="window.location.href='slide-13.html'"></span>
+    <span class="slide-nav-dot" onclick="window.location.href='slide-14.html'"></span>
+    <span class="slide-nav-dot" onclick="window.location.href='slide-15.html'"></span>
+    <span class="slide-nav-dot" onclick="window.location.href='slide-16.html'"></span>
+    <span class="slide-nav-dot" onclick="window.location.href='slide-17.html'"></span>
+    <span class="slide-nav-dot" onclick="window.location.href='slide-18.html'"></span>
+    <span class="slide-nav-dot" onclick="window.location.href='slide-19.html'"></span>
+    <span class="slide-nav-dot" onclick="window.location.href='slide-20.html'"></span>
+    <span class="slide-nav-dot" onclick="window.location.href='slide-21.html'"></span>
+    <span class="slide-nav-dot" onclick="window.location.href='slide-22.html'"></span>
+  </div>
+  <div class="nav-controls">
+    <button class="nav-btn"  onclick="window.location.href='slide-04.html'">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+      السابق
+    </button>
+    <span class="counter">05 / 22</span>
+    <button class="nav-btn"  onclick="window.location.href='slide-06.html'">
+      التالي
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg>
+    </button>
+  </div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>

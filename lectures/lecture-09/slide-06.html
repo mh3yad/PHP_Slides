@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="html-slides v0.9.4 (custom RTL blueprint - multi-file)">
+<title>المحاضرة 09 &middot; الكوكيز: آلية الترويسات (Set-Cookie & Cookie) &mdash; شريحة 06</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@600;700;800;900&family=Fira+Code:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body data-next="slide-07.html" data-prev="slide-05.html">
+<div class="deck">
+  <div class="progress-bar"><div class="progress-fill" style="width:20.7%"></div></div>
+  <div class="brand-logo"><img src="logo.jpg" alt="الشعار"></div>
+  <section class="slide active">
+    <span class="slide-index-badge">06 / 29</span>
+    <div class="slide-content">
+
+      <div class="eyebrow">الكوكيز &middot; 1</div>
+      <h1 class="slide-title">الكوكيز: كيف تنتقل بين المتصفح والخادم؟</h1>
+      <p class="slide-text">لا يتم تخزين الكوكيز عبر جسم الصفحة HTML، بل تنتقل عبر ترويسات بروتوكول HTTP في خلفية الاتصال:</p>
+      <div class="grid-2">
+        <ul class="bullet-list">
+          <li><strong>1. استجابة الخادم الأولى:</strong> يرسل الخادم ترويسة <code>Set-Cookie: theme=dark; Path=/</code> في المتصفح.</li>
+          <li><strong>2. التخزين بالمتصفح:</strong> يفحص المتصفح النطاق والمسار وتاريخ الانتهاء، ويخزن الكوكي في قاعدة بياناته المحلية.</li>
+          <li><strong>3. الطلبات اللاحقة:</strong> في كل زيارة لأي صفحة في نفس الموقع، يرفق المتصفح ترويسة <code>Cookie: theme=dark</code> تلقائياً!</li>
+          <li><strong>4. قراءة PHP:</strong> يلتقط مفسر PHP الترويسة ويحللها تلقائياً داخل المصفوفة الفائقة <code>$_COOKIE</code>.</li>
+        </ul>
+        <div class="code-window">
+          <div class="code-titlebar">
+            <span class="code-dot red"></span><span class="code-dot yellow"></span><span class="code-dot green"></span>
+            <span class="code-filename">HTTP Network Headers</span>
+          </div>
+          <pre class="code-body"><span class="tok-cmt">// استجابة الخادم عند إنشاء الكوكي:</span>
+<span class="tok-kw">HTTP/1.1 200 OK</span>
+<span class="tok-fn">Set-Cookie:</span> theme=dark; expires=Thu, 08-Oct-2026; path=/; HttpOnly
+
+<span class="tok-cmt">// طلب المتصفح في الصفحات التالية:</span>
+<span class="tok-kw">GET /dashboard.php HTTP/1.1</span>
+<span class="tok-fn">Host:</span> localhost
+<span class="tok-fn">Cookie:</span> theme=dark</pre>
+        </div>
+      </div>
+    </div>
+  </section>
+  <div class="nav-dots">
+    <span class="slide-nav-dot" onclick="window.location.href='slide-01.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-02.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-03.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-04.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-05.html'"></span>
+<span class="slide-nav-dot active" onclick="window.location.href='slide-06.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-07.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-08.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-09.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-10.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-11.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-12.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-13.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-14.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-15.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-16.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-17.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-18.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-19.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-20.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-21.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-22.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-23.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-24.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-25.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-26.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-27.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-28.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-29.html'"></span>
+  </div>
+  <div class="nav-controls">
+    <button class="nav-btn" onclick="window.location.href='slide-07.html'">
+      التالي
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg>
+    </button>
+    <span class="counter">06 / 29</span>
+    <button class="nav-btn" onclick="window.location.href='slide-05.html'">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+      السابق
+    </button>
+  </div>
+</div>
+<script src="script.js"></script>
+<script class="slide-notes" type="application/json">
+{
+  "title": "آلية عمل الكوكيز",
+  "script": "فهم ترويسات HTTP يفسر كل سلوك الكوكيز: السيرفر يطلب من المتصفح حفظ الكوكي بـ Set-Cookie، والمتصفح يعيده مطيعاً في كل طلب لاحق بـ Cookie.",
+  "notes": [
+    "ترويسة Set-Cookie من السيرفر",
+    "ترويسة Cookie من المتصفح",
+    "تحليل PHP التلقائي في $_COOKIE"
+  ]
+}
+</script>
+</body>
+</html>

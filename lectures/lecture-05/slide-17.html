@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="html-slides v0.9.4 (custom RTL blueprint - multi-file)">
+<title>المحاضرة 05 &middot; دوال الـ Sort والترتيب (Sorting Functions) &mdash; شريحة 17</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@600;700;800;900&family=Fira+Code:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body data-next="slide-18.html" data-prev="slide-16.html">
+<div class="deck">
+  <div class="progress-bar"><div class="progress-fill" style="width:58.6%"></div></div>
+  <div class="brand-logo"><img src="logo.jpg" alt="الشعار"></div>
+  <section class="slide active">
+    <span class="slide-index-badge">17 / 29</span>
+    <div class="slide-content">
+
+      <div class="eyebrow">الـ Sort والترتيب &middot; نظرة شاملة</div>
+      <h1 class="slide-title">دوال الـ Sort والترتيب في PHP</h1>
+      <p class="slide-text">في PHP تختلف دوال الـ Sort بناءً على معيارين رئيسيين يحددان النتيجة تماماً:</p>
+      <div class="naming-grid">
+        <div class="naming-card rules">
+          <div class="naming-card-title">1. هل نعمل Sort حسب المفاتيح أم القيم؟</div>
+          <ul class="bullet-list">
+            <li><strong>الترتيب حسب القيم (Values):</strong> مثل عمل Sort لقائمة أسعار من الأرخص للأغلى أو أسماء الطلاب أبجدياً.</li>
+            <li><strong>الترتيب حسب المفاتيح (Keys):</strong> مثل عمل Sort لـ Array تواريخ أو رموز الدول (EG, SA, US) أبجدياً بمفاتيحها.</li>
+          </ul>
+        </div>
+        <div class="naming-card conventions">
+          <div class="naming-card-title">2. هل نحافظ على ارتباط المفتاح أم نعيد الترقيم؟</div>
+          <ul class="bullet-list">
+            <li><strong>إعادة الترقيم (Reset Indexes):</strong> مسح المفاتيح السابقة وترقيم العناصر <code>0, 1, 2...</code> (دالة <code>sort</code>).</li>
+            <li><strong>الحفاظ على المفاتيح (Preserve Keys):</strong> يبقى كل عنصر مرتبطاً بمفتاحه الأصلي دون تغيير (حرف <strong>a</strong> في <code>asort</code> اختصار لـ Associative).</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+  <div class="nav-dots">
+    <span class="slide-nav-dot" onclick="window.location.href='slide-01.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-02.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-03.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-04.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-05.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-06.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-07.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-08.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-09.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-10.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-11.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-12.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-13.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-14.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-15.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-16.html'"></span>
+<span class="slide-nav-dot active" onclick="window.location.href='slide-17.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-18.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-19.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-20.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-21.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-22.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-23.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-24.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-25.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-26.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-27.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-28.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-29.html'"></span>
+  </div>
+  <div class="nav-controls">
+    <button class="nav-btn" onclick="window.location.href='slide-18.html'">
+      التالي
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg>
+    </button>
+    <span class="counter">17 / 29</span>
+    <button class="nav-btn" onclick="window.location.href='slide-16.html'">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+      السابق
+    </button>
+  </div>
+</div>
+<script src="script.js"></script>
+<script class="slide-notes" type="application/json">
+{
+  "title": "مفهوم الـ Sort في PHP",
+  "script": "قاعدة ذهبية: حرف k يعني Key (مفتاح)، وحرف a يعني Associative (حفظ الارتباط). ودوال الـ Sort تعدل الـ Array في مكانها دون إرجاع Array جديدة.",
+  "notes": [
+    "الـ Sort بالقيم مقابل المفاتيح",
+    "إعادة الترقيم مقابل حفظ الارتباط",
+    "دلالة الحروف k و a في أسماء الدوال"
+  ]
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>المحاضرة 04 &middot; حلقات التكرار في PHP &mdash; شريحة 19</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@600;700;800;900&family=Fira+Code:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body data-prev="slide-18.html" data-next="slide-20.html">
+<div class="deck">
+  <div class="progress-bar"><div class="progress-fill" style="width:86.4%"></div></div>
+  <div class="brand-logo"><img src="logo.jpg" alt="الشعار"></div>
+  <section class="slide active ">
+    <span class="slide-index-badge">19 / 22</span>
+    <div class="slide-content">
+      <div class="eyebrow">تطبيق شامل &middot; تمرين ختامي</div>
+      <h1 class="slide-title">حاسبة درجات الطلاب</h1>
+      <p class="slide-text">عندنا مصفوفة درجات <code>[85, 92, 45, 78, 60]</code>. المطلوب: نمرّ عليها بـ foreach، نتخطى أي درجة أقل من 50 (بـ continue)، نجمع الدرجات الناجحة، وفي الآخر نطبع المتوسط.</p>
+      <div class="homework-grid">
+      <div class="code-window">
+        <div class="code-titlebar">
+          <span class="code-dot red"></span><span class="code-dot yellow"></span><span class="code-dot green"></span>
+          <span class="code-filename">grade-calculator.php</span>
+        </div>
+        <pre class="code-body"><span class="tok-var">$grades</span> = [<span class="tok-num">85</span>, <span class="tok-num">92</span>, <span class="tok-num">45</span>, <span class="tok-num">78</span>, <span class="tok-num">60</span>];
+<span class="tok-var">$sum</span> = <span class="tok-num">0</span>;
+<span class="tok-var">$count</span> = <span class="tok-num">0</span>;
+
+<span class="tok-kw">foreach</span> (<span class="tok-var">$grades</span> <span class="tok-kw">as</span> <span class="tok-var">$grade</span>) {
+    <span class="tok-kw">if</span> (<span class="tok-var">$grade</span> &lt; <span class="tok-num">50</span>) {
+        <span class="tok-kw">continue</span>;
+    }
+    <span class="tok-var">$sum</span> += <span class="tok-var">$grade</span>;
+    <span class="tok-var">$count</span>++;
+}
+
+<span class="tok-kw">echo</span> <span class="tok-str">&quot;Average: &quot;</span> . (<span class="tok-var">$sum</span> / <span class="tok-var">$count</span>);</pre>
+      </div>
+      <div class="browser-window">
+        <div class="browser-titlebar">
+          <div class="browser-dots"><span class="r"></span><span class="y"></span><span class="g"></span></div>
+          <div class="browser-address">localhost/grade-calculator.php</div>
+        </div>
+        <div class="browser-viewport">
+          <pre class="output-ascii">Average: 78.75</pre>
+        </div>
+      </div>
+      </div>
+    </div>
+  </section>
+  <div class="nav-dots">
+    <span class="slide-nav-dot" onclick="window.location.href='slide-01.html'"></span>
+    <span class="slide-nav-dot" onclick="window.location.href='slide-02.html'"></span>
+    <span class="slide-nav-dot" onclick="window.location.href='slide-03.html'"></span>
+    <span class="slide-nav-dot" onclick="window.location.href='slide-04.html'"></span>
+    <span class="slide-nav-dot" onclick="window.location.href='slide-05.html'"></span>
+    <span class="slide-nav-dot" onclick="window.location.href='slide-06.html'"></span>
+    <span class="slide-nav-dot" onclick="window.location.href='slide-07.html'"></span>
+    <span class="slide-nav-dot" onclick="window.location.href='slide-08.html'"></span>
+    <span class="slide-nav-dot" onclick="window.location.href='slide-09.html'"></span>
+    <span class="slide-nav-dot" onclick="window.location.href='slide-10.html'"></span>
+    <span class="slide-nav-dot" onclick="window.location.href='slide-11.html'"></span>
+    <span class="slide-nav-dot" onclick="window.location.href='slide-12.html'"></span>
+    <span class="slide-nav-dot" onclick="window.location.href='slide-13.html'"></span>
+    <span class="slide-nav-dot" onclick="window.location.href='slide-14.html'"></span>
+    <span class="slide-nav-dot" onclick="window.location.href='slide-15.html'"></span>
+    <span class="slide-nav-dot" onclick="window.location.href='slide-16.html'"></span>
+    <span class="slide-nav-dot" onclick="window.location.href='slide-17.html'"></span>
+    <span class="slide-nav-dot" onclick="window.location.href='slide-18.html'"></span>
+    <span class="slide-nav-dot active" onclick="window.location.href='slide-19.html'"></span>
+    <span class="slide-nav-dot" onclick="window.location.href='slide-20.html'"></span>
+    <span class="slide-nav-dot" onclick="window.location.href='slide-21.html'"></span>
+    <span class="slide-nav-dot" onclick="window.location.href='slide-22.html'"></span>
+  </div>
+<div class="nav-controls">
+  <a class="nav-btn" href="slide-20.html">
+    التالي
+    <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.4"
+      viewbox="0 0 24 24">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </a>
+  <span class="counter">19 / 26</span>
+  <a class="nav-btn" href="slide-18.html">
+    <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.4"
+      viewbox="0 0 24 24">
+      <polyline points="9 18 15 12 9 6" transform="rotate(180 12 12)"></polyline>
+    </svg>
+    السابق
+  </a>
+</div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>

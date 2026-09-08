@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>المحاضرة 04 &middot; حلقات التكرار في PHP &mdash; شريحة 17</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@600;700;800;900&family=Fira+Code:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body data-prev="slide-16.html" data-next="slide-18.html">
+<div class="deck">
+  <div class="progress-bar"><div class="progress-fill" style="width:77.3%"></div></div>
+  <div class="brand-logo"><img src="logo.jpg" alt="الشعار"></div>
+  <section class="slide active ">
+    <span class="slide-index-badge">17 / 22</span>
+    <div class="slide-content">
+      <div class="eyebrow">تطبيق شامل &middot; مثال 2</div>
+      <h1 class="slide-title">اجمع الأرقام الزوجية من 1 لحد 10</h1>
+      <p class="slide-text">بنفحص لو <code>$i % 2 == 0</code> بنضيف القيمة لمتغيّر <code>$sum</code>، وبعد الحلقة بنطبع الناتج.</p>
+      <div class="exercise-grid">
+      <div class="question-card">
+        <div class="qlabel">السؤال</div>
+        <p>استخدم for من 1 إلى 10، واجمع الأرقام الزوجية فقط في متغيّر sum.</p>
+      </div>
+      <div class="code-window">
+        <div class="code-titlebar">
+          <span class="code-dot red"></span><span class="code-dot yellow"></span><span class="code-dot green"></span>
+          <span class="code-filename">sum-even.php</span>
+        </div>
+        <pre class="code-body"><span class="tok-var">$sum</span> = <span class="tok-num">0</span>;
+<span class="tok-kw">for</span> (<span class="tok-var">$i</span> = <span class="tok-num">1</span>; <span class="tok-var">$i</span> &lt;= <span class="tok-num">10</span>; <span class="tok-var">$i</span>++) {
+    <span class="tok-kw">if</span> (<span class="tok-var">$i</span> % <span class="tok-num">2</span> == <span class="tok-num">0</span>) {
+        <span class="tok-var">$sum</span> += <span class="tok-var">$i</span>;
+    }
+}
+<span class="tok-kw">echo</span> <span class="tok-var">$sum</span>;</pre>
+      </div>
+      <div class="browser-window">
+        <div class="browser-titlebar">
+          <div class="browser-dots"><span class="r"></span><span class="y"></span><span class="g"></span></div>
+          <div class="browser-address">localhost/sum-even.php</div>
+        </div>
+        <div class="browser-viewport">
+          <pre class="output-ascii">30</pre>
+        </div>
+      </div>
+      </div>
+    </div>
+  </section>
+  <div class="nav-dots">
+    <span class="slide-nav-dot" onclick="window.location.href='slide-01.html'"></span>
+    <span class="slide-nav-dot" onclick="window.location.href='slide-02.html'"></span>
+    <span class="slide-nav-dot" onclick="window.location.href='slide-03.html'"></span>
+    <span class="slide-nav-dot" onclick="window.location.href='slide-04.html'"></span>
+    <span class="slide-nav-dot" onclick="window.location.href='slide-05.html'"></span>
+    <span class="slide-nav-dot" onclick="window.location.href='slide-06.html'"></span>
+    <span class="slide-nav-dot" onclick="window.location.href='slide-07.html'"></span>
+    <span class="slide-nav-dot" onclick="window.location.href='slide-08.html'"></span>
+    <span class="slide-nav-dot" onclick="window.location.href='slide-09.html'"></span>
+    <span class="slide-nav-dot" onclick="window.location.href='slide-10.html'"></span>
+    <span class="slide-nav-dot" onclick="window.location.href='slide-11.html'"></span>
+    <span class="slide-nav-dot" onclick="window.location.href='slide-12.html'"></span>
+    <span class="slide-nav-dot" onclick="window.location.href='slide-13.html'"></span>
+    <span class="slide-nav-dot" onclick="window.location.href='slide-14.html'"></span>
+    <span class="slide-nav-dot" onclick="window.location.href='slide-15.html'"></span>
+    <span class="slide-nav-dot" onclick="window.location.href='slide-16.html'"></span>
+    <span class="slide-nav-dot active" onclick="window.location.href='slide-17.html'"></span>
+    <span class="slide-nav-dot" onclick="window.location.href='slide-18.html'"></span>
+    <span class="slide-nav-dot" onclick="window.location.href='slide-19.html'"></span>
+    <span class="slide-nav-dot" onclick="window.location.href='slide-20.html'"></span>
+    <span class="slide-nav-dot" onclick="window.location.href='slide-21.html'"></span>
+    <span class="slide-nav-dot" onclick="window.location.href='slide-22.html'"></span>
+  </div>
+<div class="nav-controls">
+  <a class="nav-btn" href="slide-18.html">
+    التالي
+    <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.4"
+      viewbox="0 0 24 24">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </a>
+  <span class="counter">17 / 26</span>
+  <a class="nav-btn" href="slide-16.html">
+    <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.4"
+      viewbox="0 0 24 24">
+      <polyline points="9 18 15 12 9 6" transform="rotate(180 12 12)"></polyline>
+    </svg>
+    السابق
+  </a>
+</div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>

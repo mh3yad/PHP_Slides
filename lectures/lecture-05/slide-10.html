@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="html-slides v0.9.4 (custom RTL blueprint - multi-file)">
+<title>المحاضرة 05 &middot; مثال واقعي: قائمة مستخدمين (Associative جوه Indexed) &mdash; شريحة 10</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@600;700;800;900&family=Fira+Code:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body data-next="slide-11.html" data-prev="slide-09.html">
+<div class="deck">
+  <div class="progress-bar"><div class="progress-fill" style="width:34.5%"></div></div>
+  <div class="brand-logo"><img src="logo.jpg" alt="الشعار"></div>
+  <section class="slide active">
+    <span class="slide-index-badge">10 / 29</span>
+    <div class="slide-content">
+
+      <div class="eyebrow">Multidimensional &middot; مثال واقعي</div>
+      <h1 class="slide-title">قائمة مستخدمين: Associative Arrays داخل Indexed Array</h1>
+      <p class="slide-text">هذا النمط هو الأكثر استخداماً في تطوير الويب لمحاكاة البيانات القادمة من قواعد البيانات ومنافذ API:</p>
+      <div class="exercise-grid">
+        <div class="question-card">
+          <div class="qlabel">المطلوب البرمجي</div>
+          <p>قم بتعريف قائمة طلاب تحتوي على طالبين، واطبع اسم وعمر الطالب الثاني مع تعديل درجته.</p>
+        </div>
+        <div class="code-window">
+          <div class="code-titlebar">
+            <span class="code-dot red"></span><span class="code-dot yellow"></span><span class="code-dot green"></span>
+            <span class="code-filename">students_db.php</span>
+          </div>
+          <pre class="code-body"><span class="tok-var">$students</span> = [
+    [<span class="tok-str">"name"</span> =&gt; <span class="tok-str">"علي"</span>,  <span class="tok-str">"age"</span> =&gt; <span class="tok-num">20</span>, <span class="tok-str">"grade"</span> =&gt; <span class="tok-num">88</span>],
+    [<span class="tok-str">"name"</span> =&gt; <span class="tok-str">"سارة"</span>, <span class="tok-str">"age"</span> =&gt; <span class="tok-num">22</span>, <span class="tok-str">"grade"</span> =&gt; <span class="tok-num">95</span>]
+];
+
+<span class="tok-cmt">// قراءة بيانات الطالبة الثانية (index 1)</span>
+<span class="tok-kw">echo</span> <span class="tok-str">"الاسم: "</span> . <span class="tok-var">$students</span>[<span class="tok-num">1</span>][<span class="tok-str">"name"</span>] . <span class="tok-str">"&lt;br&gt;"</span>;
+<span class="tok-kw">echo</span> <span class="tok-str">"العمر: "</span> . <span class="tok-var">$students</span>[<span class="tok-num">1</span>][<span class="tok-str">"age"</span>];</pre>
+        </div>
+        <div class="browser-window">
+          <div class="browser-titlebar">
+            <div class="browser-dots"><span class="r"></span><span class="y"></span><span class="g"></span></div>
+            <div class="browser-address">localhost/students_db.php</div>
+          </div>
+          <div class="browser-viewport">
+            <div class="output-ascii" style="direction:rtl;text-align:start;padding:0.75rem;font-size:0.95rem;">
+الاسم: سارة
+العمر: 22
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <div class="nav-dots">
+    <span class="slide-nav-dot" onclick="window.location.href='slide-01.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-02.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-03.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-04.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-05.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-06.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-07.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-08.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-09.html'"></span>
+<span class="slide-nav-dot active" onclick="window.location.href='slide-10.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-11.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-12.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-13.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-14.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-15.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-16.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-17.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-18.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-19.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-20.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-21.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-22.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-23.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-24.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-25.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-26.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-27.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-28.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-29.html'"></span>
+  </div>
+  <div class="nav-controls">
+    <button class="nav-btn" onclick="window.location.href='slide-11.html'">
+      التالي
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg>
+    </button>
+    <span class="counter">10 / 29</span>
+    <button class="nav-btn" onclick="window.location.href='slide-09.html'">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+      السابق
+    </button>
+  </div>
+</div>
+<script src="script.js"></script>
+<script class="slide-notes" type="application/json">
+{
+  "title": "سجلات واقعية: Arrays مدمجة",
+  "script": "هذا النمط سيتكرر معكم في 99% من مشاريع PHP: Indexed Array من السجلات، وكل سجل عبارة عن Associative Array من الخصائص.",
+  "notes": [
+    "نمط سجلات قواعد البيانات",
+    "الفهرس الأول للسطر والفهرس الثاني للخاصية",
+    "أهم هيكل بيانات في تطوير الويب"
+  ]
+}
+</script>
+</body>
+</html>

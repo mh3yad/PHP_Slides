@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>المحاضرة 07 &middot; المتغيرات الفائقة Superglobals &mdash; شريحة 15</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@600;700;800;900&family=Fira+Code:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body data-next="slide-16.html" data-prev="slide-14.html">
+<div class="deck">
+  <div class="progress-bar"><div class="progress-fill" style="width:44.1%"></div></div>
+  <div class="brand-logo"><img src="logo.jpg" alt="الشعار"></div>
+  <section class="slide active">
+    <span class="slide-index-badge">15 / 34</span>
+    <div class="slide-content">
+
+      <div class="eyebrow">المصفوفات الفائقة &middot; 3</div>
+      <h1 class="slide-title">المتغيرات الفائقة (Superglobals)</h1>
+      <p class="slide-text">المتغيرات الفائقة هي مصفوفات مترابطة (Associative Arrays) خاصة ومدمجة في PHP، متاحة تلقائياً في أي مكان دون قيود النطاق.</p>
+      <div class="grid-2">
+        <ul class="bullet-list">
+          <li>متاحة في <strong>جميع النطاقات (Global &amp; Local)</strong> دون الحاجة لكتابة <code>global</code></li>
+          <li>تبدأ دائماً بـ <code>$_</code> متبوعة بأحرف كبيرة (Uppercase)</li>
+          <li>المفاتيح بداخلها تمثل قيمة خاصية <code>name</code> في حقول النموذج</li>
+          <li>أهم المصفوفات الفائقة:
+            <code>$_POST</code>، <code>$_GET</code>، <code>$_SERVER</code>، <code>$_FILES</code>، <code>$_SESSION</code>، <code>$_COOKIE</code>
+          </li>
+          <li>تُنشأ تلقائياً مع كل طلب HTTP وتُهيأ ببيانات المستخدم وبيئة الخادم</li>
+        </ul>
+        <div class="code-window">
+          <div class="code-titlebar">
+            <span class="code-dot red"></span><span class="code-dot yellow"></span><span class="code-dot green"></span>
+            <span class="code-filename">superglobals.php</span>
+          </div>
+          <pre class="code-body"><span class="tok-cmt">// تعمل داخل الدوال دون global!</span>
+<span class="tok-kw">function</span> <span class="tok-fn">getCurrentUser</span>() {
+    <span class="tok-kw">if</span> (<span class="tok-fn">isset</span>(<span class="tok-var">$_POST</span>[<span class="tok-str">'username'</span>])) {
+        <span class="tok-kw">return</span> <span class="tok-var">$_POST</span>[<span class="tok-str">'username'</span>];
+    }
+    <span class="tok-kw">return</span> <span class="tok-str">"زائر"</span>;
+}
+
+<span class="tok-kw">echo</span> <span class="tok-fn">getCurrentUser</span>();</pre>
+        </div>
+      </div>
+    </div>
+  </section>
+  <div class="nav-dots">
+    <span class="slide-nav-dot" onclick="window.location.href='slide-01.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-02.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-03.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-04.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-05.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-06.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-07.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-08.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-09.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-10.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-11.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-12.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-13.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-14.html'"></span>
+<span class="slide-nav-dot active" onclick="window.location.href='slide-15.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-16.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-17.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-18.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-19.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-20.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-21.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-22.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-23.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-24.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-25.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-26.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-27.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-28.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-29.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-30.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-31.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-32.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-33.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-34.html'"></span>
+  </div>
+  <div class="nav-controls">
+    <button class="nav-btn" onclick="window.location.href='slide-16.html'">
+      التالي
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg>
+    </button>
+    <span class="counter">15 / 34</span>
+    <button class="nav-btn" onclick="window.location.href='slide-14.html'">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+      السابق
+    </button>
+  </div>
+</div>
+<script src="script.js"></script>
+<script class="slide-notes" type="application/json">
+{
+  "title": "المتغيرات الفائقة Superglobals",
+  "script": "مفهوم Superglobal يعني أن هذه المتغيرات تكسر قواعد النطاق العادية، فهي متاحة أينما كنت داخل مشروع PHP.",
+  "notes": [
+    "مصفوفات جاهزة في PHP",
+    "متاحة في كل النطاقات",
+    "تعتمد على خاصية name للمفاتيح"
+  ]
+}
+</script>
+</body>
+</html>

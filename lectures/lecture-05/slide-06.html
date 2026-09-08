@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="html-slides v0.9.4 (custom RTL blueprint - multi-file)">
+<title>المحاضرة 05 &middot; الـ Associative Arrays &mdash; شريحة 06</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@600;700;800;900&family=Fira+Code:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body data-next="slide-07.html" data-prev="slide-05.html">
+<div class="deck">
+  <div class="progress-bar"><div class="progress-fill" style="width:20.7%"></div></div>
+  <div class="brand-logo"><img src="logo.jpg" alt="الشعار"></div>
+  <section class="slide active">
+    <span class="slide-index-badge">06 / 29</span>
+    <div class="slide-content">
+
+      <div class="eyebrow">أنواع الـ Arrays &middot; 2</div>
+      <h1 class="slide-title">الـ Associative Arrays</h1>
+      <p class="slide-text">بدلاً من استخدام أرقام مجردة، ترتبط كل قيمة بمفتاح نصي ذي دلالة (Key => Value) يوضح معناها بوضوح:</p>
+      <div class="grid-2">
+        <ul class="bullet-list">
+          <li><strong>مفهوم Key => Value:</strong> المفتاح يكون نصاً معبراً (مثل <code>"name"</code> أو <code>"email"</code>) يرتبط بقيمته بسهم <code>=&gt;</code>.</li>
+          <li><strong>وضوح الكود ومقروئيته:</strong> بدلاً من التخمين عما يعنيه <code>$user[2]</code>، نكتب <code>$user['age']</code> فيتضح المعنى فوراً.</li>
+          <li><strong>الوصول والتعديل:</strong> نصل للقيمة عبر مفتاحها: <code>$student['score']</code>.</li>
+          <li><strong>إضافة مفتاح جديد:</strong> نحدد اسم المفتاح الجديد وقيمته: <code>$user['city'] = "القاهرة";</code>.</li>
+        </ul>
+        <div class="code-window">
+          <div class="code-titlebar">
+            <span class="code-dot red"></span><span class="code-dot yellow"></span><span class="code-dot green"></span>
+            <span class="code-filename">associative.php</span>
+          </div>
+          <pre class="code-body"><span class="tok-cmt">// Associative Array لبيانات طالب</span>
+<span class="tok-var">$student</span> = [
+    <span class="tok-str">"name"</span>  =&gt; <span class="tok-str">"أحمد محمد"</span>,
+    <span class="tok-str">"age"</span>   =&gt; <span class="tok-num">21</span>,
+    <span class="tok-str">"track"</span> =&gt; <span class="tok-str">"PHP & Laravel"</span>
+];
+
+<span class="tok-cmt">// قراءة القيم بمفتاحها</span>
+<span class="tok-kw">echo</span> <span class="tok-var">$student</span>[<span class="tok-str">"name"</span>]; <span class="tok-cmt">// أحمد محمد</span>
+
+<span class="tok-cmt">// إضافة مفتاح جديد</span>
+<span class="tok-var">$student</span>[<span class="tok-str">"grade"</span>] = <span class="tok-str">"ممتاز"</span>;</pre>
+        </div>
+      </div>
+    </div>
+  </section>
+  <div class="nav-dots">
+    <span class="slide-nav-dot" onclick="window.location.href='slide-01.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-02.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-03.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-04.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-05.html'"></span>
+<span class="slide-nav-dot active" onclick="window.location.href='slide-06.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-07.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-08.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-09.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-10.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-11.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-12.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-13.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-14.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-15.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-16.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-17.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-18.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-19.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-20.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-21.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-22.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-23.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-24.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-25.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-26.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-27.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-28.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-29.html'"></span>
+  </div>
+  <div class="nav-controls">
+    <button class="nav-btn" onclick="window.location.href='slide-07.html'">
+      التالي
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg>
+    </button>
+    <span class="counter">06 / 29</span>
+    <button class="nav-btn" onclick="window.location.href='slide-05.html'">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+      السابق
+    </button>
+  </div>
+</div>
+<script src="script.js"></script>
+<script class="slide-notes" type="application/json">
+{
+  "title": "الـ Associative Arrays",
+  "script": "الـ Associative Array تشبه القاموس: لكل كلمة معنى. في PHP نستخدم المفاتيح النصية لتمثيل السجلات مثل المستخدمين والمنتجات والخيارات.",
+  "notes": [
+    "ربط المفتاح بالقيمة بـ =>",
+    "الوصول بالاسم $arr['key']",
+    "كود نظيف وواضح الدلالة"
+  ]
+}
+</script>
+</body>
+</html>

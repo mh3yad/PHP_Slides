@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>المحاضرة 04 &middot; حلقات التكرار في PHP &mdash; شريحة 03</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@600;700;800;900&family=Fira+Code:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body data-prev="slide-02.html" data-next="slide-04.html">
+<div class="deck">
+  <div class="progress-bar"><div class="progress-fill" style="width:13.6%"></div></div>
+  <div class="brand-logo"><img src="logo.jpg" alt="الشعار"></div>
+  <section class="slide active ">
+    <span class="slide-index-badge">03 / 22</span>
+    <div class="slide-content">
+      <div class="eyebrow">الحلقات التكرارية &middot; مثال</div>
+      <h1 class="slide-title">مثال 1: اطبع الأرقام من 1 لحد 5</h1>
+      <p class="slide-text">بنبدأ بـ <code>i = 1</code>، وطول ما <code>i &lt;= 5</code> بنطبع القيمة وبعدين نزوّد العداد بواحد.</p>
+      <div class="exercise-grid">
+      <div class="question-card">
+        <div class="qlabel">السؤال</div>
+        <p>اطبع الأرقام من 1 إلى 5 باستخدام حلقة while.</p>
+      </div>
+      <div class="code-window">
+        <div class="code-titlebar">
+          <span class="code-dot red"></span><span class="code-dot yellow"></span><span class="code-dot green"></span>
+          <span class="code-filename">while-print.php</span>
+        </div>
+        <pre class="code-body"><span class="tok-var">$i</span> = <span class="tok-num">1</span>;
+<span class="tok-kw">while</span> (<span class="tok-var">$i</span> &lt;= <span class="tok-num">5</span>) {
+    <span class="tok-kw">echo</span> <span class="tok-var">$i</span> . <span class="tok-str">&quot; &quot;</span>;
+    <span class="tok-var">$i</span>++;
+}</pre>
+      </div>
+      <div class="browser-window">
+        <div class="browser-titlebar">
+          <div class="browser-dots"><span class="r"></span><span class="y"></span><span class="g"></span></div>
+          <div class="browser-address">localhost/while-print.php</div>
+        </div>
+        <div class="browser-viewport">
+          <pre class="output-ascii">1 2 3 4 5</pre>
+        </div>
+      </div>
+      </div>
+    </div>
+  </section>
+  <div class="nav-dots">
+    <span class="slide-nav-dot" onclick="window.location.href='slide-01.html'"></span>
+    <span class="slide-nav-dot" onclick="window.location.href='slide-02.html'"></span>
+    <span class="slide-nav-dot active" onclick="window.location.href='slide-03.html'"></span>
+    <span class="slide-nav-dot" onclick="window.location.href='slide-04.html'"></span>
+    <span class="slide-nav-dot" onclick="window.location.href='slide-05.html'"></span>
+    <span class="slide-nav-dot" onclick="window.location.href='slide-06.html'"></span>
+    <span class="slide-nav-dot" onclick="window.location.href='slide-07.html'"></span>
+    <span class="slide-nav-dot" onclick="window.location.href='slide-08.html'"></span>
+    <span class="slide-nav-dot" onclick="window.location.href='slide-09.html'"></span>
+    <span class="slide-nav-dot" onclick="window.location.href='slide-10.html'"></span>
+    <span class="slide-nav-dot" onclick="window.location.href='slide-11.html'"></span>
+    <span class="slide-nav-dot" onclick="window.location.href='slide-12.html'"></span>
+    <span class="slide-nav-dot" onclick="window.location.href='slide-13.html'"></span>
+    <span class="slide-nav-dot" onclick="window.location.href='slide-14.html'"></span>
+    <span class="slide-nav-dot" onclick="window.location.href='slide-15.html'"></span>
+    <span class="slide-nav-dot" onclick="window.location.href='slide-16.html'"></span>
+    <span class="slide-nav-dot" onclick="window.location.href='slide-17.html'"></span>
+    <span class="slide-nav-dot" onclick="window.location.href='slide-18.html'"></span>
+    <span class="slide-nav-dot" onclick="window.location.href='slide-19.html'"></span>
+    <span class="slide-nav-dot" onclick="window.location.href='slide-20.html'"></span>
+    <span class="slide-nav-dot" onclick="window.location.href='slide-21.html'"></span>
+    <span class="slide-nav-dot" onclick="window.location.href='slide-22.html'"></span>
+  </div>
+<div class="nav-controls">
+  <a class="nav-btn" href="slide-04.html">
+    التالي
+    <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.4"
+      viewbox="0 0 24 24">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </a>
+  <span class="counter">3 / 26</span>
+  <a class="nav-btn" href="slide-02.html">
+    <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.4"
+      viewbox="0 0 24 24">
+      <polyline points="9 18 15 12 9 6" transform="rotate(180 12 12)"></polyline>
+    </svg>
+    السابق
+  </a>
+</div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>

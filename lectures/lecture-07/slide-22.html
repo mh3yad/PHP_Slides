@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>المحاضرة 07 &middot; أدوات التنظيف والتعقيم &mdash; شريحة 22</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@600;700;800;900&family=Fira+Code:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body data-next="slide-23.html" data-prev="slide-21.html">
+<div class="deck">
+  <div class="progress-bar"><div class="progress-fill" style="width:64.7%"></div></div>
+  <div class="brand-logo"><img src="logo.jpg" alt="الشعار"></div>
+  <section class="slide active">
+    <span class="slide-index-badge">22 / 34</span>
+    <div class="slide-content">
+
+      <div class="eyebrow">الأمان والتحقق &middot; 4</div>
+      <h1 class="slide-title">أدوات التنظيف: trim و htmlspecialchars</h1>
+      <p class="slide-text">دوال PHP القياسية لتنظيف النصوص وحماية الصفحة من ثغرات حقن النصوص البرمجية (XSS).</p>
+      <div class="grid-2">
+        <ul class="bullet-list">
+          <li><code>trim($str)</code>: إزالة المسافات البيضاء والأسطر الفارغة من البداية والنهاية</li>
+          <li><code>htmlspecialchars($str)</code>: تحويل الرموز الحساسة (<code>&lt; &gt; &amp; " '</code>) إلى رموز HTML مشفرة (Entities)</li>
+          <li>تمنع المتصفح من تشغيل وسوم <code>&lt;script&gt;</code> وتحولها لنص عادي للقراءة فقط</li>
+          <li><code>strip_tags($str)</code>: حذف كافة وسوم HTML تماماً من النص</li>
+          <li><strong>القاعدة:</strong> طبق <code>htmlspecialchars()</code> دائماً قبل طباعة أي مدخل في المتصفح</li>
+        </ul>
+        <div class="code-window">
+          <div class="code-titlebar">
+            <span class="code-dot red"></span><span class="code-dot yellow"></span><span class="code-dot green"></span>
+            <span class="code-filename">sanitization.php</span>
+          </div>
+          <pre class="code-body"><span class="tok-var">$comment</span> = <span class="tok-str">' &lt;script&gt;alert("Hacked!");&lt;/script&gt; '</span>;
+
+<span class="tok-cmt">// 1. تنظيف المسافات</span>
+<span class="tok-var">$trimmed</span> = <span class="tok-fn">trim</span>(<span class="tok-var">$comment</span>);
+
+<span class="tok-cmt">// 2. حماية XSS بالتعقيم</span>
+<span class="tok-var">$safe</span> = <span class="tok-fn">htmlspecialchars</span>(<span class="tok-var">$trimmed</span>, <span class="tok-kw">ENT_QUOTES</span>, <span class="tok-str">'UTF-8'</span>);
+
+<span class="tok-kw">echo</span> <span class="tok-var">$safe</span>;
+<span class="tok-cmt">// يطبع النص كأحرف عادية ولا ينفذ الكود!</span></pre>
+        </div>
+      </div>
+    </div>
+  </section>
+  <div class="nav-dots">
+    <span class="slide-nav-dot" onclick="window.location.href='slide-01.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-02.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-03.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-04.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-05.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-06.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-07.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-08.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-09.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-10.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-11.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-12.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-13.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-14.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-15.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-16.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-17.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-18.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-19.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-20.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-21.html'"></span>
+<span class="slide-nav-dot active" onclick="window.location.href='slide-22.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-23.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-24.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-25.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-26.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-27.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-28.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-29.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-30.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-31.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-32.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-33.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-34.html'"></span>
+  </div>
+  <div class="nav-controls">
+    <button class="nav-btn" onclick="window.location.href='slide-23.html'">
+      التالي
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg>
+    </button>
+    <span class="counter">22 / 34</span>
+    <button class="nav-btn" onclick="window.location.href='slide-21.html'">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+      السابق
+    </button>
+  </div>
+</div>
+<script src="script.js"></script>
+<script class="slide-notes" type="application/json">
+{
+  "title": "دوال التعقيم والهروب الأساسية",
+  "script": "htmlspecialchars هي السلاح الأول ضد ثغرة XSS؛ فبدلاً من أن يرى المتصفح علامة أصغر من كبداية كود، يراها &lt; فيطبعها للمستخدم بأمان.",
+  "notes": [
+    "دالة trim لإزالة المسافات",
+    "دالة htmlspecialchars لمنع تنفيذ السكربتات",
+    "دالة strip_tags لحذف الوسوم بالكامل"
+  ]
+}
+</script>
+</body>
+</html>

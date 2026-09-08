@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="html-slides v0.9.4 (custom RTL blueprint - multi-file)">
+<title>المحاضرة 09 &middot; أخطاء شائعة في الكوكيز والجلسات وكيفية حلها &mdash; شريحة 22</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@600;700;800;900&family=Fira+Code:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body data-next="slide-23.html" data-prev="slide-21.html">
+<div class="deck">
+  <div class="progress-bar"><div class="progress-fill" style="width:75.9%"></div></div>
+  <div class="brand-logo"><img src="logo.jpg" alt="الشعار"></div>
+  <section class="slide active">
+    <span class="slide-index-badge">22 / 29</span>
+    <div class="slide-content">
+
+      <div class="eyebrow">احذر هذه الأخطاء &middot; فخاخ برمجية</div>
+      <h1 class="slide-title">أخطاء وفخاخ شائعة في إدارة الحالة</h1>
+      <p class="slide-text">ثلاث مشكلات برمجية وأمنية شائعة يقع فيها المطورون وطرق حلها الاحترافية:</p>
+      <div class="naming-grid">
+        <div class="naming-card rules">
+          <div class="naming-card-title">❌ خطأ Headers already sent</div>
+          <ul class="bullet-list">
+            <li><strong>السبب:</strong> استدعاء <code>session_start()</code> أو <code>setcookie()</code> بعد طباعة أي نص أو مسافة أو وسم HTML.</li>
+            <li><strong>الحل:</strong> انقل الدالة لأول سطر، وتأكد من عدم وجود مسافات قبل وسم <code>&lt;?php</code>، أو فعّل <code>ob_start()</code> لتخزين المخرجات في بافر.</li>
+            <li>نسيان <code>session_start()</code> في صفحة فرعية يجعل <code>$_SESSION</code> فارغة.</li>
+          </ul>
+        </div>
+        <div class="naming-card conventions">
+          <div class="naming-card-title">⚠️ توهم وجود الكوكي فوراً ونسيان exit</div>
+          <ul class="bullet-list">
+            <li>الكوكي المنشأ بـ <code>setcookie</code> لا يظهر في مصفوفة <code>$_COOKIE</code> في نفس الطلب فوراً؛ بل يظهر في الطلب القادم بعد إعادة تحميل الصفحة.</li>
+            <li>نسيان كتابة <code>exit;</code> بعد <code>header("Location: ...")</code> يجعل السيرفر يكمل قراءة باقي الكود الحساس!</li>
+            <li>تخزين أرقام بطاقات أو كلمات مرور في الكوكي كارثة أمنية حتمية.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+  <div class="nav-dots">
+    <span class="slide-nav-dot" onclick="window.location.href='slide-01.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-02.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-03.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-04.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-05.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-06.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-07.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-08.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-09.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-10.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-11.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-12.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-13.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-14.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-15.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-16.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-17.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-18.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-19.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-20.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-21.html'"></span>
+<span class="slide-nav-dot active" onclick="window.location.href='slide-22.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-23.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-24.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-25.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-26.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-27.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-28.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-29.html'"></span>
+  </div>
+  <div class="nav-controls">
+    <button class="nav-btn" onclick="window.location.href='slide-23.html'">
+      التالي
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg>
+    </button>
+    <span class="counter">22 / 29</span>
+    <button class="nav-btn" onclick="window.location.href='slide-21.html'">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+      السابق
+    </button>
+  </div>
+</div>
+<script src="script.js"></script>
+<script class="slide-notes" type="application/json">
+{
+  "title": "أخطاء شائعة في إدارة الحالة",
+  "script": "خطأ headers already sent سببه ترتيب تدفق بيانات HTTP. وتذكر دائماً أن الكوكي يرسل للمتصفح، فلا يمكن قراءته من مصفوفة الطلب الحالي.",
+  "notes": [
+    "سبب وحل headers already sent",
+    "فهم تأخر ظهور الكوكي للطلب التالي",
+    "ضرورة كتابة exit بعد header Location"
+  ]
+}
+</script>
+</body>
+</html>

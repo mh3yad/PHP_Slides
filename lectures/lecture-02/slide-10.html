@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="html-slides v0.9.4 (custom RTL blueprint - multi-file)" name="generator"/>
+<title>لوغاريتم — Type Safety: المقارنة الصارمة</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&amp;family=Fira+Code:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="styles.css" rel="stylesheet"/>
+</head>
+<body data-next="slide-11.html" data-prev="slide-09.html">
+<div class="brand-logo"><img alt="شعار لوغاريتم" src="assets/logo.jpg"/></div>
+<div class="progress-bar"><div class="progress-fill" style="width:38.5%"></div></div>
+<div class="deck" id="deck">
+<div class="slide active" data-slide="9">
+<div class="slide-index-badge">10 / 26</div>
+<div class="slide-content">
+<div class="eyebrow">أمان الأنواع — Type Safety</div>
+<h1 class="slide-title">المقارنة الصارمة: الفرق الجوهري بين == و ===</h1>
+<p class="slide-text">هل الرقم 5 بيساوي النص "5"؟ في PHP الإجابة بتعتمد على المعامل اللي بتستخدمه:</p>
+
+<div class="grid-2">
+  <div class="code-window">
+    <div class="code-titlebar">
+      <span class="code-dot red"></span><span class="code-dot yellow"></span><span class="code-dot green"></span>
+      <span class="code-filename">strict_compare.php</span>
+    </div>
+    <pre class="code-body">&lt;<span class="tok-kw">?php</span>
+
+<span class="tok-var">$num</span> = <span class="tok-num">5</span>;    <span class="tok-cmt">// Integer</span>
+<span class="tok-var">$str</span> = <span class="tok-str">"5"</span>;  <span class="tok-cmt">// String</span>
+
+<span class="tok-cmt">// 1. المقارنة السايبة (Loose ==): بتقارن القيمة بس</span>
+<span class="tok-fn">var_dump</span>(<span class="tok-var">$num</span> == <span class="tok-var">$str</span>);  <span class="tok-cmt">// bool(true) خطر جداً!</span>
+
+<span class="tok-cmt">// 2. المقارنة الصارمة (Strict ===): بتقارن القيمة والنوع مع بعض</span>
+<span class="tok-fn">var_dump</span>(<span class="tok-var">$num</span> === <span class="tok-var">$str</span>); <span class="tok-cmt">// bool(false) أمان تام!</span>
+
+<span class="tok-cmt">// ونفس الفكرة بالظبط في مش بيساوي:</span>
+<span class="tok-fn">var_dump</span>(<span class="tok-var">$num</span> != <span class="tok-var">$str</span>);  <span class="tok-cmt">// bool(false)</span>
+<span class="tok-fn">var_dump</span>(<span class="tok-var">$num</span> !== <span class="tok-var">$str</span>); <span class="tok-cmt">// bool(true) صارمة!</span>
+
+<span class="tok-kw">?&gt;</span></pre>
+  </div>
+
+  <div class="compare-card">
+    <div class="compare-header">
+      <span class="badge-echo">== (Loose)</span>
+      <span class="vs-badge">VS</span>
+      <span class="badge-print">=== (Strict)</span>
+    </div>
+    <div class="compare-rows">
+      <div class="compare-row">
+        <div class="compare-item">بيفحص <strong>القيمة بس</strong></div>
+        <div class="compare-feature">الآلية</div>
+        <div class="compare-item">بيفحص <strong>القيمة + نوع البيانات</strong></div>
+      </div>
+      <div class="compare-row">
+        <div class="compare-item">بيحول النوع تلقائي من وراك (Coercion)</div>
+        <div class="compare-feature">التحويل</div>
+        <div class="compare-item"><strong>مش بيغير</strong> أي نوع بيانات</div>
+      </div>
+      <div class="compare-row">
+        <div class="compare-item"><code>5 == "5"</code> بيطلع <strong>True</strong></div>
+        <div class="compare-feature">مثال</div>
+        <div class="compare-item"><code>5 === "5"</code> بيطلع <strong>False</strong></div>
+      </div>
+      <div class="compare-row">
+        <div class="compare-item">ممكن يلبسك في ثغرات ومشاكل أمنية</div>
+        <div class="compare-feature">الأمان</div>
+        <div class="compare-item"><strong>هو المعيار الصح</strong> دايماً في Laravel</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</div>
+</div>
+</div>
+<div class="nav-dots">
+<a class="slide-nav-dot" href="slide-01.html"></a>
+<a class="slide-nav-dot" href="slide-02.html"></a>
+<a class="slide-nav-dot" href="slide-03.html"></a>
+<a class="slide-nav-dot" href="slide-04.html"></a>
+<a class="slide-nav-dot" href="slide-05.html"></a>
+<a class="slide-nav-dot" href="slide-06.html"></a>
+<a class="slide-nav-dot" href="slide-07.html"></a>
+<a class="slide-nav-dot" href="slide-08.html"></a>
+<a class="slide-nav-dot" href="slide-09.html"></a>
+<a class="slide-nav-dot active" href="slide-10.html"></a>
+<a class="slide-nav-dot" href="slide-11.html"></a>
+<a class="slide-nav-dot" href="slide-12.html"></a>
+<a class="slide-nav-dot" href="slide-13.html"></a>
+<a class="slide-nav-dot" href="slide-14.html"></a>
+<a class="slide-nav-dot" href="slide-15.html"></a>
+<a class="slide-nav-dot" href="slide-16.html"></a>
+<a class="slide-nav-dot" href="slide-17.html"></a>
+<a class="slide-nav-dot" href="slide-18.html"></a>
+<a class="slide-nav-dot" href="slide-19.html"></a>
+<a class="slide-nav-dot" href="slide-20.html"></a>
+<a class="slide-nav-dot" href="slide-21.html"></a>
+<a class="slide-nav-dot" href="slide-22.html"></a>
+<a class="slide-nav-dot" href="slide-23.html"></a>
+<a class="slide-nav-dot" href="slide-24.html"></a>
+<a class="slide-nav-dot" href="slide-25.html"></a>
+<a class="slide-nav-dot" href="slide-26.html"></a>
+</div>
+<div class="nav-controls">
+<a class="nav-btn" href="slide-11.html">
+    التالي
+    <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.4" viewbox="0 0 24 24"><polyline points="9 18 15 12 9 6"></polyline></svg>
+</a>
+<span class="counter">10 / 26</span>
+<a class="nav-btn" href="slide-09.html">
+<svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.4" viewbox="0 0 24 24"><polyline points="9 18 15 12 9 6" transform="rotate(180 12 12)"></polyline></svg>
+    السابق
+</a>
+</div>
+<script src="script.js"></script>
+<script class="slide-notes" type="application/json">
+{
+  "title": "المقارنة الصارمة Type Safety",
+  "script": "في شغل الشركات الحقيقي وفريم وورك Laravel، بنستخدم دايماً === و !== لأن المقارنة السايبة ممكن تعتبر الصفر مساوي لـ false أو النص مساوي للرقم، وده بيعمل كوارث أمنية.",
+  "notes": [
+    "شرح الفرق بين == و ===",
+    "توضيح != مقابل !==",
+    "التأكيد على Type Safety في المشاريع الحقيقية"
+  ]
+}
+</script>
+</body>
+</html>

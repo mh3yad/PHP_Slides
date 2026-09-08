@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="html-slides v0.9.4 (custom RTL blueprint - multi-file)">
+<title>المحاضرة 05 &middot; فحص وجود المفاتيح: array_key_exists &mdash; شريحة 16</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@600;700;800;900&family=Fira+Code:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body data-next="slide-17.html" data-prev="slide-15.html">
+<div class="deck">
+  <div class="progress-bar"><div class="progress-fill" style="width:55.2%"></div></div>
+  <div class="brand-logo"><img src="logo.jpg" alt="الشعار"></div>
+  <section class="slide active">
+    <span class="slide-index-badge">16 / 29</span>
+    <div class="slide-content">
+
+      <div class="eyebrow">البحث والتحقق &middot; 2</div>
+      <h1 class="slide-title">التحقق من وجود المفاتيح: array_key_exists</h1>
+      <p class="slide-text">فحص وجود مفتاح معين داخل Associative Array، والفرق الجوهري بينها وبين دالة <code>isset()</code>:</p>
+      <div class="grid-2">
+        <ul class="bullet-list">
+          <li><code>array_key_exists($key, $arr)</code>: تعيد <code>true</code> إذا كان <strong>المفتاح</strong> موجوداً في الـ Array، حتى وإن كانت قيمته <code>null</code>!</li>
+          <li><strong>الفرق الحاسم مع <code>isset()</code>:</strong>
+            دالة <code>isset($arr['key'])</code> تعيد <code>false</code> إذا كانت قيمة المفتاح تساوي <code>null</code> مع أنه موجود بالفعل في الـ Array!</li>
+          <li><strong>الأداء:</strong> <code>isset</code> أسرع قليلاً، لكن <code>array_key_exists</code> أدق لمعرفة بنية البيانات الحقيقية.</li>
+        </ul>
+        <div class="code-window">
+          <div class="code-titlebar">
+            <span class="code-dot red"></span><span class="code-dot yellow"></span><span class="code-dot green"></span>
+            <span class="code-filename">key_exists.php</span>
+          </div>
+          <pre class="code-body"><span class="tok-var">$user</span> = [
+    <span class="tok-str">"name"</span>  =&gt; <span class="tok-str">"سارة"</span>,
+    <span class="tok-str">"phone"</span> =&gt; <span class="tok-kw">null</span> <span class="tok-cmt">// المفتاح موجود لكن قيمته فارغة</span>
+];
+
+<span class="tok-cmt">// array_key_exists ترى المفتاح بنجاح!</span>
+<span class="tok-fn">var_dump</span>(<span class="tok-fn">array_key_exists</span>(<span class="tok-str">"phone"</span>, <span class="tok-var">$user</span>));
+<span class="tok-cmt">// bool(true)</span>
+
+<span class="tok-cmt">// isset تعيد false بسبب قيمة null!</span>
+<span class="tok-fn">var_dump</span>(<span class="tok-kw">isset</span>(<span class="tok-var">$user</span>[<span class="tok-str">"phone"</span>]));
+<span class="tok-cmt">// bool(false)</span></pre>
+        </div>
+      </div>
+    </div>
+  </section>
+  <div class="nav-dots">
+    <span class="slide-nav-dot" onclick="window.location.href='slide-01.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-02.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-03.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-04.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-05.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-06.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-07.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-08.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-09.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-10.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-11.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-12.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-13.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-14.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-15.html'"></span>
+<span class="slide-nav-dot active" onclick="window.location.href='slide-16.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-17.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-18.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-19.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-20.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-21.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-22.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-23.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-24.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-25.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-26.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-27.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-28.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-29.html'"></span>
+  </div>
+  <div class="nav-controls">
+    <button class="nav-btn" onclick="window.location.href='slide-17.html'">
+      التالي
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg>
+    </button>
+    <span class="counter">16 / 29</span>
+    <button class="nav-btn" onclick="window.location.href='slide-15.html'">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+      السابق
+    </button>
+  </div>
+</div>
+<script src="script.js"></script>
+<script class="slide-notes" type="application/json">
+{
+  "title": "array_key_exists مقابل isset",
+  "script": "سؤال كلاسيكي في مقابلات العمل: ما الفرق بين array_key_exists و isset؟ الإجابة: إذا كان المفتاح موجوداً وقيمته null، فإن isset تعيد false بينما array_key_exists تعيد true.",
+  "notes": [
+    "array_key_exists تفحص وجود المفتاح بغض النظر عن القيمة",
+    "isset تعيد false إذا كانت القيمة null",
+    "سؤال مفضل في المقابلات التقنية"
+  ]
+}
+</script>
+</body>
+</html>

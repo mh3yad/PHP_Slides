@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>المحاضرة 06 &middot; مثال 2: دالة الأس power() &mdash; شريحة 11</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@600;700;800;900&family=Fira+Code:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body data-next="slide-12.html" data-prev="slide-10.html">
+<div class="deck">
+  <div class="progress-bar"><div class="progress-fill" style="width:39.3%"></div></div>
+  <div class="brand-logo"><img src="logo.jpg" alt="الشعار"></div>
+  <section class="slide active">
+    <span class="slide-index-badge">11 / 28</span>
+    <div class="slide-content">
+
+      <div class="eyebrow">المعاملات الافتراضية &middot; مثال 2</div>
+      <h1 class="slide-title">مثال 2: دالة الأس power($base, $exponent = 2)</h1>
+      <p class="slide-text">معامل الأساس إلزامي، والأس افتراضياً 2 (تربيع) مع إمكانية تحديده عند الحاجة.</p>
+      <div class="exercise-grid">
+        <div class="question-card">
+          <div class="qlabel">السؤال</div>
+          <p>عرّف دالة <code>power($base, $exponent = 2)</code> ترجع الأساس مرفوعاً للأس. استدعِها بـ 3 فقط (3² = 9)، ثم بالقيمتين 2 و 3 (2³ = 8).</p>
+        </div>
+        <div class="code-window">
+          <div class="code-titlebar">
+            <span class="code-dot red"></span><span class="code-dot yellow"></span><span class="code-dot green"></span>
+            <span class="code-filename">power.php</span>
+          </div>
+          <pre class="code-body"><span class="tok-kw">function</span> <span class="tok-fn">power</span>(<span class="tok-var">$base</span>, <span class="tok-var">$exponent</span> = <span class="tok-num">2</span>) {
+    <span class="tok-kw">return</span> <span class="tok-var">$base</span> ** <span class="tok-var">$exponent</span>;
+}
+
+<span class="tok-kw">echo</span> <span class="tok-fn">power</span>(<span class="tok-num">3</span>) . <span class="tok-str">"&lt;br&gt;"</span>;    <span class="tok-cmt">// 3^2 = 9</span>
+<span class="tok-kw">echo</span> <span class="tok-fn">power</span>(<span class="tok-num">2</span>, <span class="tok-num">3</span>);         <span class="tok-cmt">// 2^3 = 8</span></pre>
+        </div>
+        <div class="browser-window">
+          <div class="browser-titlebar">
+            <div class="browser-dots"><span class="r"></span><span class="y"></span><span class="g"></span></div>
+            <div class="browser-address">localhost/power.php</div>
+          </div>
+          <div class="browser-viewport">
+            <div class="output-ascii" style="direction:ltr;text-align:start;">9
+8</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <div class="nav-dots">
+    <span class="slide-nav-dot" onclick="window.location.href='slide-01.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-02.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-03.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-04.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-05.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-06.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-07.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-08.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-09.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-10.html'"></span>
+<span class="slide-nav-dot active" onclick="window.location.href='slide-11.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-12.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-13.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-14.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-15.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-16.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-17.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-18.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-19.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-20.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-21.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-22.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-23.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-24.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-25.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-26.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-27.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-28.html'"></span>
+  </div>
+  <div class="nav-controls">
+    <button class="nav-btn" onclick="window.location.href='slide-12.html'">
+      التالي
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg>
+    </button>
+    <span class="counter">11 / 28</span>
+    <button class="nav-btn" onclick="window.location.href='slide-10.html'">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+      السابق
+    </button>
+  </div>
+</div>
+<script src="script.js"></script>
+<script class="slide-notes" type="application/json">
+{
+  "title": "مثال دالة الأس power()",
+  "script": "هذا المثال يوضح فائدة المعامل الافتراضي كـ Default Behavior: إذا أردت التربيع فقط تمرر رقماً واحداً، وإذا أردت قوة أخرى تمرر المعاملين.",
+  "notes": [
+    "power(3) -> 9",
+    "power(2, 3) -> 8",
+    "المعامل الإلزامي أولاً والاختياري ثانياً"
+  ]
+}
+</script>
+</body>
+</html>

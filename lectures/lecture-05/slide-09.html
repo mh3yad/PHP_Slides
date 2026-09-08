@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="html-slides v0.9.4 (custom RTL blueprint - multi-file)">
+<title>المحاضرة 05 &middot; الـ Multidimensional Arrays &mdash; شريحة 09</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@600;700;800;900&family=Fira+Code:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body data-next="slide-10.html" data-prev="slide-08.html">
+<div class="deck">
+  <div class="progress-bar"><div class="progress-fill" style="width:31.0%"></div></div>
+  <div class="brand-logo"><img src="logo.jpg" alt="الشعار"></div>
+  <section class="slide active">
+    <span class="slide-index-badge">09 / 29</span>
+    <div class="slide-content">
+
+      <div class="eyebrow">أنواع الـ Arrays &middot; 3</div>
+      <h1 class="slide-title">الـ Multidimensional Arrays</h1>
+      <p class="slide-text">Array تحتوي بداخلها على Arrays أخرى؛ لتمثيل الجداول والصفوف وقواعد البيانات المعقدة:</p>
+      <div class="grid-2">
+        <ul class="bullet-list">
+          <li><strong>Array داخل Array:</strong> كل عنصر في الـ Array الرئيسية يمكن أن يكون Array أخرى مستقلة.</li>
+          <li><strong>تمثيل الجداول (Rows & Columns):</strong> البعد الأول يمثل الصف (Row)، والبعد الثاني يمثل العمود (Column).</li>
+          <li><strong>طريقة الوصول المزدوج:</strong> نستخدم قوسين متتاليين للوصول: <code>$matrix[0][1]</code> أو <code>$users[1]['name']</code>.</li>
+          <li><strong>الاستخدام الشائع:</strong> نتائج استعلامات قواعد البيانات، وسجلات المنتجات، وجداول الدرجات.</li>
+        </ul>
+        <div class="code-window">
+          <div class="code-titlebar">
+            <span class="code-dot red"></span><span class="code-dot yellow"></span><span class="code-dot green"></span>
+            <span class="code-filename">matrix.php</span>
+          </div>
+          <pre class="code-body"><span class="tok-cmt">// Array أرقام ثنائية الأبعاد (جدول)</span>
+<span class="tok-var">$matrix</span> = [
+    [<span class="tok-num">1</span>, <span class="tok-num">2</span>, <span class="tok-num">3</span>],  <span class="tok-cmt">// الصف 0</span>
+    [<span class="tok-num">4</span>, <span class="tok-num">5</span>, <span class="tok-num">6</span>],  <span class="tok-cmt">// الصف 1</span>
+    [<span class="tok-num">7</span>, <span class="tok-num">8</span>, <span class="tok-num">9</span>]   <span class="tok-cmt">// الصف 2</span>
+];
+
+<span class="tok-cmt">// الوصول للرقم 6 (الصف 1، العمود 2)</span>
+<span class="tok-kw">echo</span> <span class="tok-var">$matrix</span>[<span class="tok-num">1</span>][<span class="tok-num">2</span>]; <span class="tok-cmt">// 6</span></pre>
+        </div>
+      </div>
+    </div>
+  </section>
+  <div class="nav-dots">
+    <span class="slide-nav-dot" onclick="window.location.href='slide-01.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-02.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-03.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-04.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-05.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-06.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-07.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-08.html'"></span>
+<span class="slide-nav-dot active" onclick="window.location.href='slide-09.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-10.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-11.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-12.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-13.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-14.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-15.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-16.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-17.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-18.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-19.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-20.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-21.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-22.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-23.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-24.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-25.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-26.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-27.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-28.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-29.html'"></span>
+  </div>
+  <div class="nav-controls">
+    <button class="nav-btn" onclick="window.location.href='slide-10.html'">
+      التالي
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg>
+    </button>
+    <span class="counter">09 / 29</span>
+    <button class="nav-btn" onclick="window.location.href='slide-08.html'">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+      السابق
+    </button>
+  </div>
+</div>
+<script src="script.js"></script>
+<script class="slide-notes" type="application/json">
+{
+  "title": "الـ Multidimensional Arrays",
+  "script": "فكر في الـ Multidimensional Array كجدول إكسل: البعد الأول يحدد رقم السطر، والبعد الثاني يحدد رقم العمود.",
+  "notes": [
+    "Array عناصرها Arrays",
+    "البعد الأول للصفوف والبعد الثاني للأعمدة",
+    "الوصول بالقوس المزدوج [0][1]"
+  ]
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="html-slides v0.9.4 (custom RTL blueprint - multi-file)">
+<title>المحاضرة 09 &middot; الجلسات: آلية العمل الداخلية ومعرف PHPSESSID &mdash; شريحة 11</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@600;700;800;900&family=Fira+Code:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body data-next="slide-12.html" data-prev="slide-10.html">
+<div class="deck">
+  <div class="progress-bar"><div class="progress-fill" style="width:37.9%"></div></div>
+  <div class="brand-logo"><img src="logo.jpg" alt="الشعار"></div>
+  <section class="slide active">
+    <span class="slide-index-badge">11 / 29</span>
+    <div class="slide-content">
+
+      <div class="eyebrow">الجلسات &middot; 1</div>
+      <h1 class="slide-title">الجلسات: كيف تعمل وراء الكواليس؟</h1>
+      <p class="slide-text">الجلسة عبارة عن خزانة بيانات سرية في الخادم، والمفتاح الوحيد للوصول إليها هو معرّف مشفر يسمى <code>PHPSESSID</code>:</p>
+      <div class="grid-2">
+        <ul class="bullet-list">
+          <li><strong>1. إنشاء الجلسة:</strong> عند استدعاء <code>session_start()</code>، يولد الخادم سلسلة عشوائية مشفرة (Session ID) مكونة من 32 حرفاً فريداً.</li>
+          <li><strong>2. ملف الخادم:</strong> ينشئ السيرفر ملفاً في مسار التخزين (مثل <code>sess_8a7f...</code>) لحفظ المتغيرات فيه.</li>
+          <li><strong>3. تسليم المفتاح:</strong> يرسل السيرفر كوكي مؤقت للمتصفح يحمل اسم <code>PHPSESSID</code> وقيمته هي ذلك المعرف العشوائي.</li>
+          <li><strong>4. الاستعادة الآمنة:</strong> في كل طلب، يقدم المتصفح كوكي <code>PHPSESSID</code>، فيفتح الخادم ملف الجلسة المطابق فوراً!</li>
+        </ul>
+        <div class="code-window">
+          <div class="code-titlebar">
+            <span class="code-dot red"></span><span class="code-dot yellow"></span><span class="code-dot green"></span>
+            <span class="code-filename">Session Architecture</span>
+          </div>
+          <pre class="code-body"><span class="tok-cmt">// بالمتصفح (العميل): كوكي يحمل المعرف فقط</span>
+Cookie: PHPSESSID=d92b0f4a8e21c60f...
+
+<span class="tok-cmt">// بالخادم (سيرفر الويب): ملف محمي بالكامل</span>
+/tmp/sess_d92b0f4a8e21c60f
+──────────────────────────────────────
+user_id|i:42;
+username|s:5:"ahmed";
+role|s:5:"admin";
+cart|a:2:{...}</pre>
+        </div>
+      </div>
+    </div>
+  </section>
+  <div class="nav-dots">
+    <span class="slide-nav-dot" onclick="window.location.href='slide-01.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-02.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-03.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-04.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-05.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-06.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-07.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-08.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-09.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-10.html'"></span>
+<span class="slide-nav-dot active" onclick="window.location.href='slide-11.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-12.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-13.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-14.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-15.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-16.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-17.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-18.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-19.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-20.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-21.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-22.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-23.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-24.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-25.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-26.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-27.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-28.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-29.html'"></span>
+  </div>
+  <div class="nav-controls">
+    <button class="nav-btn" onclick="window.location.href='slide-12.html'">
+      التالي
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg>
+    </button>
+    <span class="counter">11 / 29</span>
+    <button class="nav-btn" onclick="window.location.href='slide-10.html'">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+      السابق
+    </button>
+  </div>
+</div>
+<script src="script.js"></script>
+<script class="slide-notes" type="application/json">
+{
+  "title": "آلية عمل الجلسات",
+  "script": "المتصفح لا يعلم ما بداخل الجلسة؛ هو فقط يحمل بطاقة برقم خزانته PHPSESSID. الخادم هو الوحيد القادر على فتح الخزانة وقراءة محتواها.",
+  "notes": [
+    "توليد Session ID عشوائي فريد",
+    "حفظ البيانات في ملف آمن بالسيرفر",
+    "المتصفح يملك المفتاح فقط",
+    "أمان تام ضد تلاعب المستخدم"
+  ]
+}
+</script>
+</body>
+</html>

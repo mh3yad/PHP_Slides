@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>المحاضرة 06 &middot; المعاملات الافتراضية والاختيارية &mdash; شريحة 09</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@600;700;800;900&family=Fira+Code:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body data-next="slide-10.html" data-prev="slide-08.html">
+<div class="deck">
+  <div class="progress-bar"><div class="progress-fill" style="width:32.1%"></div></div>
+  <div class="brand-logo"><img src="logo.jpg" alt="الشعار"></div>
+  <section class="slide active">
+    <span class="slide-index-badge">09 / 28</span>
+    <div class="slide-content">
+
+      <div class="eyebrow">المعاملات الافتراضية &middot; 2</div>
+      <h1 class="slide-title">المعاملات الافتراضية (Default Parameters)</h1>
+      <p class="slide-text">تتيح PHP تعيين قيمة مسبقة للمعامل داخل تعريف الدالة، فتصبح القيمة اختيارية عند الاستدعاء.</p>
+      <div class="grid-2">
+        <ul class="bullet-list">
+          <li>تحديد القيمة الافتراضية باستخدام <code>=</code> في سطر التعريف</li>
+          <li>إذا استدعينا الدالة بدون هذا المعامل، تُستخدم القيمة الافتراضية</li>
+          <li>إذا مرّرنا قيمة، يتم استخدام القيمة الممررة وإهمال الافتراضية</li>
+          <li><strong>قاعدة ذهبية:</strong> المعاملات الاختيارية توضع <strong>بعد</strong> المعاملات الإلزامية دائماً</li>
+          <li>تساعد في تقليل عدد الدوال وجعل استدعائها أكثر مرونة</li>
+        </ul>
+        <div class="code-window">
+          <div class="code-titlebar">
+            <span class="code-dot red"></span><span class="code-dot yellow"></span><span class="code-dot green"></span>
+            <span class="code-filename">default_demo.php</span>
+          </div>
+          <pre class="code-body"><span class="tok-kw">function</span> <span class="tok-fn">sayHi</span>(<span class="tok-var">$user</span> = <span class="tok-str">"Guest"</span>) {
+    <span class="tok-kw">echo</span> <span class="tok-str">"Welcome, "</span> . <span class="tok-var">$user</span>;
+}
+
+<span class="tok-fn">sayHi</span>(<span class="tok-str">"Sara"</span>); <span class="tok-cmt">// Welcome, Sara</span>
+<span class="tok-fn">sayHi</span>();       <span class="tok-cmt">// Welcome, Guest</span></pre>
+        </div>
+      </div>
+    </div>
+  </section>
+  <div class="nav-dots">
+    <span class="slide-nav-dot" onclick="window.location.href='slide-01.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-02.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-03.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-04.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-05.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-06.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-07.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-08.html'"></span>
+<span class="slide-nav-dot active" onclick="window.location.href='slide-09.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-10.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-11.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-12.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-13.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-14.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-15.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-16.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-17.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-18.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-19.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-20.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-21.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-22.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-23.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-24.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-25.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-26.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-27.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-28.html'"></span>
+  </div>
+  <div class="nav-controls">
+    <button class="nav-btn" onclick="window.location.href='slide-10.html'">
+      التالي
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg>
+    </button>
+    <span class="counter">09 / 28</span>
+    <button class="nav-btn" onclick="window.location.href='slide-08.html'">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+      السابق
+    </button>
+  </div>
+</div>
+<script src="script.js"></script>
+<script class="slide-notes" type="application/json">
+{
+  "title": "مفهوم المعاملات الافتراضية",
+  "script": "المعاملات الافتراضية تجعل الدالة متعددة الاستخدامات بدون الحاجة لكتابة دوال إضافية. تذكروا دائماً: الإلزامي أولاً ثم الاختياري في النهاية.",
+  "notes": [
+    "تعيين القيمة بـ =",
+    "الاستدعاء مع أو بدون الوسيط",
+    "ترتيب المعاملات: الإلزامي أولاً"
+  ]
+}
+</script>
+</body>
+</html>

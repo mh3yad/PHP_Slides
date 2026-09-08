@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="html-slides v0.9.4 (custom RTL blueprint - multi-file)">
+<title>المحاضرة 09 &middot; دالة session_start() وقواعد الاستدعاء الصارمة &mdash; شريحة 12</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@600;700;800;900&family=Fira+Code:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body data-next="slide-13.html" data-prev="slide-11.html">
+<div class="deck">
+  <div class="progress-bar"><div class="progress-fill" style="width:41.4%"></div></div>
+  <div class="brand-logo"><img src="logo.jpg" alt="الشعار"></div>
+  <section class="slide active">
+    <span class="slide-index-badge">12 / 29</span>
+    <div class="slide-content">
+
+      <div class="eyebrow">الجلسات &middot; 2</div>
+      <h1 class="slide-title">دالة session_start(): حجر الأساس لكل جلسة</h1>
+      <p class="slide-text">قبل أي تعامل مع الجلسة، يجب استدعاء <code>session_start()</code> مع الالتزام بقاعدتين برمجيتين حاسمتين:</p>
+      <div class="grid-2">
+        <ul class="bullet-list">
+          <li><strong>القاعدة 1 (السطر الأول دائماً):</strong> يجب أن تُستدعى <code>session_start()</code> في أول سطر بالملف، <strong>قبل أي مخرجات نصية أو مسافات فارغة أو وسوم HTML</strong>، لأنها ترسل ترويسات HTTP.</li>
+          <li><strong>القاعدة 2 (الاستدعاء في كل صفحة):</strong> يجب وضعها في كل ملف أو صفحة تحتاج لقراءة أو تعديل <code>$_SESSION</code>؛ وبدونها ستكون المصفوفة فارغة تماماً!</li>
+          <li><strong>السلوك التلقائي:</strong> إذا كانت الجلسة موجودة مسبقاً تسترجعها؛ وإن لم تكن موجودة تنشئ جلسة جديدة تلقائياً.</li>
+          <li><code>session_id()</code>: دالة تعيد معرّف الجلسة الحالي المستخدم للربط.</li>
+        </ul>
+        <div class="code-window">
+          <div class="code-titlebar">
+            <span class="code-dot red"></span><span class="code-dot yellow"></span><span class="code-dot green"></span>
+            <span class="code-filename">start.php</span>
+          </div>
+          <pre class="code-body">&lt;?php
+<span class="tok-cmt">// 1. أول تعليمة في الملف إجبارياً</span>
+<span class="tok-fn">session_start</span>();
+
+<span class="tok-cmt">// 2. طباعة معرف الجلسة للتأكد</span>
+<span class="tok-kw">echo</span> <span class="tok-str">"معرف الجلسة: "</span> . <span class="tok-fn">session_id</span>();
+?&gt;
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;body&gt;
+    &lt;h1&gt;مرحباً في الموقع&lt;/h1&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</pre>
+        </div>
+      </div>
+    </div>
+  </section>
+  <div class="nav-dots">
+    <span class="slide-nav-dot" onclick="window.location.href='slide-01.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-02.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-03.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-04.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-05.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-06.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-07.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-08.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-09.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-10.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-11.html'"></span>
+<span class="slide-nav-dot active" onclick="window.location.href='slide-12.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-13.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-14.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-15.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-16.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-17.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-18.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-19.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-20.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-21.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-22.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-23.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-24.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-25.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-26.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-27.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-28.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-29.html'"></span>
+  </div>
+  <div class="nav-controls">
+    <button class="nav-btn" onclick="window.location.href='slide-13.html'">
+      التالي
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg>
+    </button>
+    <span class="counter">12 / 29</span>
+    <button class="nav-btn" onclick="window.location.href='slide-11.html'">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+      السابق
+    </button>
+  </div>
+</div>
+<script src="script.js"></script>
+<script class="slide-notes" type="application/json">
+{
+  "title": "قواعد session_start",
+  "script": "إذا طبعت حرفاً واحداً أو مسافة قبل session_start()، سينفجر خطأ headers already sent الشهير. ضعها دائماً في أول سطر في ملفك أو في ملف التكوين الرئيسي.",
+  "notes": [
+    "استدعاء session_start() في بداية الملف قبل أي HTML",
+    "ضرورة استدعائها في كل صفحة تستخدم الجلسة",
+    "استخراج المعرف بـ session_id()"
+  ]
+}
+</script>
+</body>
+</html>

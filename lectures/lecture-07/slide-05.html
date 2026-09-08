@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>المحاضرة 07 &middot; حقول الاختيار، الملفات، والحقول المخفية &mdash; شريحة 05</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@600;700;800;900&family=Fira+Code:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body data-next="slide-06.html" data-prev="slide-04.html">
+<div class="deck">
+  <div class="progress-bar"><div class="progress-fill" style="width:14.7%"></div></div>
+  <div class="brand-logo"><img src="logo.jpg" alt="الشعار"></div>
+  <section class="slide active">
+    <span class="slide-index-badge">05 / 34</span>
+    <div class="slide-content">
+
+      <div class="eyebrow">نماذج HTML &middot; 1</div>
+      <h1 class="slide-title">حقول الاختيار، الملفات، والحقول المخفية</h1>
+      <p class="slide-text">أنواع إضافية توفر خيارات متعددة في جمع البيانات، رفع الملفات، وتمرير البيانات الخلفية بأمان.</p>
+      <div class="grid-2">
+        <ul class="bullet-list">
+          <li><code>type="radio"</code>: اختيار أحادي فقط؛ تشترك جميع الخيارات في نفس الـ <code>name</code></li>
+          <li><code>type="checkbox"</code>: اختيار متعدد؛ في PHP نضع أقواس مصفوفة: <code>skills[]</code></li>
+          <li><code>type="file"</code>: لرفع الملفات (يتطلب حتماً <code>enctype="multipart/form-data"</code>)</li>
+          <li><code>type="hidden"</code>: حقل خفي لتمرير معرّف (ID) أو رمز أمان CSRF Token دون إظهاره للمستخدم</li>
+          <li>سمات التحقق في HTML5: <code>required</code>، <code>pattern</code>، <code>min</code>، <code>max</code></li>
+        </ul>
+        <div class="code-window">
+          <div class="code-titlebar">
+            <span class="code-dot red"></span><span class="code-dot yellow"></span><span class="code-dot green"></span>
+            <span class="code-filename">advanced_inputs.html</span>
+          </div>
+          <pre class="code-body">&lt;<span class="tok-cmt">&lt;!-- Radio: قيمة واحدة فقط --&gt;</span>
+&lt;<span class="tok-kw">input</span> <span class="tok-fn">type</span>=<span class="tok-str">"radio"</span> <span class="tok-fn">name</span>=<span class="tok-str">"gender"</span> <span class="tok-fn">value</span>=<span class="tok-str">"m"</span>&gt; ذكر
+&lt;<span class="tok-kw">input</span> <span class="tok-fn">type</span>=<span class="tok-str">"radio"</span> <span class="tok-fn">name</span>=<span class="tok-str">"gender"</span> <span class="tok-fn">value</span>=<span class="tok-str">"f"</span>&gt; أنثى
+
+&lt;<span class="tok-cmt">&lt;!-- Checkbox: مصفوفة مهارات --&gt;</span>
+&lt;<span class="tok-kw">input</span> <span class="tok-fn">type</span>=<span class="tok-str">"checkbox"</span> <span class="tok-fn">name</span>=<span class="tok-str">"skills[]"</span> <span class="tok-fn">value</span>=<span class="tok-str">"php"</span>&gt; PHP
+&lt;<span class="tok-kw">input</span> <span class="tok-fn">type</span>=<span class="tok-str">"checkbox"</span> <span class="tok-fn">name</span>=<span class="tok-str">"skills[]"</span> <span class="tok-fn">value</span>=<span class="tok-str">"sql"</span>&gt; SQL
+
+&lt;<span class="tok-cmt">&lt;!-- حقل مخفي --&gt;</span>
+&lt;<span class="tok-kw">input</span> <span class="tok-fn">type</span>=<span class="tok-str">"hidden"</span> <span class="tok-fn">name</span>=<span class="tok-str">"post_id"</span> <span class="tok-fn">value</span>=<span class="tok-str">"42"</span>&gt;</pre>
+        </div>
+      </div>
+    </div>
+  </section>
+  <div class="nav-dots">
+    <span class="slide-nav-dot" onclick="window.location.href='slide-01.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-02.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-03.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-04.html'"></span>
+<span class="slide-nav-dot active" onclick="window.location.href='slide-05.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-06.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-07.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-08.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-09.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-10.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-11.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-12.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-13.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-14.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-15.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-16.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-17.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-18.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-19.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-20.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-21.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-22.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-23.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-24.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-25.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-26.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-27.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-28.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-29.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-30.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-31.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-32.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-33.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-34.html'"></span>
+  </div>
+  <div class="nav-controls">
+    <button class="nav-btn" onclick="window.location.href='slide-06.html'">
+      التالي
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg>
+    </button>
+    <span class="counter">05 / 34</span>
+    <button class="nav-btn" onclick="window.location.href='slide-04.html'">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+      السابق
+    </button>
+  </div>
+</div>
+<script src="script.js"></script>
+<script class="slide-notes" type="application/json">
+{
+  "title": "أنواع مدخلات متقدمة",
+  "script": "عند عمل checkbox متعدد، لو نسيت القوسين [] في الـ name، هتستلم PHP آخر خيار اختاره المستخدم فقط وتهمل الباقي!",
+  "notes": [
+    "radio يشترك في نفس name",
+    "checkbox يحتاج skills[] لاستلام مصفوفة",
+    "حقل hidden لتمرير بيانات السيرفر"
+  ]
+}
+</script>
+</body>
+</html>

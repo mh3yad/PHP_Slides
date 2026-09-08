@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+
+<html dir="rtl" lang="ar">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="html-slides v0.9.4 (custom RTL blueprint - multi-file)" name="generator"/>
+<title>لوغاريتم — التحويل الصريح للأنواع</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&amp;family=Fira+Code:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="styles.css" rel="stylesheet"/>
+</head>
+<body data-next="slide-25.html" data-prev="slide-23.html">
+<div class="brand-logo"><img alt="شعار لوغاريتم" src="assets/logo.jpg"/></div>
+<div class="progress-bar"><div class="progress-fill" style="width:80.0%"></div></div>
+<div class="deck" id="deck">
+<div class="slide active " data-slide="23">
+<div class="slide-index-badge">24 / 30</div>
+<div class="slide-content">
+<div class="eyebrow">التحويل اليدوي — Type Casting</div>
+<h1 class="slide-title">التحويل الصريح للأنواع (Type Casting)</h1>
+<p class="slide-text">عندما تريد أنت إجبار PHP على تحويل نوع المتغير لنوع محدد بدقة، نضع اسم النوع بين قوسين قبل القيمة المطلوبة:</p>
+<div class="grid-2">
+<div class="code-window">
+<div class="code-titlebar">
+<span class="code-dot red"></span><span class="code-dot yellow"></span><span class="code-dot green"></span>
+<span class="code-filename">casting.php</span>
+</div>
+<pre class="code-body"><span class="tok-cmt">// تحويل نص إلى رقم صحيح (int)</span>
+<span class="tok-var">$input</span> = <span class="tok-str">"150"</span>;
+<span class="tok-var">$price</span> = (<span class="tok-kw">int</span>)<span class="tok-var">$input</span>;
+<span class="tok-fn">var_dump</span>(<span class="tok-var">$price</span>);   <span class="tok-cmt">// int(150)</span>
+
+<span class="tok-cmt">// تحويل رقم إلى نص (string)</span>
+<span class="tok-var">$score</span> = <span class="tok-num">98</span>;
+<span class="tok-var">$text</span> = (<span class="tok-kw">string</span>)<span class="tok-var">$score</span>;
+<span class="tok-fn">var_dump</span>(<span class="tok-var">$text</span>);    <span class="tok-cmt">// string(2) "98"</span>
+
+<span class="tok-cmt">// تحويل رقم إلى Boolean (الصفر يعطي false)</span>
+<span class="tok-var">$active</span> = (<span class="tok-kw">bool</span>)<span class="tok-num">0</span>;
+<span class="tok-fn">var_dump</span>(<span class="tok-var">$active</span>);  <span class="tok-cmt">// bool(false)</span></pre>
+</div>
+<div class="browser-window">
+<div class="browser-titlebar">
+<div class="browser-dots"><span class="r"></span><span class="y"></span><span class="g"></span></div>
+<div class="browser-address">localhost/casting.php</div>
+</div>
+<div class="browser-viewport">
+<div class="output-ascii" style="direction:ltr;">int(150)
+string(2) "98"
+bool(false)
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="nav-dots">
+<a class="slide-nav-dot" href="slide-01.html"></a>
+<a class="slide-nav-dot" href="slide-02.html"></a>
+<a class="slide-nav-dot" href="slide-03.html"></a>
+<a class="slide-nav-dot" href="slide-04.html"></a>
+<a class="slide-nav-dot" href="slide-05.html"></a>
+<a class="slide-nav-dot" href="slide-06.html"></a>
+<a class="slide-nav-dot" href="slide-07.html"></a>
+<a class="slide-nav-dot" href="slide-08.html"></a>
+<a class="slide-nav-dot" href="slide-09.html"></a>
+<a class="slide-nav-dot" href="slide-10.html"></a>
+<a class="slide-nav-dot" href="slide-11.html"></a>
+<a class="slide-nav-dot" href="slide-12.html"></a>
+<a class="slide-nav-dot" href="slide-13.html"></a>
+<a class="slide-nav-dot" href="slide-14.html"></a>
+<a class="slide-nav-dot" href="slide-15.html"></a>
+<a class="slide-nav-dot" href="slide-16.html"></a>
+<a class="slide-nav-dot" href="slide-17.html"></a>
+<a class="slide-nav-dot" href="slide-18.html"></a>
+<a class="slide-nav-dot" href="slide-19.html"></a>
+<a class="slide-nav-dot" href="slide-20.html"></a>
+<a class="slide-nav-dot" href="slide-21.html"></a>
+<a class="slide-nav-dot" href="slide-22.html"></a>
+<a class="slide-nav-dot" href="slide-23.html"></a>
+<a class="slide-nav-dot active" href="slide-24.html"></a>
+<a class="slide-nav-dot" href="slide-25.html"></a>
+<a class="slide-nav-dot" href="slide-26.html"></a>
+<a class="slide-nav-dot" href="slide-27.html"></a>
+<a class="slide-nav-dot" href="slide-28.html"></a>
+<a class="slide-nav-dot" href="slide-29.html"></a>
+<a class="slide-nav-dot" href="slide-30.html"></a>
+</div>
+<div class="nav-controls">
+<a class="nav-btn" href="slide-25.html">
+    التالي
+    <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.4" viewbox="0 0 24 24"><polyline points="9 18 15 12 9 6"></polyline></svg>
+</a>
+<span class="counter">24 / 30</span>
+<a class="nav-btn" href="slide-23.html">
+<svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.4" viewbox="0 0 24 24"><polyline points="9 18 15 12 9 6" transform="rotate(180 12 12)"></polyline></svg>
+    السابق
+  </a>
+</div>
+<script src="script.js"></script>
+<script class="slide-notes" type="application/json">{
+  "23": {
+    "title": "التحويل الصريح للأنواع",
+    "notes": "أكّد على أن Type Casting مهم جدًا لتأمين مدخلات المستخدم والتحقق من صحة البيانات قبل استخدامها."
+  }
+}</script>
+</body>
+</html>

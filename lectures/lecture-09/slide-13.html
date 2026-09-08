@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="html-slides v0.9.4 (custom RTL blueprint - multi-file)">
+<title>المحاضرة 09 &middot; التعامل مع المصفوفة الفائقة $_SESSION &mdash; شريحة 13</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@600;700;800;900&family=Fira+Code:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body data-next="slide-14.html" data-prev="slide-12.html">
+<div class="deck">
+  <div class="progress-bar"><div class="progress-fill" style="width:44.8%"></div></div>
+  <div class="brand-logo"><img src="logo.jpg" alt="الشعار"></div>
+  <section class="slide active">
+    <span class="slide-index-badge">13 / 29</span>
+    <div class="slide-content">
+
+      <div class="eyebrow">الجلسات &middot; 3</div>
+      <h1 class="slide-title">التخزين والقراءة بـ المصفوفة الفائقة $_SESSION</h1>
+      <p class="slide-text">تتعامل مع <code>$_SESSION</code> كمصفوفة ترابطية عادية تماماً، ولكنها تحتفظ ببياناتها عبر كافة الصفحات والطلبات:</p>
+      <div class="exercise-grid">
+        <div class="question-card">
+          <div class="qlabel">خصائص $_SESSION</div>
+          <ul class="bullet-list" style="margin-top:0.3rem;">
+            <li><strong>تخزين أي نوع بيانات:</strong> نصوص، أرقام، مصفوفات متعددة الأبعاد، وكائنات!</li>
+            <li><strong>استمرار البيانات:</strong> تبقى محفوظة طوال جلسة المستخدم ما دام المتصفح مفتوحاً.</li>
+            <li><strong>الفحص الآمن:</strong> نستخدم <code>isset()</code> و <code>empty()</code> للتحقق من وجود المفاتيح قبل القراءة.</li>
+          </ul>
+        </div>
+        <div class="code-window">
+          <div class="code-titlebar">
+            <span class="code-dot red"></span><span class="code-dot yellow"></span><span class="code-dot green"></span>
+            <span class="code-filename">session_storage.php</span>
+          </div>
+          <pre class="code-body"><span class="tok-fn">session_start</span>();
+
+<span class="tok-cmt">// تخزين بيانات مختلفة في الجلسة</span>
+<span class="tok-var">$_SESSION</span>[<span class="tok-str">'user_id'</span>]  = <span class="tok-num">101</span>;
+<span class="tok-var">$_SESSION</span>[<span class="tok-str">'username'</span>] = <span class="tok-str">"طارق"</span>;
+<span class="tok-var">$_SESSION</span>[<span class="tok-str">'is_admin'</span>] = <span class="tok-kw">true</span>;
+<span class="tok-var">$_SESSION</span>[<span class="tok-str">'cart'</span>]     = [<span class="tok-str">'item_1'</span>, <span class="tok-str">'item_2'</span>];
+
+<span class="tok-cmt">// قراءة البيانات في صفحة أخرى</span>
+<span class="tok-kw">if</span> (<span class="tok-var">$_SESSION</span>[<span class="tok-str">'is_admin'</span>] ?? <span class="tok-kw">false</span>) {
+    <span class="tok-kw">echo</span> <span class="tok-str">"أهلاً بالقائد "</span> . <span class="tok-var">$_SESSION</span>[<span class="tok-str">'username'</span>];
+}</pre>
+        </div>
+        <div class="browser-window">
+          <div class="browser-titlebar">
+            <div class="browser-dots"><span class="r"></span><span class="y"></span><span class="g"></span></div>
+            <div class="browser-address">localhost/profile.php</div>
+          </div>
+          <div class="browser-viewport">
+            <div class="output-ascii" style="direction:rtl;text-align:start;padding:0.75rem;font-size:0.85rem;">
+أهلاً بالقائد طارق
+رقم المعرف: 101
+عدد عناصر السلة المخزنة: 2
+حالة الجلسة: نشطة ومحمية بالخادم
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <div class="nav-dots">
+    <span class="slide-nav-dot" onclick="window.location.href='slide-01.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-02.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-03.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-04.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-05.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-06.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-07.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-08.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-09.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-10.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-11.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-12.html'"></span>
+<span class="slide-nav-dot active" onclick="window.location.href='slide-13.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-14.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-15.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-16.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-17.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-18.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-19.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-20.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-21.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-22.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-23.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-24.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-25.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-26.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-27.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-28.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-29.html'"></span>
+  </div>
+  <div class="nav-controls">
+    <button class="nav-btn" onclick="window.location.href='slide-14.html'">
+      التالي
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg>
+    </button>
+    <span class="counter">13 / 29</span>
+    <button class="nav-btn" onclick="window.location.href='slide-12.html'">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+      السابق
+    </button>
+  </div>
+</div>
+<script src="script.js"></script>
+<script class="slide-notes" type="application/json">
+{
+  "title": "استخدام مصفوفة $_SESSION",
+  "script": "الجميل في $_SESSION أنها مصفوفة عادية في الكود، لكن PHP تتولى سراً تشفيرها وحفظها بالخادم واسترجاعها في كل طلب للمستخدم.",
+  "notes": [
+    "تخزين أنواع البيانات البسيطة والمركبة",
+    "مشاركة البيانات بين كافة صفحات الموقع",
+    "فحص المتغيرات بـ ?? أو isset"
+  ]
+}
+</script>
+</body>
+</html>

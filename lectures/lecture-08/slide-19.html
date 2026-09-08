@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>المحاضرة 08 &middot; أخطاء شائعة في الملفات و JSON &mdash; شريحة 19</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@600;700;800;900&family=Fira+Code:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body data-next="slide-20.html" data-prev="slide-18.html">
+<div class="deck">
+  <div class="progress-bar"><div class="progress-fill" style="width:73.1%"></div></div>
+  <div class="brand-logo"><img src="logo.jpg" alt="الشعار"></div>
+  <section class="slide active">
+    <span class="slide-index-badge">19 / 26</span>
+    <div class="slide-content">
+
+      <div class="eyebrow">احذر هذه الأخطاء &middot; 2</div>
+      <h1 class="slide-title">أخطاء شائعة في التعامل مع الملفات و JSON</h1>
+      <p class="slide-text">تجنب هذه المشكلات التي تؤدي لتلف البيانات أو حجز موارد السيرفر أو توقف الكود:</p>
+      <div class="naming-grid">
+        <div class="naming-card rules">
+          <div class="naming-card-title">❌ مسح الملف بوضع 'w' ونسيان fclose</div>
+          <ul class="bullet-list">
+            <li>فتح الملف بوضع <code>fopen($file, 'w')</code> يمسح محتواه فوراً حتى لو لم تكتب أي شيء؛ للإلحاق استخدم وضع <code>'a'</code>.</li>
+            <li>نسيان استدعاء <code>fclose($handle)</code> يبقي الملف محجوزاً في نظام التشغيل ويمنع العمليات الأخرى من تعديله.</li>
+            <li>محاولة القراءة من مسار غير موجود دون التحقق بـ <code>file_exists()</code> ينتج تحذيراً برمجياً.</li>
+          </ul>
+        </div>
+        <div class="naming-card conventions">
+          <div class="naming-card-title">⚠️ نسيان المعامل true في json_decode</div>
+          <ul class="bullet-list">
+            <li>كتابة <code>$data = json_decode($json);</code> تعيد كائناً من نوع <code>stdClass</code>، فمحاولة الوصول <code>$data['name']</code> ستفشل بخطأ Fatal!</li>
+            <li><strong>التصحيح:</strong> مرر دائماً <code>true</code> كمعامل ثانٍ: <code>json_decode($json, true)</code> لتعيد مصفوفة ترابطية عادية.</li>
+            <li>عدم فحص أخطاء JSON بـ <code>json_last_error()</code> عند استقبال نصوص مشوهة.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+  <div class="nav-dots">
+    <span class="slide-nav-dot" onclick="window.location.href='slide-01.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-02.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-03.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-04.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-05.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-06.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-07.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-08.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-09.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-10.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-11.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-12.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-13.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-14.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-15.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-16.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-17.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-18.html'"></span>
+<span class="slide-nav-dot active" onclick="window.location.href='slide-19.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-20.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-21.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-22.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-23.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-24.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-25.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-26.html'"></span>
+  </div>
+  <div class="nav-controls">
+    <button class="nav-btn" onclick="window.location.href='slide-20.html'">
+      التالي
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg>
+    </button>
+    <span class="counter">19 / 26</span>
+    <button class="nav-btn" onclick="window.location.href='slide-18.html'">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+      السابق
+    </button>
+  </div>
+</div>
+<script src="script.js"></script>
+<script class="slide-notes" type="application/json">
+{
+  "title": "أخطاء شائعة في الملفات و JSON",
+  "script": "أشهر خطأ على الإطلاق: الطالب يكتب $data['name'] بعد json_decode فيتفاجأ بخطأ Cannot use object of type stdClass as array، والحل هو المعامل true.",
+  "notes": [
+    "وضع w يفرغ الملف فوراً",
+    "نسيان fclose يحجز الموارد",
+    "نسيان true في json_decode ينتج كائناً بدلاً من مصفوفة",
+    "أهمية فحص file_exists"
+  ]
+}
+</script>
+</body>
+</html>

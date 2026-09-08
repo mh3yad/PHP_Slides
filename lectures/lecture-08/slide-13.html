@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>المحاضرة 08 &middot; التعامل مع ملفات CSV في PHP &mdash; شريحة 13</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@600;700;800;900&family=Fira+Code:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body data-next="slide-14.html" data-prev="slide-12.html">
+<div class="deck">
+  <div class="progress-bar"><div class="progress-fill" style="width:50.0%"></div></div>
+  <div class="brand-logo"><img src="logo.jpg" alt="الشعار"></div>
+  <section class="slide active">
+    <span class="slide-index-badge">13 / 26</span>
+    <div class="slide-content">
+
+      <div class="eyebrow">نظام الملفات &middot; 4</div>
+      <h1 class="slide-title">قراءة وكتابة ملفات الجداول CSV</h1>
+      <p class="slide-text">صيغة CSV هي المعيار الأبسط لتصدير واستيراد بيانات الجداول والإكسل بين الأنظمة:</p>
+      <div class="grid-2">
+        <ul class="bullet-list">
+          <li><code>fgetcsv($handle)</code>: قراءة سطر من ملف CSV وتحويله مباشرة إلى <strong>مصفوفة عناصر</strong>!</li>
+          <li><code>fputcsv($handle, $fields)</code>: أخذ مصفوفة وكتابتها كسطر CSV منسق ومحمي تلقائياً بعلامات التنصيص.</li>
+          <li><strong>الميزة العظمى:</strong> التعامل التلقائي مع الفواصل وعلامات الهروب دون الحاجة لتقطيع النصوص يدوياً.</li>
+          <li><strong>الاستخدام الشائع:</strong> تصدير فواتير المبيعات، استيراد قوائم الطلاب، وتقارير المحاسبة.</li>
+        </ul>
+        <div class="code-window">
+          <div class="code-titlebar">
+            <span class="code-dot red"></span><span class="code-dot yellow"></span><span class="code-dot green"></span>
+            <span class="code-filename">csv_export.php</span>
+          </div>
+          <pre class="code-body"><span class="tok-var">$file</span> = <span class="tok-fn">fopen</span>(<span class="tok-str">"users.csv"</span>, <span class="tok-str">"w"</span>);
+
+<span class="tok-cmt">// كتابة ترويسة الجدول</span>
+<span class="tok-fn">fputcsv</span>(<span class="tok-var">$file</span>, [<span class="tok-str">"المعرف"</span>, <span class="tok-str">"الاسم"</span>, <span class="tok-str">"البريد"</span>]);
+
+<span class="tok-cmt">// كتابة صفوف البيانات</span>
+<span class="tok-fn">fputcsv</span>(<span class="tok-var">$file</span>, [<span class="tok-num">1</span>, <span class="tok-str">"أحمد علي"</span>, <span class="tok-str">"ahmed@test.com"</span>]);
+<span class="tok-fn">fputcsv</span>(<span class="tok-var">$file</span>, [<span class="tok-num">2</span>, <span class="tok-str">"سارة محمود"</span>, <span class="tok-str">"sara@test.com"</span>]);
+
+<span class="tok-fn">fclose</span>(<span class="tok-var">$file</span>);
+<span class="tok-kw">echo</span> <span class="tok-str">"تم تصدير ملف CSV بنجاح!"</span>;</pre>
+        </div>
+      </div>
+    </div>
+  </section>
+  <div class="nav-dots">
+    <span class="slide-nav-dot" onclick="window.location.href='slide-01.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-02.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-03.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-04.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-05.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-06.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-07.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-08.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-09.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-10.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-11.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-12.html'"></span>
+<span class="slide-nav-dot active" onclick="window.location.href='slide-13.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-14.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-15.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-16.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-17.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-18.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-19.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-20.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-21.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-22.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-23.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-24.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-25.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-26.html'"></span>
+  </div>
+  <div class="nav-controls">
+    <button class="nav-btn" onclick="window.location.href='slide-14.html'">
+      التالي
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg>
+    </button>
+    <span class="counter">13 / 26</span>
+    <button class="nav-btn" onclick="window.location.href='slide-12.html'">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+      السابق
+    </button>
+  </div>
+</div>
+<script src="script.js"></script>
+<script class="slide-notes" type="application/json">
+{
+  "title": "التعامل مع ملفات CSV",
+  "script": "ملفات CSV ممتازة لأن أي شخص يمكن فتحها على Excel. fputcsv و fgetcsv تجعلان قراءتها وكتابتها في PHP أسهل ما يكون.",
+  "notes": [
+    "أهمية صيغة CSV كجسر مع Excel",
+    "الكتابة التلقائية بـ fputcsv",
+    "القراءة المباشرة كمصفوفة بـ fgetcsv"
+  ]
+}
+</script>
+</body>
+</html>

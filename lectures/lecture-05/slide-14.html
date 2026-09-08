@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="html-slides v0.9.4 (custom RTL blueprint - multi-file)">
+<title>المحاضرة 05 &middot; دوال التعديل: array_merge و unset &mdash; شريحة 14</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@600;700;800;900&family=Fira+Code:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body data-next="slide-15.html" data-prev="slide-13.html">
+<div class="deck">
+  <div class="progress-bar"><div class="progress-fill" style="width:48.3%"></div></div>
+  <div class="brand-logo"><img src="logo.jpg" alt="الشعار"></div>
+  <section class="slide active">
+    <span class="slide-index-badge">14 / 29</span>
+    <div class="slide-content">
+
+      <div class="eyebrow">دوال التعديل &middot; 2</div>
+      <h1 class="slide-title">الدمج والحذف المباشر: array_merge و unset</h1>
+      <p class="slide-text">دمج عدة Arrays في Array واحدة، وحذف عناصر محددة بواسطة مفاتيحها:</p>
+      <div class="grid-2">
+        <ul class="bullet-list">
+          <li><code>array_merge($arr1, $arr2, ...)</code>: تدمج 2 Arrays أو أكثر وتنشئ Array جديدة بالكامل دون المساس بالأصلية.</li>
+          <li><strong>سلوك المفاتيح في الدمج:</strong>
+            المفاتيح العددية يُعاد ترقيمها تلقائياً من 0؛ أما المفاتيح النصية المتشابهة فيقوم الأخير باستبدال الأول.</li>
+          <li><code>unset($arr[key])</code>: تعليمة لحذف عنصر محدد (بفهرس رقمي أو مفتاح نصي) من الذاكرة فوراً.</li>
+          <li><strong>ملاحظة هامة:</strong> <code>unset</code> لا تعيد ترتيب المفاتيح العددية؛ قد تترك فجوة في الترقيم.</li>
+        </ul>
+        <div class="code-window">
+          <div class="code-titlebar">
+            <span class="code-dot red"></span><span class="code-dot yellow"></span><span class="code-dot green"></span>
+            <span class="code-filename">merge_unset.php</span>
+          </div>
+          <pre class="code-body"><span class="tok-var">$a</span> = [<span class="tok-str">"PHP"</span>, <span class="tok-str">"Laravel"</span>];
+<span class="tok-var">$b</span> = [<span class="tok-str">"MySQL"</span>, <span class="tok-str">"Vue"</span>];
+
+<span class="tok-cmt">// دمج الـ 2 Arrays</span>
+<span class="tok-var">$fullStack</span> = <span class="tok-fn">array_merge</span>(<span class="tok-var">$a</span>, <span class="tok-var">$b</span>);
+<span class="tok-cmt">// ["PHP", "Laravel", "MySQL", "Vue"]</span>
+
+<span class="tok-cmt">// حذف عنصر معين بواسطة المفتاح</span>
+<span class="tok-kw">unset</span>(<span class="tok-var">$fullStack</span>[<span class="tok-num">1</span>]); <span class="tok-cmt">// حذف Laravel</span>
+
+<span class="tok-fn">print_r</span>(<span class="tok-var">$fullStack</span>);</pre>
+        </div>
+      </div>
+    </div>
+  </section>
+  <div class="nav-dots">
+    <span class="slide-nav-dot" onclick="window.location.href='slide-01.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-02.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-03.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-04.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-05.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-06.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-07.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-08.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-09.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-10.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-11.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-12.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-13.html'"></span>
+<span class="slide-nav-dot active" onclick="window.location.href='slide-14.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-15.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-16.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-17.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-18.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-19.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-20.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-21.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-22.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-23.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-24.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-25.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-26.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-27.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-28.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-29.html'"></span>
+  </div>
+  <div class="nav-controls">
+    <button class="nav-btn" onclick="window.location.href='slide-15.html'">
+      التالي
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg>
+    </button>
+    <span class="counter">14 / 29</span>
+    <button class="nav-btn" onclick="window.location.href='slide-13.html'">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+      السابق
+    </button>
+  </div>
+</div>
+<script src="script.js"></script>
+<script class="slide-notes" type="application/json">
+{
+  "title": "array_merge و unset",
+  "script": "array_merge تجمع Arrays وتنتج Array جديدة. unset تدمر عنصراً محدداً من الـ Array الحالية مباشرة.",
+  "notes": [
+    "array_merge تعيد Array مدمجة جديدة",
+    "إعادة ترقيم المفاتيح العددية في الدمج",
+    "unset تحذف العنصر فوراً دون إعادة ترقيم"
+  ]
+}
+</script>
+</body>
+</html>

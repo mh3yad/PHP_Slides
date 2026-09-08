@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>المحاضرة 06 &middot; نطاق المتغيرات: المحلي والعام &mdash; شريحة 13</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@600;700;800;900&family=Fira+Code:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body data-next="slide-14.html" data-prev="slide-12.html">
+<div class="deck">
+  <div class="progress-bar"><div class="progress-fill" style="width:46.4%"></div></div>
+  <div class="brand-logo"><img src="logo.jpg" alt="الشعار"></div>
+  <section class="slide active">
+    <span class="slide-index-badge">13 / 28</span>
+    <div class="slide-content">
+
+      <div class="eyebrow">نطاق المتغيرات &middot; 3</div>
+      <h1 class="slide-title">نطاق المتغيرات: المحلي والعام</h1>
+      <p class="slide-text">النطاق (Scope) يحدد أين يمكن رؤية المتغير واستخدامه في الكود. دوال PHP تتمتع بنطاق معزول تماماً عن المحيط الخارجي.</p>
+      <div class="grid-2">
+        <ul class="bullet-list">
+          <li><strong>النطاق المحلي (Local Scope):</strong> أي متغير يُنشأ داخل دالة، يعيش ويموت بداخلها فقط</li>
+          <li><strong>النطاق العام (Global Scope):</strong> المتغيرات المعرفة خارج أي دالة</li>
+          <li>الدالة في PHP <strong>لا تستطيع رؤية المتغيرات العامة</strong> تلقائياً</li>
+          <li>لإتاحة متغير عام داخل الدالة، نستخدم الكلمة المفتاحية <code>global</code></li>
+          <li>العزل التام يحمي المتغيرات من التعديل العشوائي غير المقصود</li>
+        </ul>
+        <div class="code-window">
+          <div class="code-titlebar">
+            <span class="code-dot red"></span><span class="code-dot yellow"></span><span class="code-dot green"></span>
+            <span class="code-filename">scope_intro.php</span>
+          </div>
+          <pre class="code-body"><span class="tok-var">$appName</span> = <span class="tok-str">"Logharitm"</span>; <span class="tok-cmt">// Global</span>
+
+<span class="tok-kw">function</span> <span class="tok-fn">showApp</span>() {
+    <span class="tok-cmt">// echo $appName; // خطأ: Undefined variable</span>
+    <span class="tok-var">$version</span> = <span class="tok-str">"2.0"</span>;  <span class="tok-cmt">// Local</span>
+}
+
+<span class="tok-cmt">// echo $version; // خطأ: غير مرئي خارج الدالة!</span></pre>
+        </div>
+      </div>
+    </div>
+  </section>
+  <div class="nav-dots">
+    <span class="slide-nav-dot" onclick="window.location.href='slide-01.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-02.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-03.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-04.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-05.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-06.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-07.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-08.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-09.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-10.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-11.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-12.html'"></span>
+<span class="slide-nav-dot active" onclick="window.location.href='slide-13.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-14.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-15.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-16.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-17.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-18.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-19.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-20.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-21.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-22.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-23.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-24.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-25.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-26.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-27.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-28.html'"></span>
+  </div>
+  <div class="nav-controls">
+    <button class="nav-btn" onclick="window.location.href='slide-14.html'">
+      التالي
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg>
+    </button>
+    <span class="counter">13 / 28</span>
+    <button class="nav-btn" onclick="window.location.href='slide-12.html'">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+      السابق
+    </button>
+  </div>
+</div>
+<script src="script.js"></script>
+<script class="slide-notes" type="application/json">
+{
+  "title": "نطاق المتغيرات Local و Global",
+  "script": "نطاق المتغيرات في PHP يختلف عن لغات أخرى مثل جافاسكريبت؛ فالدالة هنا جزيرة منعزلة تماماً، لا ترى ما بالخارج ولا يرى الخارج ما بداخلها إلا بإذن صريح.",
+  "notes": [
+    "النطاق المحلي خاص بالدالة فقط",
+    "النطاق العام خارج الدوال",
+    "عزل المتغيرات لحماية البيانات"
+  ]
+}
+</script>
+</body>
+</html>

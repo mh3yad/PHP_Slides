@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="html-slides v0.9.4 (custom RTL blueprint - multi-file)">
+<title>المحاضرة 09 &middot; معضلة الويب عديم الحالة (Stateless Protocol) &mdash; شريحة 03</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@600;700;800;900&family=Fira+Code:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body data-next="slide-04.html" data-prev="slide-02.html">
+<div class="deck">
+  <div class="progress-bar"><div class="progress-fill" style="width:10.3%"></div></div>
+  <div class="brand-logo"><img src="logo.jpg" alt="الشعار"></div>
+  <section class="slide active">
+    <span class="slide-index-badge">03 / 29</span>
+    <div class="slide-content">
+
+      <div class="eyebrow">مفهوم الحالة &middot; 1</div>
+      <h1 class="slide-title">معضلة الويب: بروتوكول HTTP عديم الحالة</h1>
+      <p class="slide-text">صُمم بروتوكول HTTP ليكون عديم الحالة (Stateless)؛ فكل طلب (Request) يُعامل كحدث مستقل تماماً عن أي طلب سابق:</p>
+      <div class="flow-steps">
+        <div class="flow-step">
+          <div class="flow-icon">🔑</div>
+          <div class="flow-title">الطلب 1: تسجيل الدخول</div>
+          <div class="flow-desc">المتصفح يرسل الاسم وكلمة المرور، ويتحقق السيرفر بنجاح ويعيد صفحة الترحيب</div>
+        </div>
+        <div class="flow-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+        <div class="flow-step">
+          <div class="flow-icon">❓</div>
+          <div class="flow-title">الطلب 2: لوحة التحكم</div>
+          <div class="flow-desc">المتصفح يطلب صفحة الحساب، فيرد السيرفر: «من أنت؟ أنا لا أتذكر أي طلبات سابقة!»</div>
+        </div>
+        <div class="flow-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+        <div class="flow-step">
+          <div class="flow-icon">💡</div>
+          <div class="flow-title">الحل: بطاقة الهوية (State)</div>
+          <div class="flow-desc">تزويد المتصفح ببطاقة هوية (Token / Cookie) يرسلها مع كل طلب قادم ليتعرف عليه الخادم</div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <div class="nav-dots">
+    <span class="slide-nav-dot" onclick="window.location.href='slide-01.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-02.html'"></span>
+<span class="slide-nav-dot active" onclick="window.location.href='slide-03.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-04.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-05.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-06.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-07.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-08.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-09.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-10.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-11.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-12.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-13.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-14.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-15.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-16.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-17.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-18.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-19.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-20.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-21.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-22.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-23.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-24.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-25.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-26.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-27.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-28.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-29.html'"></span>
+  </div>
+  <div class="nav-controls">
+    <button class="nav-btn" onclick="window.location.href='slide-04.html'">
+      التالي
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg>
+    </button>
+    <span class="counter">03 / 29</span>
+    <button class="nav-btn" onclick="window.location.href='slide-02.html'">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+      السابق
+    </button>
+  </div>
+</div>
+<script src="script.js"></script>
+<script class="slide-notes" type="application/json">
+{
+  "title": "طبيعة HTTP عديم الحالة",
+  "script": "تخيل أنك تدخل بنكاً وفي كل خطوة يسألك الموظف عن بطاقتك الشخصية من الصفر لأنه ينسى وجهك فور انتهاء الحديث. هذا تماماً هو سلوك HTTP، والحل هو إدارة الحالة State Management.",
+  "notes": [
+    "طبيعة HTTP المستقلة لكل طلب",
+    "مشكلة نسيان سياق المستخدم",
+    "أهمية تزويد المتصفح ببطاقة تعريفية للربط"
+  ]
+}
+</script>
+</body>
+</html>

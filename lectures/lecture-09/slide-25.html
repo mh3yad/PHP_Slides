@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="html-slides v0.9.4 (custom RTL blueprint - multi-file)">
+<title>المحاضرة 09 &middot; واجب 2: لوحة تحكم محمية ونظام مصادقة كامل &mdash; شريحة 25</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@600;700;800;900&family=Fira+Code:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body data-next="slide-26.html" data-prev="slide-24.html">
+<div class="deck">
+  <div class="progress-bar"><div class="progress-fill" style="width:86.2%"></div></div>
+  <div class="brand-logo"><img src="logo.jpg" alt="الشعار"></div>
+  <section class="slide active">
+    <span class="slide-index-badge">25 / 29</span>
+    <div class="slide-content">
+
+      <div class="eyebrow">الواجبات العملية &middot; 2 (متوسط)</div>
+      <h1 class="slide-title">واجب 2: نظام تسجيل دخول ولوحة تحكم محمية</h1>
+      <p class="slide-text">بناء نظام متكامل لتسجيل الدخول والخروج مع حماية الصفحات وتجديد المعرف الأمني:</p>
+      <div class="homework-grid">
+        <div class="question-card">
+          <div class="qlabel">المطلوب في الواجب 2</div>
+          <ul class="bullet-list" style="margin-top:0.3rem;">
+            <li>صفحة <code>login.php</code>: نموذج دخول يفحص (اسم المستخدم وكلمة المرور) مقابل بيانات مسجلة.</li>
+            <li>عند نجاح الدخول: استدعِ <code>session_regenerate_id(true)</code> وخزن الاسم وحالة الدخول في <code>$_SESSION</code>.</li>
+            <li>صفحة <code>dashboard.php</code>: محمية بالكامل؛ إذا دخلها زائر بدون تسجيل يتم طرده لـ <code>login.php</code>.</li>
+            <li>صفحة <code>logout.php</code>: تفرغ المصفوفة، تمسح كوكي الجلسة، وتدمر الجلسة بالكامل مع التحويل لصفحة الدخول.</li>
+          </ul>
+        </div>
+        <div class="code-window">
+          <div class="code-titlebar">
+            <span class="code-dot red"></span><span class="code-dot yellow"></span><span class="code-dot green"></span>
+            <span class="code-filename">hw2_auth.php</span>
+          </div>
+          <pre class="code-body"><span class="tok-fn">session_start</span>();
+
+<span class="tok-cmt">// فحص الدخول الآمن</span>
+<span class="tok-kw">if</span> (<span class="tok-var">$user_is_valid</span>) {
+    <span class="tok-fn">session_regenerate_id</span>(<span class="tok-kw">true</span>);
+    <span class="tok-var">$_SESSION</span>[<span class="tok-str">'logged_in'</span>] = <span class="tok-kw">true</span>;
+    <span class="tok-var">$_SESSION</span>[<span class="tok-str">'user'</span>]      = <span class="tok-var">$username</span>;
+    <span class="tok-fn">header</span>(<span class="tok-str">"Location: dashboard.php"</span>);
+    <span class="tok-kw">exit</span>;
+}</pre>
+        </div>
+      </div>
+    </div>
+  </section>
+  <div class="nav-dots">
+    <span class="slide-nav-dot" onclick="window.location.href='slide-01.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-02.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-03.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-04.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-05.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-06.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-07.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-08.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-09.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-10.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-11.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-12.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-13.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-14.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-15.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-16.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-17.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-18.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-19.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-20.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-21.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-22.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-23.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-24.html'"></span>
+<span class="slide-nav-dot active" onclick="window.location.href='slide-25.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-26.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-27.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-28.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-29.html'"></span>
+  </div>
+  <div class="nav-controls">
+    <button class="nav-btn" onclick="window.location.href='slide-26.html'">
+      التالي
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg>
+    </button>
+    <span class="counter">25 / 29</span>
+    <button class="nav-btn" onclick="window.location.href='slide-24.html'">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+      السابق
+    </button>
+  </div>
+</div>
+<script src="script.js"></script>
+<script class="slide-notes" type="application/json">
+{
+  "title": "واجب 2: نظام المصادقة المحمي",
+  "script": "هذا الواجب هو المشروع الأكثر طلباً في مشاريع التخرج ومقابلات العمل: بوابة دخول آمنة مع لوحة تحكم محمية وجدار حماية.",
+  "notes": [
+    "تطبيق جدار الحماية Auth Guard",
+    "استخدام session_regenerate_id",
+    "برمجة تسجيل الخروج الكامل"
+  ]
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>المحاضرة 06 &middot; مثال 2: دالة مع array_map &mdash; شريحة 20</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@600;700;800;900&family=Fira+Code:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body data-next="slide-21.html" data-prev="slide-19.html">
+<div class="deck">
+  <div class="progress-bar"><div class="progress-fill" style="width:71.4%"></div></div>
+  <div class="brand-logo"><img src="logo.jpg" alt="الشعار"></div>
+  <section class="slide active">
+    <span class="slide-index-badge">20 / 28</span>
+    <div class="slide-content">
+
+      <div class="eyebrow">الدوال المجهولة &middot; مثال 2</div>
+      <h1 class="slide-title">مثال 2: استخدام دالة مجهولة مع array_map</h1>
+      <p class="slide-text">استخدام دالة مجهولة كـ Callback مع <code>array_map</code> لتربيع عناصر الـ array [1, 2, 3].</p>
+      <div class="exercise-grid">
+        <div class="question-card">
+          <div class="qlabel">السؤال</div>
+          <p>استخدم دالة <code>array_map</code> مع دالة مجهولة لحساب مربع كل رقم في الـ array [1, 2, 3] للحصول على [1, 4, 9]. اطبع الناتج بـ print_r.</p>
+        </div>
+        <div class="code-window">
+          <div class="code-titlebar">
+            <span class="code-dot red"></span><span class="code-dot yellow"></span><span class="code-dot green"></span>
+            <span class="code-filename">array_map.php</span>
+          </div>
+          <pre class="code-body"><span class="tok-var">$nums</span> = [<span class="tok-num">1</span>, <span class="tok-num">2</span>, <span class="tok-num">3</span>];
+
+<span class="tok-var">$squared</span> = <span class="tok-fn">array_map</span>(<span class="tok-kw">function</span>(<span class="tok-var">$n</span>) {
+    <span class="tok-kw">return</span> <span class="tok-var">$n</span> * <span class="tok-var">$n</span>;
+}, <span class="tok-var">$nums</span>);
+
+<span class="tok-fn">print_r</span>(<span class="tok-var">$squared</span>);</pre>
+        </div>
+        <div class="browser-window">
+          <div class="browser-titlebar">
+            <div class="browser-dots"><span class="r"></span><span class="y"></span><span class="g"></span></div>
+            <div class="browser-address">localhost/array_map.php</div>
+          </div>
+          <div class="browser-viewport">
+            <div class="output-ascii" style="direction:ltr;font-size:0.8rem;text-align:start;">Array
+(
+    [0] => 1
+    [1] => 4
+    [2] => 9
+)</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <div class="nav-dots">
+    <span class="slide-nav-dot" onclick="window.location.href='slide-01.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-02.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-03.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-04.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-05.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-06.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-07.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-08.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-09.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-10.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-11.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-12.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-13.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-14.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-15.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-16.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-17.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-18.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-19.html'"></span>
+<span class="slide-nav-dot active" onclick="window.location.href='slide-20.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-21.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-22.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-23.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-24.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-25.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-26.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-27.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-28.html'"></span>
+  </div>
+  <div class="nav-controls">
+    <button class="nav-btn" onclick="window.location.href='slide-21.html'">
+      التالي
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg>
+    </button>
+    <span class="counter">20 / 28</span>
+    <button class="nav-btn" onclick="window.location.href='slide-19.html'">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+      السابق
+    </button>
+  </div>
+</div>
+<script src="script.js"></script>
+<script class="slide-notes" type="application/json">
+{
+  "title": "مثال استخدام الدالة المجهولة كـ Callback",
+  "script": "هذا الاستخدام الأهم والأكثر واقعية للدوال المجهولة؛ حيث نمررها مباشرة إلى array_map لتطبق العملية على كل عنصر من عناصر الـ array بدون كتابة loop يدوي.",
+  "notes": [
+    "دالة array_map تأخذ callback و array",
+    "تربيع الأرقام 1, 2, 3",
+    "المخرجات array [1, 4, 9]"
+  ]
+}
+</script>
+</body>
+</html>

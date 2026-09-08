@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="html-slides v0.9.4 (custom RTL blueprint - multi-file)">
+<title>المحاضرة 05 &middot; مثال 1: قراءة عناصر Indexed Array &mdash; شريحة 04</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@600;700;800;900&family=Fira+Code:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body data-next="slide-05.html" data-prev="slide-03.html">
+<div class="deck">
+  <div class="progress-bar"><div class="progress-fill" style="width:13.8%"></div></div>
+  <div class="brand-logo"><img src="logo.jpg" alt="الشعار"></div>
+  <section class="slide active">
+    <span class="slide-index-badge">04 / 29</span>
+    <div class="slide-content">
+
+      <div class="eyebrow">Indexed Arrays &middot; مثال 1</div>
+      <h1 class="slide-title">مثال 1: قراءة عناصر Indexed Array</h1>
+      <p class="slide-text">استخراج قيم محددة من Array فواكه وعرضها في المتصفح بالتسلسل الصحيح:</p>
+      <div class="exercise-grid">
+        <div class="question-card">
+          <div class="qlabel">المطلوب البرمجي</div>
+          <p>أنشئ Array فواكه تحتوي على 3 عناصر، واطبع العنصر الأول والثالث، ولاحظ ما يحدث عند طلب فهرس غير موجود.</p>
+        </div>
+        <div class="code-window">
+          <div class="code-titlebar">
+            <span class="code-dot red"></span><span class="code-dot yellow"></span><span class="code-dot green"></span>
+            <span class="code-filename">fruits.php</span>
+          </div>
+          <pre class="code-body"><span class="tok-var">$fruits</span> = [<span class="tok-str">"تفاح"</span>, <span class="tok-str">"موز"</span>, <span class="tok-str">"برتقال"</span>];
+
+<span class="tok-kw">echo</span> <span class="tok-str">"الأول: "</span> . <span class="tok-var">$fruits</span>[<span class="tok-num">0</span>] . <span class="tok-str">"&lt;br&gt;"</span>;
+<span class="tok-kw">echo</span> <span class="tok-str">"الثالث: "</span> . <span class="tok-var">$fruits</span>[<span class="tok-num">2</span>];</pre>
+        </div>
+        <div class="browser-window">
+          <div class="browser-titlebar">
+            <div class="browser-dots"><span class="r"></span><span class="y"></span><span class="g"></span></div>
+            <div class="browser-address">localhost/fruits.php</div>
+          </div>
+          <div class="browser-viewport">
+            <div class="output-ascii" style="direction:rtl;text-align:start;padding:0.75rem;font-size:0.95rem;">
+الأول: تفاح
+الثالث: برتقال
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <div class="nav-dots">
+    <span class="slide-nav-dot" onclick="window.location.href='slide-01.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-02.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-03.html'"></span>
+<span class="slide-nav-dot active" onclick="window.location.href='slide-04.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-05.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-06.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-07.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-08.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-09.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-10.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-11.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-12.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-13.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-14.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-15.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-16.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-17.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-18.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-19.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-20.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-21.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-22.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-23.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-24.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-25.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-26.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-27.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-28.html'"></span>
+<span class="slide-nav-dot" onclick="window.location.href='slide-29.html'"></span>
+  </div>
+  <div class="nav-controls">
+    <button class="nav-btn" onclick="window.location.href='slide-05.html'">
+      التالي
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg>
+    </button>
+    <span class="counter">04 / 29</span>
+    <button class="nav-btn" onclick="window.location.href='slide-03.html'">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+      السابق
+    </button>
+  </div>
+</div>
+<script src="script.js"></script>
+<script class="slide-notes" type="application/json">
+{
+  "title": "مثال 1: قراءة Indexed Array",
+  "script": "لاحظ أن العنصر الثالث يقع في الفهرس 2 لأن الترقيم بدأ من 0. إذا حاولنا طلب $fruits[5] سيظهر تحذير Undefined array key.",
+  "notes": [
+    "الفهرس 0 هو الأول",
+    "الفهرس 2 هو الثالث",
+    "تجنب طلب مفتاح غير موجود"
+  ]
+}
+</script>
+</body>
+</html>

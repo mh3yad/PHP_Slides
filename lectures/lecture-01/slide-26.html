@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+
+<html dir="rtl" lang="ar">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="html-slides v0.9.4 (custom RTL blueprint - multi-file)" name="generator"/>
+<title>لوغاريتم — أنواع الأخطاء: Compile vs Runtime</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&amp;family=Fira+Code:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="styles.css" rel="stylesheet"/>
+</head>
+<body data-next="slide-27.html" data-prev="slide-25.html">
+<div class="brand-logo"><img alt="شعار لوغاريتم" src="assets/logo.jpg"/></div>
+<div class="progress-bar"><div class="progress-fill" style="width:86.7%"></div></div>
+<div class="deck" id="deck">
+<div class="slide active" data-slide="25">
+<div class="slide-index-badge">26 / 30</div>
+<div class="slide-content">
+<div class="eyebrow">معالجة الأخطاء — Error Handling</div>
+<h1 class="slide-title">أنواع الأخطاء في PHP: Compile vs Runtime</h1>
+<p class="slide-text">تنقسم أخطاء البرمجة في PHP لنوعين رئيسيين يختلفان تمامًا في وقت حدوثهما وتأثيرهما على تشغيل السكربت:</p>
+<div class="naming-grid">
+  <div class="naming-card rules">
+    <div class="naming-card-title">🛑 أخطاء الـ Compile (Syntax &amp; Parse)</div>
+    <ul class="bullet-list">
+      <li><strong>وقت الحدوث:</strong> قبل تشغيل الكود، أثناء فحص القواعد النحوية (Parsing).</li>
+      <li><strong>التأثير:</strong> يتوقف السكربت بالكامل، ولا يُنفذ منه حتى سطر واحد!</li>
+      <li><strong>السبب:</strong> مخالفة قواعد اللغة (مثل نسيان <code>;</code> أو خطأ إملائي).</li>
+      <li><strong>الرسالة:</strong> <code>Parse error: syntax error...</code></li>
+    </ul>
+  </div>
+  <div class="naming-card conventions">
+    <div class="naming-card-title" style="color: #fbbf24;">⚠️ أخطاء الـ Runtime (أثناء التشغيل)</div>
+    <ul class="bullet-list">
+      <li><strong>وقت الحدوث:</strong> أثناء التنفيذ اللحظي للكود في الذاكرة.</li>
+      <li><strong>التأثير:</strong> يُنفذ الكود سطرًا بسطر حتى يصل لسطر الخطأ فيتوقف.</li>
+      <li><strong>السبب:</strong> كود نحويًا سليم، لكنه ينفذ عملية مستحيلة (كالقسمة على صفر).</li>
+      <li><strong>الرسالة:</strong> <code>Fatal error: DivisionByZeroError...</code></li>
+    </ul>
+  </div>
+</div>
+</div>
+</div>
+</div>
+<div class="nav-dots">
+<a class="slide-nav-dot" href="slide-01.html"></a>
+<a class="slide-nav-dot" href="slide-02.html"></a>
+<a class="slide-nav-dot" href="slide-03.html"></a>
+<a class="slide-nav-dot" href="slide-04.html"></a>
+<a class="slide-nav-dot" href="slide-05.html"></a>
+<a class="slide-nav-dot" href="slide-06.html"></a>
+<a class="slide-nav-dot" href="slide-07.html"></a>
+<a class="slide-nav-dot" href="slide-08.html"></a>
+<a class="slide-nav-dot" href="slide-09.html"></a>
+<a class="slide-nav-dot" href="slide-10.html"></a>
+<a class="slide-nav-dot" href="slide-11.html"></a>
+<a class="slide-nav-dot" href="slide-12.html"></a>
+<a class="slide-nav-dot" href="slide-13.html"></a>
+<a class="slide-nav-dot" href="slide-14.html"></a>
+<a class="slide-nav-dot" href="slide-15.html"></a>
+<a class="slide-nav-dot" href="slide-16.html"></a>
+<a class="slide-nav-dot" href="slide-17.html"></a>
+<a class="slide-nav-dot" href="slide-18.html"></a>
+<a class="slide-nav-dot" href="slide-19.html"></a>
+<a class="slide-nav-dot" href="slide-20.html"></a>
+<a class="slide-nav-dot" href="slide-21.html"></a>
+<a class="slide-nav-dot" href="slide-22.html"></a>
+<a class="slide-nav-dot" href="slide-23.html"></a>
+<a class="slide-nav-dot" href="slide-24.html"></a>
+<a class="slide-nav-dot" href="slide-25.html"></a>
+<a class="slide-nav-dot active" href="slide-26.html"></a>
+<a class="slide-nav-dot" href="slide-27.html"></a>
+<a class="slide-nav-dot" href="slide-28.html"></a>
+<a class="slide-nav-dot" href="slide-29.html"></a>
+<a class="slide-nav-dot" href="slide-30.html"></a>
+</div>
+<div class="nav-controls">
+<a class="nav-btn" href="slide-27.html">
+    التالي
+    <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.4" viewbox="0 0 24 24"><polyline points="9 18 15 12 9 6"></polyline></svg>
+</a>
+<span class="counter">26 / 30</span>
+<a class="nav-btn" href="slide-25.html">
+<svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.4" viewbox="0 0 24 24"><polyline points="9 18 15 12 9 6" transform="rotate(180 12 12)"></polyline></svg>
+    السابق
+  </a>
+</div>
+<script src="script.js"></script>
+<script class="slide-notes" type="application/json">{
+  "25": {
+    "title": "مقدمة أنواع الأخطاء: Compile vs Runtime",
+    "notes": "اشرح للطلاب الفرق بين Parse error الذي يمنع الصفحة كلها، وبين Runtime error الذي ينفذ الكود حتى يصل لسطر المشكلة."
+  }
+}</script>
+</body>
+</html>

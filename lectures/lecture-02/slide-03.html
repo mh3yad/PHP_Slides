@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="html-slides v0.9.4 (custom RTL blueprint - multi-file)" name="generator"/>
+<title>لوغاريتم — كيف يفكر الحاسوب؟</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&amp;family=Fira+Code:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="styles.css" rel="stylesheet"/>
+</head>
+<body data-next="slide-04.html" data-prev="slide-02.html">
+<div class="brand-logo"><img alt="شعار لوغاريتم" src="assets/logo.jpg"/></div>
+<div class="progress-bar"><div class="progress-fill" style="width:11.5%"></div></div>
+<div class="deck" id="deck">
+<div class="slide active" data-slide="2">
+<div class="slide-index-badge">03 / 26</div>
+<div class="slide-content">
+<div class="eyebrow">المنطق البديهي — Intuitive Logic</div>
+<h1 class="slide-title">إزاي الكمبيوتر بيفكر؟ هل 3 > 5 ولا 3 == 3؟</h1>
+<p class="slide-text">البرمجة مش مجرد حسابات جافة، دي قرارات منطقية! قبل ما نكتب كود، تعال نسأل أسئلة بديهية:</p>
+
+<div class="intuitive-grid">
+  <div class="intuitive-card false-card">
+    <div style="font-size: var(--body-size); font-weight: 800; color: var(--text);">السؤال الأول: هل 3 أكبر من 5؟</div>
+    <div class="intuitive-expr">3 &gt; 5</div>
+    <div class="verdict-seal seal-false">
+      <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+      غلط — False (0)
+    </div>
+    <p style="font-size: var(--small-size); color: var(--text-muted); line-height: 1.6; direction: rtl; text-align: right;">
+      الكمبيوتر بيقارن الرقمين: 3 مش أكبر من 5، عشان كدة بيرجع على طول قيمة غلط (False).
+    </p>
+  </div>
+
+  <div class="intuitive-card true-card">
+    <div style="font-size: var(--body-size); font-weight: 800; color: var(--text);">السؤال الثاني: هل 3 تساوي 3؟</div>
+    <div class="intuitive-expr">3 == 3</div>
+    <div class="verdict-seal seal-true">
+      <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+      صح — True (1)
+    </div>
+    <p style="font-size: var(--small-size); color: var(--text-muted); line-height: 1.6; direction: rtl; text-align: right;">
+      الكمبيوتر بيفحص الطرفين: الرقمين قد بعض بالظبط، فـ بيرجع قيمة صح (True).
+    </p>
+  </div>
+</div>
+<div style="margin-top: clamp(0.6rem, 1.5vh, 1.2rem); background: rgba(45,214,230,0.06); border: 1px solid rgba(45,214,230,0.2); border-radius: 8px; padding: 0.5rem 1rem; font-size: var(--small-size); color: var(--accent); direction: rtl; text-align: right; font-weight: 700;">
+  💡 <strong>القاعدة الذهبية:</strong> كل شرط أو مقارنة في البرمجة بتتحسب في الآخر لواحدة من قيمتين بس: يا إما صح (True / 1) أو غلط (False / 0)!
+</div>
+
+</div>
+</div>
+</div>
+<div class="nav-dots">
+<a class="slide-nav-dot" href="slide-01.html"></a>
+<a class="slide-nav-dot" href="slide-02.html"></a>
+<a class="slide-nav-dot active" href="slide-03.html"></a>
+<a class="slide-nav-dot" href="slide-04.html"></a>
+<a class="slide-nav-dot" href="slide-05.html"></a>
+<a class="slide-nav-dot" href="slide-06.html"></a>
+<a class="slide-nav-dot" href="slide-07.html"></a>
+<a class="slide-nav-dot" href="slide-08.html"></a>
+<a class="slide-nav-dot" href="slide-09.html"></a>
+<a class="slide-nav-dot" href="slide-10.html"></a>
+<a class="slide-nav-dot" href="slide-11.html"></a>
+<a class="slide-nav-dot" href="slide-12.html"></a>
+<a class="slide-nav-dot" href="slide-13.html"></a>
+<a class="slide-nav-dot" href="slide-14.html"></a>
+<a class="slide-nav-dot" href="slide-15.html"></a>
+<a class="slide-nav-dot" href="slide-16.html"></a>
+<a class="slide-nav-dot" href="slide-17.html"></a>
+<a class="slide-nav-dot" href="slide-18.html"></a>
+<a class="slide-nav-dot" href="slide-19.html"></a>
+<a class="slide-nav-dot" href="slide-20.html"></a>
+<a class="slide-nav-dot" href="slide-21.html"></a>
+<a class="slide-nav-dot" href="slide-22.html"></a>
+<a class="slide-nav-dot" href="slide-23.html"></a>
+<a class="slide-nav-dot" href="slide-24.html"></a>
+<a class="slide-nav-dot" href="slide-25.html"></a>
+<a class="slide-nav-dot" href="slide-26.html"></a>
+</div>
+<div class="nav-controls">
+<a class="nav-btn" href="slide-04.html">
+    التالي
+    <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.4" viewbox="0 0 24 24"><polyline points="9 18 15 12 9 6"></polyline></svg>
+</a>
+<span class="counter">3 / 26</span>
+<a class="nav-btn" href="slide-02.html">
+<svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.4" viewbox="0 0 24 24"><polyline points="9 18 15 12 9 6" transform="rotate(180 12 12)"></polyline></svg>
+    السابق
+</a>
+</div>
+<script src="script.js"></script>
+<script class="slide-notes" type="application/json">
+{
+  "title": "المنطق البديهي",
+  "script": "قبل ما ندخل في المصطلحات المعقدة، تعال نسأل نفسنا: هل 3 أكبر من 5؟ الإجابة البديهية لأ، غلط. طب هل 3 تساوي 3؟ أه صح. الكمبيوتر بيشتغل بنفس الطريقة دي بالظبط!",
+  "notes": [
+    "تثبيت مفهوم أن المقارنة نتيجتها Boolean",
+    "الربط بين الأسئلة المنطقية اليومية وعمل المفسر البرمجي"
+  ]
+}
+</script>
+</body>
+</html>

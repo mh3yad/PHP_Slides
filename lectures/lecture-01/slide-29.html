@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+
+<html dir="rtl" lang="ar">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="html-slides v0.9.4 (custom RTL blueprint - multi-file)" name="generator"/>
+<title>لوغاريتم — أخطاء وقت التشغيل وتشريح الرسالة</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&amp;family=Fira+Code:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="styles.css" rel="stylesheet"/>
+</head>
+<body data-next="slide-30.html" data-prev="slide-28.html">
+<div class="brand-logo"><img alt="شعار لوغاريتم" src="assets/logo.jpg"/></div>
+<div class="progress-bar"><div class="progress-fill" style="width:96.7%"></div></div>
+<div class="deck" id="deck">
+<div class="slide active" data-slide="28">
+<div class="slide-index-badge">29 / 30</div>
+<div class="slide-content">
+<div class="eyebrow">أخطاء التشغيل — Runtime Errors</div>
+<h1 class="slide-title">أخطاء وقت التشغيل وتشريح رسالة الخطأ</h1>
+<p class="slide-text">الكود سليم نحويًا، لكنه يفشل في التنفيذ الفعلي في الذاكرة — أشهر مثال هو القسمة على صفر:</p>
+<div class="grid-2">
+<div class="code-window">
+<div class="code-titlebar">
+<span class="code-dot red"></span><span class="code-dot yellow"></span><span class="code-dot green"></span>
+<span class="code-filename">division.php</span>
+</div>
+<pre class="code-body"><span class="tok-fn">echo</span> <span class="tok-str">"بداية تشغيل الكود...&lt;br&gt;"</span>;
+
+<span class="tok-var">$totalPoints</span> = <span class="tok-num">100</span>;
+<span class="tok-var">$usersCount</span>  = <span class="tok-num">0</span>;
+
+<span class="tok-cmt">// ❌ خطأ Runtime: مستحيل رياضيًا القسمة على صفر!</span>
+<span class="tok-var">$average</span> = <span class="tok-var">$totalPoints</span> / <span class="tok-var">$usersCount</span>;
+
+<span class="tok-cmt">// هذا السطر لن يصل إليه البرنامج أبدًا:</span>
+<span class="tok-fn">echo</span> <span class="tok-str">"المعدل: "</span> . <span class="tok-var">$average</span>;</pre>
+</div>
+<div class="browser-window">
+<div class="browser-titlebar">
+<div class="browser-dots"><span class="r"></span><span class="y"></span><span class="g"></span></div>
+<div class="browser-address">localhost/division.php</div>
+</div>
+<div class="browser-viewport" style="flex-direction: column; align-items: stretch; justify-content: flex-start; padding: 0.6rem; gap: 0.5rem; background: #0f111e; min-height: 180px;">
+<div style="font-family: 'Cairo', sans-serif; font-size: clamp(0.75rem, 1.1vw, 0.9rem); color: #e2e8f0; margin-bottom: 0.2rem;">
+بداية تشغيل الكود...
+</div>
+<div style="background: rgba(239,68,68,0.12); border: 1px solid rgba(239,68,68,0.35); border-radius: 6px; padding: 0.5rem 0.65rem; font-family: 'Fira Code', monospace; font-size: clamp(0.65rem, 0.95vw, 0.78rem); color: #fca5a5; line-height: 1.45; direction: ltr;">
+<strong>Fatal error:</strong> Uncaught DivisionByZeroError: Division by zero in <strong>division.php</strong> on line <strong>7</strong>
+</div>
+<div style="background: rgba(45,214,230,0.06); border: 1px solid rgba(45,214,230,0.2); border-radius: 6px; padding: 0.45rem 0.6rem; font-size: clamp(0.68rem, 0.95vw, 0.82rem); color: #93c5fd; line-height: 1.4;">
+💡 <strong>تشريح الرسالة:</strong>
+<br>• <strong>النوع:</strong> Fatal error (أوقف السكربت)
+<br>• <strong>السبب:</strong> DivisionByZeroError (قسمة على صفر)
+<br>• <strong>المكان:</strong> السطر رقم 7 في ملف division.php
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="nav-dots">
+<a class="slide-nav-dot" href="slide-01.html"></a>
+<a class="slide-nav-dot" href="slide-02.html"></a>
+<a class="slide-nav-dot" href="slide-03.html"></a>
+<a class="slide-nav-dot" href="slide-04.html"></a>
+<a class="slide-nav-dot" href="slide-05.html"></a>
+<a class="slide-nav-dot" href="slide-06.html"></a>
+<a class="slide-nav-dot" href="slide-07.html"></a>
+<a class="slide-nav-dot" href="slide-08.html"></a>
+<a class="slide-nav-dot" href="slide-09.html"></a>
+<a class="slide-nav-dot" href="slide-10.html"></a>
+<a class="slide-nav-dot" href="slide-11.html"></a>
+<a class="slide-nav-dot" href="slide-12.html"></a>
+<a class="slide-nav-dot" href="slide-13.html"></a>
+<a class="slide-nav-dot" href="slide-14.html"></a>
+<a class="slide-nav-dot" href="slide-15.html"></a>
+<a class="slide-nav-dot" href="slide-16.html"></a>
+<a class="slide-nav-dot" href="slide-17.html"></a>
+<a class="slide-nav-dot" href="slide-18.html"></a>
+<a class="slide-nav-dot" href="slide-19.html"></a>
+<a class="slide-nav-dot" href="slide-20.html"></a>
+<a class="slide-nav-dot" href="slide-21.html"></a>
+<a class="slide-nav-dot" href="slide-22.html"></a>
+<a class="slide-nav-dot" href="slide-23.html"></a>
+<a class="slide-nav-dot" href="slide-24.html"></a>
+<a class="slide-nav-dot" href="slide-25.html"></a>
+<a class="slide-nav-dot" href="slide-26.html"></a>
+<a class="slide-nav-dot" href="slide-27.html"></a>
+<a class="slide-nav-dot" href="slide-28.html"></a>
+<a class="slide-nav-dot active" href="slide-29.html"></a>
+<a class="slide-nav-dot" href="slide-30.html"></a>
+</div>
+<div class="nav-controls">
+<a class="nav-btn" href="slide-30.html">
+    التالي
+    <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.4" viewbox="0 0 24 24"><polyline points="9 18 15 12 9 6"></polyline></svg>
+</a>
+<span class="counter">29 / 30</span>
+<a class="nav-btn" href="slide-28.html">
+<svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.4" viewbox="0 0 24 24"><polyline points="9 18 15 12 9 6" transform="rotate(180 12 12)"></polyline></svg>
+    السابق
+  </a>
+</div>
+<script src="script.js"></script>
+<script class="slide-notes" type="application/json">{
+  "28": {
+    "title": "أخطاء وقت التشغيل وتشريح رسالة الخطأ",
+    "notes": "علّم الطلاب كيفية قراءة رسالة الخطأ واستخراج نوع المشكلة ورقم السطر للوصول للحل بسرعة."
+  }
+}</script>
+</body>
+</html>
