@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>تمارين PHP — Arrays و Loops و Functions</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0b1020;
+    --panel: #141b33;
+    --panel-2: #10162b;
+    --text: #e8ecf8;
+    --muted: #9aa6c8;
+    --accent: #7c9cff;
+    --accent-2: #4fd1c5;
+    --easy: #3ddc97;
+    --mid: #ffb84d;
+    --border: #25305a;
+    --code-bg: #0a0f1f;
+    --code-text: #d6e2ff;
+    --btn-text: #0b1020;
+    box-sizing: border-box;
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+  @media (prefers-color-scheme: light) {
+    :root:not([data-theme="dark"]) {
+      --bg: #f4f6fc;
+      --panel: #ffffff;
+      --panel-2: #eef1fa;
+      --text: #1a2140;
+      --muted: #5a6690;
+      --accent: #3f5fe0;
+      --accent-2: #0c9a8e;
+      --easy: #12a565;
+      --mid: #c97a00;
+      --border: #d5dbef;
+      --code-bg: #14193a;
+      --code-text: #dfe7ff;
+      --btn-text: #ffffff;
+    }
+  }
+  :root[data-theme="light"] {
+    --bg: #f4f6fc;
+    --panel: #ffffff;
+    --panel-2: #eef1fa;
+    --text: #1a2140;
+    --muted: #5a6690;
+    --accent: #3f5fe0;
+    --accent-2: #0c9a8e;
+    --easy: #12a565;
+    --mid: #c97a00;
+    --border: #d5dbef;
+    --code-bg: #14193a;
+    --code-text: #dfe7ff;
+    --btn-text: #ffffff;
+  }
+  :root[data-theme="dark"] {
+    --bg: #0b1020;
+    --panel: #141b33;
+    --panel-2: #10162b;
+    --text: #e8ecf8;
+    --muted: #9aa6c8;
+    --accent: #7c9cff;
+    --accent-2: #4fd1c5;
+    --easy: #3ddc97;
+    --mid: #ffb84d;
+    --border: #25305a;
+    --code-bg: #0a0f1f;
+    --code-text: #d6e2ff;
+    --btn-text: #0b1020;
+  }
+
+  * { box-sizing: border-box; }
+  html { height: 100%; scroll-padding-top: env(safe-area-inset-top, 0px); }
+  body {
+    height: 100%;
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Cairo', 'Segoe UI', Tahoma, Arial, sans-serif;
+    line-height: 1.7;
+    overflow: hidden;
+  }
+
+  .app { height: 100%; display: flex; flex-direction: column; }
+
+  /* top bar */
+  .top {
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 12px; padding: 10px 20px 8px;
+  }
+  .brand { font-weight: 800; color: var(--accent); font-size: 1.05rem; letter-spacing: .3px; }
+  .counter { color: var(--muted); font-size: .9rem; font-family: 'Fira Code', ui-monospace, monospace; direction: ltr; }
+  .progress { height: 4px; background: var(--border); margin: 0 20px; border-radius: 4px; overflow: hidden; }
+  .progress > div {
+    height: 100%; width: 0; border-radius: 4px;
+    background: linear-gradient(270deg, var(--accent), var(--accent-2));
+    transition: width .35s ease;
+  }
+
+  /* stage */
+  .stage { position: relative; flex: 1; min-height: 0; }
+  .slide {
+    position: absolute; inset: 0; overflow-y: auto; overflow-x: hidden;
+    padding: 20px 24px 28px; display: none;
+  }
+  .slide.active { display: block; animation: rise .35s ease; }
+  @keyframes rise { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+  .inner { max-width: 1040px; margin: 0 auto; }
+
+  /* cover / end */
+  .center {
+    min-height: 100%; display: flex; flex-direction: column;
+    align-items: center; justify-content: center; text-align: center; gap: 10px;
+  }
+  .cover-tag {
+    padding: 4px 14px; border: 1px solid var(--border); border-radius: 999px;
+    color: var(--accent-2); font-weight: 600; font-size: .95rem; background: var(--panel-2);
+  }
+  .cover-title { font-size: clamp(2rem, 6vw, 3.6rem); font-weight: 800; margin: 8px 0 0; line-height: 1.25; }
+  .cover-title span { color: var(--accent); }
+  .cover-sub { font-family: 'Fira Code', ui-monospace, monospace; color: var(--muted); direction: ltr; font-size: clamp(1rem, 2.4vw, 1.25rem); }
+  .cover-note { color: var(--muted); font-size: 1rem; margin-top: 14px; }
+  .kbd {
+    font-family: 'Fira Code', ui-monospace, monospace; background: var(--panel);
+    border: 1px solid var(--border); border-radius: 6px; padding: 1px 8px; font-size: .85rem;
+  }
+
+  /* question slide */
+  .q-head { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin-bottom: 4px; }
+  .q-num {
+    font-weight: 800; color: var(--btn-text); background: var(--accent);
+    border-radius: 10px; padding: 2px 14px; font-size: 1rem;
+  }
+  .badge {
+    border: 1px solid var(--border); border-radius: 999px; padding: 2px 12px;
+    font-size: .85rem; font-weight: 600; background: var(--panel-2);
+  }
+  .badge.easy { color: var(--easy); border-color: var(--easy); }
+  .badge.mid { color: var(--mid); border-color: var(--mid); }
+  .badge.topic { color: var(--muted); font-family: 'Fira Code', ui-monospace, monospace; direction: ltr; }
+  h2.q-title { font-size: clamp(1.5rem, 4vw, 2.2rem); margin: 6px 0 8px; font-weight: 800; }
+  .q-text {
+    font-size: clamp(1.05rem, 2.4vw, 1.3rem); background: var(--panel);
+    border: 1px solid var(--border); border-radius: 14px; padding: 14px 18px; margin: 0 0 16px;
+  }
+  code.inline {
+    font-family: 'Fira Code', ui-monospace, monospace; direction: ltr; unicode-bidi: isolate;
+    background: var(--panel-2); border: 1px solid var(--border); color: var(--accent-2);
+    padding: 0 7px; border-radius: 6px; font-size: .92em;
+  }
+
+  .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  @media (max-width: 720px) { .grid { grid-template-columns: 1fr; } }
+
+  .win { border: 1px solid var(--border); border-radius: 12px; overflow: hidden; background: var(--code-bg); min-width: 0; }
+  .win-bar {
+    display: flex; align-items: center; gap: 6px; padding: 7px 12px;
+    background: var(--panel-2); border-bottom: 1px solid var(--border);
+    font-size: .85rem; color: var(--muted);
+  }
+  .dot { width: 10px; height: 10px; border-radius: 50%; display: inline-block; }
+  .dot.r { background: #ff5f57; } .dot.y { background: #febc2e; } .dot.g { background: #28c840; }
+  .win-title { margin-inline-start: auto; font-weight: 600; }
+  pre.code {
+    margin: 0; padding: 14px 16px; direction: ltr; text-align: left; unicode-bidi: isolate;
+    font-family: 'Fira Code', ui-monospace, Menlo, Consolas, monospace;
+    font-size: clamp(.82rem, 1.9vw, 1rem); line-height: 1.65; color: var(--code-text);
+    white-space: pre; overflow-x: auto;
+  }
+  pre.code.out { color: #8ff0c0; }
+
+  .actions { display: flex; flex-wrap: wrap; gap: 10px; margin: 16px 0 4px; }
+  .btn {
+    font-family: inherit; font-weight: 700; font-size: 1rem; cursor: pointer;
+    border-radius: 10px; padding: 8px 18px; border: 1px solid var(--accent);
+    background: transparent; color: var(--accent); transition: all .15s;
+  }
+  .btn:hover { background: var(--accent); color: var(--btn-text); }
+  .btn.solid { background: var(--accent); color: var(--btn-text); }
+  .btn.solid:hover { filter: brightness(1.1); }
+  .hint-box {
+    display: none; margin-top: 12px; padding: 12px 16px; border-radius: 12px;
+    border: 1px dashed var(--mid); background: var(--panel); font-size: 1.05rem;
+  }
+  .hint-box.show { display: block; }
+  .hint-box b { color: var(--mid); }
+  .solution { display: none; margin-top: 12px; }
+  .solution.show { display: block; }
+
+  /* bottom nav */
+  .nav {
+    display: flex; align-items: center; justify-content: space-between; gap: 10px;
+    padding: 10px 20px 14px;
+  }
+  .nav .btn { min-width: 92px; }
+  .nav .btn:disabled { opacity: .35; cursor: default; }
+  .nav .btn:disabled:hover { background: transparent; color: var(--accent); }
+  .dots { display: flex; gap: 7px; flex-wrap: wrap; justify-content: center; }
+  .dots button {
+    width: 10px; height: 10px; border-radius: 50%; padding: 0; cursor: pointer;
+    border: none; background: var(--border); transition: all .2s;
+  }
+  .dots button.on { background: var(--accent); transform: scale(1.35); }
+  @media (max-width: 560px) { .dots { display: none; } .nav { justify-content: space-between; } }
+</style>
+</head>
+<body>
+<div class="app">
+  <div class="top">
+    <div class="brand">لوغاريتم</div>
+    <div class="counter" id="counter">1 / 12</div>
+  </div>
+  <div class="progress"><div id="bar"></div></div>
+  <div class="stage" id="stage"></div>
+  <div class="nav">
+    <button class="btn" id="prev">→ السابق</button>
+    <div class="dots" id="dots"></div>
+    <button class="btn solid" id="next">التالي ←</button>
+  </div>
+</div>
+
+<script>
+/* ---------- بيانات الأسئلة ---------- */
+const QUESTIONS = [
+  {
+    level: "easy", topic: "array + foreach", title: "مجموع الأرقام",
+    text: "عندك array فيها أرقام. اطبع مجموع كل الأرقام اللي جواها باستخدام {{foreach}}.",
+    data: `$numbers = [3, 7, 2, 8];`,
+    expected: `20`,
+    hint: "ابدأ بمتغير {{$sum = 0}} وزوّد عليه كل رقم جوه اللوب.",
+    solution: `$numbers = [3, 7, 2, 8];
+$sum = 0;
+
+foreach ($numbers as $n) {
+    $sum += $n;
+}
+
+echo $sum; // 20`
+  },
+  {
+    level: "easy", topic: "array + foreach + if", title: "أكبر رقم",
+    text: "لاقي أكبر رقم في الـ array من غير ما تستخدم الفانكشن الجاهزة {{max()}}.",
+    data: `$numbers = [12, 45, 7, 30];`,
+    expected: `45`,
+    hint: "افترض إن أول رقم هو الأكبر، وبعدين قارن بيه كل رقم في اللوب. لو لقيت رقم أكبر، غيّر القيمة.",
+    solution: `$numbers = [12, 45, 7, 30];
+$max = $numbers[0];
+
+foreach ($numbers as $n) {
+    if ($n > $max) {
+        $max = $n;
+    }
+}
+
+echo $max; // 45`
+  },
+  {
+    level: "easy", topic: "array + foreach + %", title: "عدّ الأرقام الزوجية",
+    text: "احسب عندك كام رقم زوجي جوه الـ array، واطبع العدد.",
+    data: `$numbers = [1, 2, 3, 4, 5, 6];`,
+    expected: `3`,
+    hint: "الرقم يبقى زوجي لو باقي قسمته على 2 يساوي صفر: {{$n % 2 == 0}}. استخدم عدّاد {{$count}}.",
+    solution: `$numbers = [1, 2, 3, 4, 5, 6];
+$count = 0;
+
+foreach ($numbers as $n) {
+    if ($n % 2 == 0) {
+        $count++;
+    }
+}
+
+echo $count; // 3`
+  },
+  {
+    level: "easy", topic: "for loop", title: "اعكس الـ array",
+    text: "اطبع عناصر الـ array بالعكس (من الآخر للأول) باستخدام {{for}}، من غير {{array_reverse()}}.",
+    data: `$numbers = [1, 2, 3, 4];`,
+    expected: `4 3 2 1`,
+    hint: "ابدأ من آخر index وهو {{count($numbers) - 1}} وانزل واحد واحد لحد ما توصل لـ 0.",
+    solution: `$numbers = [1, 2, 3, 4];
+
+for ($i = count($numbers) - 1; $i >= 0; $i--) {
+    echo $numbers[$i] . " ";
+}
+// 4 3 2 1`
+  },
+  {
+    level: "easy", topic: "function + loop", title: "الرقم زوجي ولا فردي؟",
+    text: "اكتب function اسمها {{isEven}} بتاخد رقم وترجّع {{true}} لو زوجي و{{false}} لو فردي. بعد كده جرّبها على الأرقام من 1 لـ 6 واطبع كل رقم ومعاه «زوجي» أو «فردي».",
+    data: `// الأرقام من 1 لـ 6`,
+    expected: `1 فردي
+2 زوجي
+3 فردي
+4 زوجي
+5 فردي
+6 زوجي`,
+    hint: "جوه الفانكشن اعمل {{return $n % 2 == 0;}} وبعدين استخدمها جوه {{if}} في اللوب.",
+    solution: `function isEven($n) {
+    return $n % 2 == 0;
+}
+
+for ($i = 1; $i <= 6; $i++) {
+    if (isEven($i)) {
+        echo $i . " زوجي" . PHP_EOL;
+    } else {
+        echo $i . " فردي" . PHP_EOL;
+    }
+}`
+  },
+  {
+    level: "easy", topic: "function + array", title: "متوسط الأرقام",
+    text: "اكتب function اسمها {{average}} بتاخد array فيها أرقام وترجّع المتوسط بتاعها.",
+    data: `$grades = [10, 20, 30, 40];
+echo average($grades);`,
+    expected: `25`,
+    hint: "المتوسط = المجموع ÷ عدد العناصر. احسب المجموع باللوب، وعدد العناصر بـ {{count()}}.",
+    solution: `function average($arr) {
+    $sum = 0;
+
+    foreach ($arr as $n) {
+        $sum += $n;
+    }
+
+    return $sum / count($arr);
+}
+
+$grades = [10, 20, 30, 40];
+echo average($grades); // 25`
+  },
+  {
+    level: "easy", topic: "function + foreach", title: "موجود ولا مش موجود؟",
+    text: "اكتب function اسمها {{contains}} بتاخد array وقيمة، وترجّع {{true}} لو القيمة موجودة في الـ array و{{false}} لو مش موجودة. من غير {{in_array()}}.",
+    data: `$names = ["Ahmed", "Sara", "Omar"];
+// جرّب "Sara" وبعدين "Ali"`,
+    expected: `موجود
+مش موجود`,
+    hint: "لف على العناصر، ولو لقيت القيمة اعمل {{return true}} على طول. لو اللوب خلص من غير ما تلاقي، ساعتها {{return false}}.",
+    solution: `function contains($arr, $value) {
+    foreach ($arr as $item) {
+        if ($item == $value) {
+            return true;
+        }
+    }
+    return false;
+}
+
+$names = ["Ahmed", "Sara", "Omar"];
+
+echo (contains($names, "Sara") ? "موجود" : "مش موجود") . PHP_EOL;
+echo (contains($names, "Ali") ? "موجود" : "مش موجود") . PHP_EOL;`
+  },
+  {
+    level: "easy", topic: "for loop", title: "جدول الضرب",
+    text: "اطبع جدول ضرب رقم 5 من 1 لـ 10 باستخدام {{for}}.",
+    data: `$table = 5;`,
+    expected: `5 x 1 = 5
+5 x 2 = 10
+5 x 3 = 15
+...
+5 x 10 = 50`,
+    hint: "اللوب من 1 لـ 10، وفي كل لفّة اطبع {{$table * $i}}.",
+    solution: `$table = 5;
+
+for ($i = 1; $i <= 10; $i++) {
+    echo $table . " x " . $i . " = " . ($table * $i) . PHP_EOL;
+}`
+  },
+  {
+    level: "mid", topic: "array + foreach", title: "مربعات الأرقام",
+    text: "اعمل array جديدة فيها مربع كل رقم من الـ array الأصلية (الرقم × نفسه)، وبعدين اطبعها باستخدام {{implode}}.",
+    data: `$numbers = [1, 2, 3, 4, 5];`,
+    expected: `1, 4, 9, 16, 25`,
+    hint: "اعمل {{$squares = []}} في الأول، وجوه اللوب ضيف العنصر الجديد بـ {{$squares[] = $n * $n}}.",
+    solution: `$numbers = [1, 2, 3, 4, 5];
+$squares = [];
+
+foreach ($numbers as $n) {
+    $squares[] = $n * $n;
+}
+
+echo implode(", ", $squares); // 1, 4, 9, 16, 25`
+  },
+  {
+    level: "mid", topic: "function + array", title: "الأرقام الأكبر من رقم معيّن",
+    text: "اكتب function اسمها {{greaterThan}} بتاخد array ورقم، وترجّع array جديدة فيها بس الأرقام الأكبر من الرقم ده.",
+    data: `$numbers = [5, 12, 8, 20, 3, 15];
+// جرّب الرقم 10`,
+    expected: `12, 20, 15`,
+    hint: "جوه الفانكشن اعمل array فاضية اسمها {{$result}}، وضيف فيها الرقم بس لو {{$n > $limit}}، وفي الآخر {{return $result}}.",
+    solution: `function greaterThan($arr, $limit) {
+    $result = [];
+
+    foreach ($arr as $n) {
+        if ($n > $limit) {
+            $result[] = $n;
+        }
+    }
+
+    return $result;
+}
+
+$numbers = [5, 12, 8, 20, 3, 15];
+echo implode(", ", greaterThan($numbers, 10)); // 12, 20, 15`
+  }
+];
+
+const LEVEL = { easy: "سهل", mid: "متوسط" };
+
+/* ---------- helpers ---------- */
+function el(tag, cls, text) {
+  const e = document.createElement(tag);
+  if (cls) e.className = cls;
+  if (text !== undefined) e.textContent = text;
+  return e;
+}
+
+// يحوّل {{code}} جوه النص لـ <code> من غير innerHTML
+function richText(parent, str) {
+  str.split(/(\{\{.*?\}\})/g).forEach(part => {
+    if (part.startsWith("{{") && part.endsWith("}}")) {
+      parent.appendChild(el("code", "inline", part.slice(2, -2)));
+    } else if (part) {
+      parent.appendChild(document.createTextNode(part));
+    }
+  });
+}
+
+function codeWindow(title, code, isOut) {
+  const w = el("div", "win");
+  const bar = el("div", "win-bar");
+  ["r", "y", "g"].forEach(c => bar.appendChild(el("span", "dot " + c)));
+  bar.appendChild(el("span", "win-title", title));
+  w.appendChild(bar);
+  w.appendChild(el("pre", "code" + (isOut ? " out" : ""), code));
+  return w;
+}
+
+/* ---------- بناء الشرايح ---------- */
+const stage = document.getElementById("stage");
+const slides = [];
+
+// cover
+(function () {
+  const s = el("section", "slide");
+  const c = el("div", "center");
+  c.appendChild(el("div", "cover-tag", "لوغاريتم • PHP"));
+  const t = el("h1", "cover-title");
+  t.appendChild(document.createTextNode("تمارين "));
+  t.appendChild(el("span", "", "Problem Solving"));
+  c.appendChild(t);
+  c.appendChild(el("div", "cover-sub", "Arrays • Loops • Functions"));
+  c.appendChild(el("div", "cover-note", "10 أسئلة بسيطة — حاول تحلها بنفسك الأول وبعدين شوف الحل"));
+  const n = el("div", "cover-note");
+  n.appendChild(document.createTextNode("استخدم الأسهم "));
+  n.appendChild(el("span", "kbd", "←"));
+  n.appendChild(document.createTextNode(" "));
+  n.appendChild(el("span", "kbd", "→"));
+  n.appendChild(document.createTextNode(" للتنقل"));
+  c.appendChild(n);
+  s.appendChild(c);
+  stage.appendChild(s); slides.push(s);
+})();
+
+// questions
+QUESTIONS.forEach((q, i) => {
+  const s = el("section", "slide");
+  const inner = el("div", "inner");
+
+  const head = el("div", "q-head");
+  head.appendChild(el("span", "q-num", "سؤال " + (i + 1)));
+  head.appendChild(el("span", "badge " + q.level, LEVEL[q.level]));
+  head.appendChild(el("span", "badge topic", q.topic));
+  inner.appendChild(head);
+
+  inner.appendChild(el("h2", "q-title", q.title));
+
+  const text = el("p", "q-text");
+  richText(text, q.text);
+  inner.appendChild(text);
+
+  const grid = el("div", "grid");
+  grid.appendChild(codeWindow("المعطيات", q.data, false));
+  grid.appendChild(codeWindow("الناتج المتوقع", q.expected, true));
+  inner.appendChild(grid);
+
+  const actions = el("div", "actions");
+  const hintBtn = el("button", "btn", "💡 تلميح");
+  const solBtn = el("button", "btn", "✅ الحل");
+  actions.appendChild(hintBtn);
+  actions.appendChild(solBtn);
+  inner.appendChild(actions);
+
+  const hint = el("div", "hint-box");
+  hint.appendChild(el("b", "", "تلميح: "));
+  richText(hint, q.hint);
+  inner.appendChild(hint);
+
+  const sol = el("div", "solution");
+  sol.appendChild(codeWindow("الحل", q.solution, false));
+  inner.appendChild(sol);
+
+  hintBtn.addEventListener("click", () => hint.classList.toggle("show"));
+  solBtn.addEventListener("click", () => {
+    sol.classList.toggle("show");
+    solBtn.textContent = sol.classList.contains("show") ? "🙈 إخفاء الحل" : "✅ الحل";
+  });
+
+  s._reset = () => {
+    hint.classList.remove("show");
+    sol.classList.remove("show");
+    solBtn.textContent = "✅ الحل";
+  };
+
+  s.appendChild(inner);
+  stage.appendChild(s); slides.push(s);
+});
+
+// end
+(function () {
+  const s = el("section", "slide");
+  const c = el("div", "center");
+  c.appendChild(el("div", "cover-tag", "خلصنا 🎉"));
+  c.appendChild(el("h1", "cover-title", "برافو عليك!"));
+  c.appendChild(el("div", "cover-note", "لو حليت الأسئلة كلها، جرّب تغيّر الأرقام في كل سؤال وشوف الناتج بيتغير إزاي."));
+  const again = el("button", "btn solid", "ارجع للأول");
+  again.style.marginTop = "14px";
+  again.addEventListener("click", () => go(0));
+  c.appendChild(again);
+  s.appendChild(c);
+  stage.appendChild(s); slides.push(s);
+})();
+
+/* ---------- التنقل ---------- */
+const bar = document.getElementById("bar");
+const counter = document.getElementById("counter");
+const dotsBox = document.getElementById("dots");
+const prev = document.getElementById("prev");
+const next = document.getElementById("next");
+let idx = 0;
+
+const dots = slides.map((_, i) => {
+  const b = document.createElement("button");
+  b.setAttribute("aria-label", "شريحة " + (i + 1));
+  b.addEventListener("click", () => go(i));
+  dotsBox.appendChild(b);
+  return b;
+});
+
+function go(n) {
+  n = Math.max(0, Math.min(slides.length - 1, n));
+  slides.forEach((s, i) => {
+    s.classList.toggle("active", i === n);
+    if (i !== n && s._reset) s._reset();
+  });
+  slides[n].scrollTop = 0;
+  dots.forEach((d, i) => d.classList.toggle("on", i === n));
+  bar.style.width = (n / (slides.length - 1)) * 100 + "%";
+  counter.textContent = (n + 1) + " / " + slides.length;
+  prev.disabled = n === 0;
+  next.disabled = n === slides.length - 1;
+  idx = n;
+}
+
+prev.addEventListener("click", () => go(idx - 1));
+next.addEventListener("click", () => go(idx + 1));
+
+document.addEventListener("keydown", e => {
+  if (e.key === "ArrowLeft" || e.key === "PageDown" || e.key === " ") { e.preventDefault(); go(idx + 1); }
+  else if (e.key === "ArrowRight" || e.key === "PageUp") { e.preventDefault(); go(idx - 1); }
+  else if (e.key === "Home") go(0);
+  else if (e.key === "End") go(slides.length - 1);
+});
+
+// swipe للموبايل
+let sx = null;
+stage.addEventListener("touchstart", e => { sx = e.touches[0].clientX; }, { passive: true });
+stage.addEventListener("touchend", e => {
+  if (sx === null) return;
+  const dx = e.changedTouches[0].clientX - sx;
+  if (Math.abs(dx) > 70) go(dx < 0 ? idx + 1 : idx - 1);
+  sx = null;
+}, { passive: true });
+
+go(0);
+</script>
+</body>
+</html>
