@@ -26,7 +26,7 @@
             <li>كتابة <code>$email = $_POST['email'];</code> بمجرد فتح الصفحة يطلق تحذيراً:
               <br><code>Warning: Undefined array key "email"</code>
             </li>
-            <li>لأن المستخدم لم يضغط زر الإرسال بعد، فالمصفوفة فارغة تماماً!</li>
+            <li>لأن المستخدم لم يضغط زر الإرسال بعد، فarray فارغة تماماً!</li>
             <li><strong>التصحيح:</strong> افحص دوماً: <code>if ($_SERVER['REQUEST_METHOD'] === 'POST')</code></li>
           </ul>
         </div>
@@ -95,7 +95,7 @@
 <script class="slide-notes" type="application/json">
 {
   "title": "أخطاء شائعة في التعامل مع Superglobals",
-  "script": "نذكر الطلاب دائماً: صفحة الـ PHP تُنفذ مرتين؛ مرة عند الفتح الأولي بـ GET وتكون المصفوفة فارغة، ومرة بعد الضغط على الإرسال بـ POST.",
+  "script": "نذكر الطلاب دائماً: صفحة الـ PHP تُنفذ مرتين؛ مرة عند الفتح الأولي بـ GET وتكون array فارغة، ومرة بعد الضغط على الإرسال بـ POST.",
   "notes": [
     "التحقق من وجود المفاتيح",
     "تجنب خطأ Undefined array key",

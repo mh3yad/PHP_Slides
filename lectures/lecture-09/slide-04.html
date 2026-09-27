@@ -18,22 +18,22 @@
     <div class="slide-content">
 
       <div class="eyebrow">مفهوم الحالة &middot; 2</div>
-      <h1 class="slide-title">الحل الهندسي: تكامل العميل والخادم في إدارة الحالة</h1>
+      <h1 class="slide-title">الحل الهندسي: تكامل العميل والسيرفر في إدارة الحالة</h1>
       <p class="slide-text">للتغلب على معضلة الويب، توفر تقنيات الويب آليتين رئيسيتين متكاملتين تختلفان في مكان حفظ البيانات:</p>
       <div class="naming-grid">
         <div class="naming-card rules">
-          <div class="naming-card-title">🍪 جانب العميل: الكوكيز (Cookies)</div>
+          <div class="naming-card-title">🍪 جانب العميل: ال cookie (Cookies)</div>
           <ul class="bullet-list">
             <li><strong>مكان التخزين:</strong> داخل متصفح المستخدم على جهازه الشخصي.</li>
-            <li><strong>آلية الإرسال:</strong> يعيد المتصفح إرسالها تلقائياً في ترويسات HTTP مع كل طلب لنفس النطاق.</li>
+            <li><strong>آلية الإرسال:</strong> يعيد ال browser إرسالها تلقائياً في  HTTP مع كل طلب لنفس النطاق.</li>
             <li><strong>الاستخدام:</strong> تفضيلات العرض (Dark Mode)، اللغة المختارة، وتتبع المعرفات.</li>
           </ul>
         </div>
         <div class="naming-card conventions">
-          <div class="naming-card-title">🔒 جانب الخادم: الجلسات (Sessions)</div>
+          <div class="naming-card-title">🔒 جانب السيرفر: الجلسات (Sessions)</div>
           <ul class="bullet-list">
             <li><strong>مكان التخزين:</strong> ملفات آمنة أو ذاكرة مؤقتة على سيرفر الويب نفسه.</li>
-            <li><strong>حلقة الوصل:</strong> يملك المتصفح فقط معرّف الجلسة العشوائي (Session ID) كرمز وصول.</li>
+            <li><strong>حلقة الوصل:</strong> يملك ال browser فقط معرّف الجلسة العشوائي (Session ID) كرمز وصول.</li>
             <li><strong>الاستخدام:</strong> بيانات المصادقة الحساسة، الصلاحيات، وسلة المشتريات.</li>
           </ul>
         </div>
@@ -87,10 +87,10 @@
 <script class="slide-notes" type="application/json">
 {
   "title": "معمارية إدارة الحالة",
-  "script": "الكوكيز في يد العميل، والجلسات في خزانة السيرفر. العميل لا يملك سوى مفتاح الخزانة Session ID، وبذلك نجمع بين سهولة تتبع العميل وأمان البيانات الحساسة بالخادم.",
+  "script": "ال cookie في يد العميل، والجلسات في خزانة السيرفر. العميل لا يملك سوى مفتاح الخزانة Session ID، وبذلك نجمع بين سهولة تتبع العميل وأمان البيانات الحساسة بالسيرفر.",
   "notes": [
-    "الكوكيز بالمتصفح Client-side",
-    "الجلسات بالخادم Server-side",
+    "ال cookie بال browser Client-side",
+    "الجلسات بالسيرفر Server-side",
     "Session ID كحلقة وصل آمنة"
   ]
 }

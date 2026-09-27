@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="html-slides v0.9.4 (custom RTL blueprint - multi-file)">
-<title>المحاضرة 09 &middot; الجلسات (Sessions): التخزين الآمن على الخادم &mdash; شريحة 10</title>
+<title>المحاضرة 09 &middot; الجلسات (Sessions): التخزين الآمن على السيرفر &mdash; شريحة 10</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@600;700;800;900&family=Fira+Code:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
@@ -18,11 +18,11 @@
     <div class="slide-content">
 
       <div class="eyebrow">القسم الثاني</div>
-      <h1 class="slide-title">الجلسات (Sessions): التخزين الآمن على الخادم</h1>
+      <h1 class="slide-title">الجلسات (Sessions): التخزين الآمن على السيرفر</h1>
       <p class="slide-text">الحل الأمني الأمثل لتخزين بيانات المستخدم الحساسة بالكامل على خادم الويب المحمي:</p>
       <div class="badge-row">
         <span class="pill-badge">معرف الجلسة الفريد PHPSESSID</span>
-        <span class="pill-badge">دالة session_start() والمصفوفة $_SESSION</span>
+        <span class="pill-badge">دالة session_start() وarray $_SESSION</span>
         <span class="pill-badge">إتلاف الجلسة والتسجيل الآمن للخروج (Logout)</span>
       </div>
     </div>
@@ -74,9 +74,9 @@
 <script class="slide-notes" type="application/json">
 {
   "title": "فاصل محور الجلسات",
-  "script": "ننتقل للقسم الثاني: الجلسات Sessions. هنا تخزن البيانات الحقيقية بالخادم، ولا يرى المتصفح سوى معرف رقمي فريد يسمى Session ID.",
+  "script": "ننتقل للقسم الثاني: الجلسات Sessions. هنا تخزن البيانات الحقيقية بالسيرفر، ولا يرى ال browser سوى معرف رقمي فريد يسمى Session ID.",
   "notes": [
-    "مفهوم الجلسات بالخادم",
+    "مفهوم الجلسات بالسيرفر",
     "معرف PHPSESSID",
     "حماية البيانات الحساسة"
   ]

@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="html-slides v0.9.4 (custom RTL blueprint - multi-file)">
-<title>المحاضرة 09 &middot; الكوكيز: آلية الترويسات (Set-Cookie & Cookie) &mdash; شريحة 06</title>
+<title>المحاضرة 09 &middot; ال cookie: آلية ال (Set-Cookie & Cookie) &mdash; شريحة 06</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@600;700;800;900&family=Fira+Code:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
@@ -17,26 +17,26 @@
     <span class="slide-index-badge">06 / 29</span>
     <div class="slide-content">
 
-      <div class="eyebrow">الكوكيز &middot; 1</div>
-      <h1 class="slide-title">الكوكيز: كيف تنتقل بين المتصفح والخادم؟</h1>
-      <p class="slide-text">لا يتم تخزين الكوكيز عبر جسم الصفحة HTML، بل تنتقل عبر ترويسات بروتوكول HTTP في خلفية الاتصال:</p>
+      <div class="eyebrow">ال cookie &middot; 1</div>
+      <h1 class="slide-title">ال cookie: كيف تنتقل بين ال browser والسيرفر؟</h1>
+      <p class="slide-text">لا يتم تخزين ال cookie عبر جسم الصفحة HTML، بل تنتقل عبر  بروتوكول HTTP في خلفية الاتصال:</p>
       <div class="grid-2">
         <ul class="bullet-list">
-          <li><strong>1. استجابة الخادم الأولى:</strong> يرسل الخادم ترويسة <code>Set-Cookie: theme=dark; Path=/</code> في المتصفح.</li>
-          <li><strong>2. التخزين بالمتصفح:</strong> يفحص المتصفح النطاق والمسار وتاريخ الانتهاء، ويخزن الكوكي في قاعدة بياناته المحلية.</li>
-          <li><strong>3. الطلبات اللاحقة:</strong> في كل زيارة لأي صفحة في نفس الموقع، يرفق المتصفح ترويسة <code>Cookie: theme=dark</code> تلقائياً!</li>
-          <li><strong>4. قراءة PHP:</strong> يلتقط مفسر PHP الترويسة ويحللها تلقائياً داخل المصفوفة الفائقة <code>$_COOKIE</code>.</li>
+          <li><strong>1. استجابة السيرفر الأولى:</strong> يرسل السيرفر  <code>Set-Cookie: theme=dark; Path=/</code> في ال browser.</li>
+          <li><strong>2. التخزين بال browser:</strong> يفحص ال browser النطاق والمسار وتاريخ الانتهاء، ويخزن ال cookie في قاعدة بياناته المحلية.</li>
+          <li><strong>3. الطلبات اللاحقة:</strong> في كل زيارة لأي صفحة في نفس الموقع، يرفق ال browser  <code>Cookie: theme=dark</code> تلقائياً!</li>
+          <li><strong>4. قراءة PHP:</strong> يلتقط  PHP الcookies ويحللها تلقائياً داخل array  <code>$_COOKIE</code>.</li>
         </ul>
         <div class="code-window">
           <div class="code-titlebar">
             <span class="code-dot red"></span><span class="code-dot yellow"></span><span class="code-dot green"></span>
             <span class="code-filename">HTTP Network Headers</span>
           </div>
-          <pre class="code-body"><span class="tok-cmt">// استجابة الخادم عند إنشاء الكوكي:</span>
+          <pre class="code-body"><span class="tok-cmt">// استجابة السيرفر عند إنشاء ال cookie:</span>
 <span class="tok-kw">HTTP/1.1 200 OK</span>
 <span class="tok-fn">Set-Cookie:</span> theme=dark; expires=Thu, 08-Oct-2026; path=/; HttpOnly
 
-<span class="tok-cmt">// طلب المتصفح في الصفحات التالية:</span>
+<span class="tok-cmt">// طلب ال browser في الصفحات التالية:</span>
 <span class="tok-kw">GET /dashboard.php HTTP/1.1</span>
 <span class="tok-fn">Host:</span> localhost
 <span class="tok-fn">Cookie:</span> theme=dark</pre>
@@ -90,11 +90,11 @@
 <script src="script.js"></script>
 <script class="slide-notes" type="application/json">
 {
-  "title": "آلية عمل الكوكيز",
-  "script": "فهم ترويسات HTTP يفسر كل سلوك الكوكيز: السيرفر يطلب من المتصفح حفظ الكوكي بـ Set-Cookie، والمتصفح يعيده مطيعاً في كل طلب لاحق بـ Cookie.",
+  "title": "آلية عمل ال cookie",
+  "script": "فهم  HTTP يفسر كل سلوك ال cookie: السيرفر يطلب من ال browser حفظ ال cookie بـ Set-Cookie، وال browser يعيده مطيعاً في كل طلب لاحق بـ Cookie.",
   "notes": [
-    "ترويسة Set-Cookie من السيرفر",
-    "ترويسة Cookie من المتصفح",
+    " Set-Cookie من السيرفر",
+    " Cookie من ال browser",
     "تحليل PHP التلقائي في $_COOKIE"
   ]
 }

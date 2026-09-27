@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="html-slides v0.9.4 (custom RTL blueprint - multi-file)">
-<title>المحاضرة 09 &middot; التعامل مع المصفوفة الفائقة $_SESSION &mdash; شريحة 13</title>
+<title>المحاضرة 09 &middot; التعامل مع array  $_SESSION &mdash; شريحة 13</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@600;700;800;900&family=Fira+Code:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
@@ -18,14 +18,14 @@
     <div class="slide-content">
 
       <div class="eyebrow">الجلسات &middot; 3</div>
-      <h1 class="slide-title">التخزين والقراءة بـ المصفوفة الفائقة $_SESSION</h1>
+      <h1 class="slide-title">التخزين والقراءة بـ array  $_SESSION</h1>
       <p class="slide-text">تتعامل مع <code>$_SESSION</code> كمصفوفة ترابطية عادية تماماً، ولكنها تحتفظ ببياناتها عبر كافة الصفحات والطلبات:</p>
       <div class="exercise-grid">
         <div class="question-card">
           <div class="qlabel">خصائص $_SESSION</div>
           <ul class="bullet-list" style="margin-top:0.3rem;">
             <li><strong>تخزين أي نوع بيانات:</strong> نصوص، أرقام، مصفوفات متعددة الأبعاد، وكائنات!</li>
-            <li><strong>استمرار البيانات:</strong> تبقى محفوظة طوال جلسة المستخدم ما دام المتصفح مفتوحاً.</li>
+            <li><strong>استمرار البيانات:</strong> تبقى محفوظة طوال جلسة المستخدم ما دام ال browser مفتوحاً.</li>
             <li><strong>الفحص الآمن:</strong> نستخدم <code>isset()</code> و <code>empty()</code> للتحقق من وجود المفاتيح قبل القراءة.</li>
           </ul>
         </div>
@@ -57,7 +57,7 @@
 أهلاً بالقائد طارق
 رقم المعرف: 101
 عدد عناصر السلة المخزنة: 2
-حالة الجلسة: نشطة ومحمية بالخادم
+حالة الجلسة: نشطة ومحمية بالسيرفر
             </div>
           </div>
         </div>
@@ -111,7 +111,7 @@
 <script class="slide-notes" type="application/json">
 {
   "title": "استخدام مصفوفة $_SESSION",
-  "script": "الجميل في $_SESSION أنها مصفوفة عادية في الكود، لكن PHP تتولى سراً تشفيرها وحفظها بالخادم واسترجاعها في كل طلب للمستخدم.",
+  "script": "الجميل في $_SESSION أنها مصفوفة عادية في الكود، لكن PHP تتولى سراً تشفيرها وحفظها بالسيرفر واسترجاعها في كل طلب للمستخدم.",
   "notes": [
     "تخزين أنواع البيانات البسيطة والمركبة",
     "مشاركة البيانات بين كافة صفحات الموقع",

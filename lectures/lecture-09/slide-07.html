@@ -17,16 +17,16 @@
     <span class="slide-index-badge">07 / 29</span>
     <div class="slide-content">
 
-      <div class="eyebrow">الكوكيز &middot; 2</div>
+      <div class="eyebrow">ال cookie &middot; 2</div>
       <h1 class="slide-title">دالة setcookie(): المعاملات وضوابط الأمان</h1>
-      <p class="slide-text">في PHP ننشئ الكوكيز باستخدام دالة <code>setcookie()</code> التي تقبل معاملات دقيقة تحدد سلوك الكوكي وأمانه:</p>
+      <p class="slide-text">في PHP ننشئ ال cookie باستخدام دالة <code>setcookie()</code> التي تقبل معاملات دقيقة تحدد سلوك ال cookie وأمانه:</p>
       <div class="grid-2">
         <ul class="bullet-list">
-          <li><code>$name</code> & <code>$value</code>: اسم الكوكي وقيمته النصية.</li>
-          <li><code>$expires_or_options</code>: وقت الانتهاء كختم زمني Unix timestamp (مثل <code>time() + 86400 * 30</code> لـ 30 يوماً). إن تركته <code>0</code> يُحذف فور إغلاق المتصفح (Session Cookie).</li>
-          <li><code>$path</code>: المسار الذي يتاح فيه الكوكي؛ نستخدم <code>"/"</code> ليكون متاحاً في كافة مجلدات الموقع.</li>
-          <li><code>$secure</code>: إذا كانت <code>true</code>، لن يُرسل الكوكي إلا عبر اتصال مشفر وآمن بـ HTTPS.</li>
-          <li><code>$httponly</code>: إذا كانت <code>true</code>، يُمنع كود JavaScript من قراءة الكوكي (حماية حاسمة ضد هجمات XSS).</li>
+          <li><code>$name</code> & <code>$value</code>: اسم ال cookie وقيمته النصية.</li>
+          <li><code>$expires_or_options</code>: وقت الانتهاء كختم زمني Unix timestamp (مثل <code>time() + 86400 * 30</code> لـ 30 يوماً). إن تركته <code>0</code> يُحذف فور إغلاق ال browser (Session Cookie).</li>
+          <li><code>$path</code>: المسار الذي يتاح فيه ال cookie؛ نستخدم <code>"/"</code> ليكون متاحاً في كافة مجلدات الموقع.</li>
+          <li><code>$secure</code>: إذا كانت <code>true</code>، لن يُرسل ال cookie إلا عبر اتصال مشفر وآمن بـ HTTPS.</li>
+          <li><code>$httponly</code>: إذا كانت <code>true</code>، يُمنع كود JavaScript من قراءة ال cookie (حماية حاسمة ضد هجمات XSS).</li>
         </ul>
         <div class="code-window">
           <div class="code-titlebar">
@@ -92,7 +92,7 @@
 <script class="slide-notes" type="application/json">
 {
   "title": "معاملات دالة setcookie",
-  "script": "القاعدة الاحترافية: اجعل httponly دائماً true ما لم تكن بحاجة لقراءة الكوكي بواسطة JavaScript. واضبط path على / ليعمل الكوكي عبر كافة صفحات الموقع.",
+  "script": "القاعدة الاحترافية: اجعل httponly دائماً true ما لم تكن بحاجة لقراءة ال cookie بواسطة JavaScript. واضبط path على / ليعمل ال cookie عبر كافة صفحات الموقع.",
   "notes": [
     "معاملات setcookie الأساسية والأمنية",
     "تحديد مدة الصلاحية بـ time()",

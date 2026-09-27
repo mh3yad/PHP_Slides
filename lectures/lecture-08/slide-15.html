@@ -21,7 +21,7 @@
       <p class="slide-text">تحويل أي مصفوفة أو كائن PHP إلى نص مهيأ بصيغة JSON مع الحفاظ على التنسيق واللغة العربية:</p>
       <div class="grid-2">
         <ul class="bullet-list">
-          <li><code>json_encode($data, $flags)</code>: تحول المصفوفة إلى نص بتنسيق JSON المعياري.</li>
+          <li><code>json_encode($data, $flags)</code>: تحول array إلى نص بتنسيق JSON المعياري.</li>
           <li><strong>حفظ الحروف العربية (حاسم):</strong> استخدام علم <code>JSON_UNESCAPED_UNICODE</code> لمنع تحويل الحروف العربية لرموز غريبة مثل <code>\u0623</code>.</li>
           <li><strong>التنسيق الجمالي للقراءة:</strong> استخدام <code>JSON_PRETTY_PRINT</code> لتوليد نص منظم بمسافات بادئة وأسطر جديدة.</li>
           <li>يمكن دمج الأعلام باستخدام المعامل <code>|</code>: <code>JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT</code>.</li>

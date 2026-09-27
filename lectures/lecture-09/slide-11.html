@@ -19,23 +19,23 @@
 
       <div class="eyebrow">الجلسات &middot; 1</div>
       <h1 class="slide-title">الجلسات: كيف تعمل وراء الكواليس؟</h1>
-      <p class="slide-text">الجلسة عبارة عن خزانة بيانات سرية في الخادم، والمفتاح الوحيد للوصول إليها هو معرّف مشفر يسمى <code>PHPSESSID</code>:</p>
+      <p class="slide-text">الجلسة عبارة عن خزانة بيانات سرية في السيرفر، والمفتاح الوحيد للوصول إليها هو معرّف مشفر يسمى <code>PHPSESSID</code>:</p>
       <div class="grid-2">
         <ul class="bullet-list">
-          <li><strong>1. إنشاء الجلسة:</strong> عند استدعاء <code>session_start()</code>، يولد الخادم سلسلة عشوائية مشفرة (Session ID) مكونة من 32 حرفاً فريداً.</li>
-          <li><strong>2. ملف الخادم:</strong> ينشئ السيرفر ملفاً في مسار التخزين (مثل <code>sess_8a7f...</code>) لحفظ المتغيرات فيه.</li>
+          <li><strong>1. إنشاء الجلسة:</strong> عند استدعاء <code>session_start()</code>، يولد السيرفر سلسلة عشوائية مشفرة (Session ID) مكونة من 32 حرفاً فريداً.</li>
+          <li><strong>2. ملف السيرفر:</strong> ينشئ السيرفر ملفاً في مسار التخزين (مثل <code>sess_8a7f...</code>) لحفظ المتغيرات فيه.</li>
           <li><strong>3. تسليم المفتاح:</strong> يرسل السيرفر كوكي مؤقت للمتصفح يحمل اسم <code>PHPSESSID</code> وقيمته هي ذلك المعرف العشوائي.</li>
-          <li><strong>4. الاستعادة الآمنة:</strong> في كل طلب، يقدم المتصفح كوكي <code>PHPSESSID</code>، فيفتح الخادم ملف الجلسة المطابق فوراً!</li>
+          <li><strong>4. الاستعادة الآمنة:</strong> في كل طلب، يقدم ال browser كوكي <code>PHPSESSID</code>، فيفتح السيرفر ملف الجلسة المطابق فوراً!</li>
         </ul>
         <div class="code-window">
           <div class="code-titlebar">
             <span class="code-dot red"></span><span class="code-dot yellow"></span><span class="code-dot green"></span>
             <span class="code-filename">Session Architecture</span>
           </div>
-          <pre class="code-body"><span class="tok-cmt">// بالمتصفح (العميل): كوكي يحمل المعرف فقط</span>
+          <pre class="code-body"><span class="tok-cmt">// بال browser (العميل): كوكي يحمل المعرف فقط</span>
 Cookie: PHPSESSID=d92b0f4a8e21c60f...
 
-<span class="tok-cmt">// بالخادم (سيرفر الويب): ملف محمي بالكامل</span>
+<span class="tok-cmt">// بالسيرفر (سيرفر الويب): ملف محمي بالكامل</span>
 /tmp/sess_d92b0f4a8e21c60f
 ──────────────────────────────────────
 user_id|i:42;
@@ -93,11 +93,11 @@ cart|a:2:{...}</pre>
 <script class="slide-notes" type="application/json">
 {
   "title": "آلية عمل الجلسات",
-  "script": "المتصفح لا يعلم ما بداخل الجلسة؛ هو فقط يحمل بطاقة برقم خزانته PHPSESSID. الخادم هو الوحيد القادر على فتح الخزانة وقراءة محتواها.",
+  "script": "ال browser لا يعلم ما بداخل الجلسة؛ هو فقط يحمل بطاقة برقم خزانته PHPSESSID. السيرفر هو الوحيد القادر على فتح الخزانة وقراءة محتواها.",
   "notes": [
     "توليد Session ID عشوائي فريد",
     "حفظ البيانات في ملف آمن بالسيرفر",
-    "المتصفح يملك المفتاح فقط",
+    "ال browser يملك المفتاح فقط",
     "أمان تام ضد تلاعب المستخدم"
   ]
 }

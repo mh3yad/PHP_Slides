@@ -31,7 +31,7 @@
           </div>
           <pre class="code-body"><span class="tok-var">$file</span> = <span class="tok-str">"users.json"</span>;
 
-<span class="tok-cmt">// 1. قراءة وفك المصفوفة السابقة</span>
+<span class="tok-cmt">// 1. قراءة وفك array السابقة</span>
 <span class="tok-var">$users</span> = <span class="tok-fn">file_exists</span>(<span class="tok-var">$file</span>) 
     ? <span class="tok-fn">json_decode</span>(<span class="tok-fn">file_get_contents</span>(<span class="tok-var">$file</span>), <span class="tok-kw">true</span>) 
     : [];

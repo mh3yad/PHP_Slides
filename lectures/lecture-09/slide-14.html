@@ -26,6 +26,9 @@
           <ul class="bullet-list">
             <li><code>unset($_SESSION['key'])</code>: حذف متغير واحد محدد (مثل تفريغ السلة مع بقاء تسجيل الدخول).</li>
             <li><code>session_unset()</code>: تفريغ كافة المتغيرات المسجلة في الجلسة الحالية من الذاكرة.</li>
+            <li><code>ini_get()</code> بيجيب المعلومات من ملف ال php.ini </li>
+            <li><code>ini_get()</code> بيجيب المعلومات من ملف ال php.ini </li>
+            <li><code>session.use_cookies</code> هل الsession بتتخزن في الcookies ولا لأ </li>
             <li><code>session_destroy()</code>: تدمير الجلسة ومسح ملفها بالكامل من قرص السيرفر.</li>
           </ul>
         </div>
@@ -33,16 +36,16 @@
           <div class="naming-card-title">🛡️ بروتوكول تسجيل الخروج الكامل</div>
           <pre class="code-body" style="font-size:0.82rem;"><span class="tok-fn">session_start</span>();
 
-<span class="tok-cmt">// 1. تفريغ المصفوفة من الذاكرة</span>
+<span class="tok-cmt">// 1. تفريغ array من الذاكرة</span>
 <span class="tok-var">$_SESSION</span> = [];
 <span class="tok-fn">session_unset</span>();
 
-<span class="tok-cmt">// 2. مسح كوكي الجلسة من المتصفح</span>
+<span class="tok-cmt">// 2. مسح كوكي الجلسة من ال browser</span>
 <span class="tok-kw">if</span> (<span class="tok-fn">ini_get</span>(<span class="tok-str">"session.use_cookies"</span>)) {
     <span class="tok-fn">setcookie</span>(<span class="tok-fn">session_name</span>(), <span class="tok-str">''</span>, <span class="tok-fn">time</span>() - <span class="tok-num">42000</span>, <span class="tok-str">'/'</span>);
 }
 
-<span class="tok-cmt">// 3. تدمير ملف الجلسة بالخادم</span>
+<span class="tok-cmt">// 3. تدمير ملف الجلسة بالسيرفر</span>
 <span class="tok-fn">session_destroy</span>();
 
 <span class="tok-fn">header</span>(<span class="tok-str">"Location: login.php"</span>);
@@ -98,7 +101,7 @@
 <script class="slide-notes" type="application/json">
 {
   "title": "إنهاء الجلسة وتسجيل الخروج",
-  "script": "تسجيل الخروج الآمن لا يقتصر على session_destroy()؛ الكود الاحترافي يفرغ المصفوفة ويمسح كوكي PHPSESSID من المتصفح ثم يحول المستخدم.",
+  "script": "تسجيل الخروج الآمن لا يقتصر على session_destroy()؛ الكود الاحترافي يفرغ array ويمسح كوكي PHPSESSID من ال browser ثم يحول المستخدم.",
   "notes": [
     "الفرق بين unset و session_unset و session_destroy",
     "بروتوكول تسجيل الخروج الاحترافي",

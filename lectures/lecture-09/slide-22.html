@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="html-slides v0.9.4 (custom RTL blueprint - multi-file)">
-<title>المحاضرة 09 &middot; أخطاء شائعة في الكوكيز والجلسات وكيفية حلها &mdash; شريحة 22</title>
+<title>المحاضرة 09 &middot; أخطاء شائعة في ال cookie والجلسات وكيفية حلها &mdash; شريحة 22</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@600;700;800;900&family=Fira+Code:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
@@ -30,11 +30,11 @@
           </ul>
         </div>
         <div class="naming-card conventions">
-          <div class="naming-card-title">⚠️ توهم وجود الكوكي فوراً ونسيان exit</div>
+          <div class="naming-card-title">⚠️ توهم وجود ال cookie فوراً ونسيان exit</div>
           <ul class="bullet-list">
-            <li>الكوكي المنشأ بـ <code>setcookie</code> لا يظهر في مصفوفة <code>$_COOKIE</code> في نفس الطلب فوراً؛ بل يظهر في الطلب القادم بعد إعادة تحميل الصفحة.</li>
+            <li>ال cookie المنشأ بـ <code>setcookie</code> لا يظهر في مصفوفة <code>$_COOKIE</code> في نفس الطلب فوراً؛ بل يظهر في الطلب القادم بعد إعادة تحميل الصفحة.</li>
             <li>نسيان كتابة <code>exit;</code> بعد <code>header("Location: ...")</code> يجعل السيرفر يكمل قراءة باقي الكود الحساس!</li>
-            <li>تخزين أرقام بطاقات أو كلمات مرور في الكوكي كارثة أمنية حتمية.</li>
+            <li>تخزين أرقام بطاقات أو كلمات مرور في ال cookie كارثة أمنية حتمية.</li>
           </ul>
         </div>
       </div>
@@ -87,10 +87,10 @@
 <script class="slide-notes" type="application/json">
 {
   "title": "أخطاء شائعة في إدارة الحالة",
-  "script": "خطأ headers already sent سببه ترتيب تدفق بيانات HTTP. وتذكر دائماً أن الكوكي يرسل للمتصفح، فلا يمكن قراءته من مصفوفة الطلب الحالي.",
+  "script": "خطأ headers already sent سببه ترتيب تدفق بيانات HTTP. وتذكر دائماً أن ال cookie يرسل للمتصفح، فلا يمكن قراءته من مصفوفة الطلب الحالي.",
   "notes": [
     "سبب وحل headers already sent",
-    "فهم تأخر ظهور الكوكي للطلب التالي",
+    "فهم تأخر ظهور ال cookie للطلب التالي",
     "ضرورة كتابة exit بعد header Location"
   ]
 }

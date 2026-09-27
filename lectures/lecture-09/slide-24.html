@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="html-slides v0.9.4 (custom RTL blueprint - multi-file)">
-<title>المحاضرة 09 &middot; واجب 1: حفظ تفضيل السمة واللغة بالكوكي &mdash; شريحة 24</title>
+<title>المحاضرة 09 &middot; واجب 1: حفظ تفضيل السمة واللغة بال cookie &mdash; شريحة 24</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@600;700;800;900&family=Fira+Code:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
@@ -26,8 +26,8 @@
           <ul class="bullet-list" style="margin-top:0.4rem;">
             <li>أنشئ نموذجاً يحتوي على قائمتين منسدلتين: السمة (Dark / Light) واللغة (العربية / English).</li>
             <li>عند إرسال النموذج، احفظ الاختيارات في كوكيز باسم <code>user_theme</code> و <code>user_lang</code> لمدة 30 يوماً مع تفعيل <code>httponly</code>.</li>
-            <li>في الصفحة الرئيسية، اقرأ الكوكيز وطبق فئة CSS المناسبة <code>&lt;body class="dark"&gt;</code> وغير لغة نصوص الترحيب.</li>
-            <li>وفّر زراً لإعادة ضبط الإعدادات يحذف الكوكيز بتعيين تاريخ ماضٍ.</li>
+            <li>في الصفحة الرئيسية، اقرأ ال cookie وطبق فئة CSS المناسبة <code>&lt;body class="dark"&gt;</code> وغير لغة نصوص الترحيب.</li>
+            <li>وفّر زراً لإعادة ضبط الإعدادات يحذف ال cookie بتعيين تاريخ ماضٍ.</li>
           </ul>
         </div>
         <div class="code-window">
@@ -35,7 +35,7 @@
             <span class="code-dot red"></span><span class="code-dot yellow"></span><span class="code-dot green"></span>
             <span class="code-filename">hw1_settings.php</span>
           </div>
-          <pre class="code-body"><span class="tok-cmt">// 1. استقبال الاختيارات وتعيين الكوكيز</span>
+          <pre class="code-body"><span class="tok-cmt">// 1. استقبال الاختيارات وتعيين ال cookie</span>
 <span class="tok-kw">if</span> (<span class="tok-var">$_SERVER</span>[<span class="tok-str">'REQUEST_METHOD'</span>] === <span class="tok-str">'POST'</span>) {
     <span class="tok-var">$theme</span> = <span class="tok-var">$_POST</span>[<span class="tok-str">'theme'</span>] ?? <span class="tok-str">'light'</span>;
     <span class="tok-fn">setcookie</span>(<span class="tok-str">'user_theme'</span>, <span class="tok-var">$theme</span>, <span class="tok-fn">time</span>() + (<span class="tok-num">86400</span> * <span class="tok-num">30</span>), <span class="tok-str">'/'</span>);
@@ -43,7 +43,7 @@
     <span class="tok-kw">exit</span>;
 }
 
-<span class="tok-cmt">// 2. قراءة الكوكي في العرض</span>
+<span class="tok-cmt">// 2. قراءة ال cookie في العرض</span>
 <span class="tok-var">$currentTheme</span> = <span class="tok-var">$_COOKIE</span>[<span class="tok-str">'user_theme'</span>] ?? <span class="tok-str">'light'</span>;</pre>
         </div>
       </div>
@@ -96,11 +96,11 @@
 <script class="slide-notes" type="application/json">
 {
   "title": "واجب 1: حفظ تفضيل السمة واللغة",
-  "script": "تطبيق كلاسيكي على الكوكيز؛ يوضح كيف يتذكر المتصفح شكل الموقع المناسب للمستخدم حتى لو أغلق جهازه وعاد بعد أسابيع.",
+  "script": "تطبيق كلاسيكي على ال cookie؛ يوضح كيف يتذكر ال browser شكل الموقع المناسب للمستخدم حتى لو أغلق جهازه وعاد بعد أسابيع.",
   "notes": [
     "حفظ الإعدادات بـ setcookie",
     "قراءة القيم وتطبيق CSS المناسب",
-    "إتاحة زر حذف الكوكي"
+    "إتاحة زر حذف ال cookie"
   ]
 }
 </script>
