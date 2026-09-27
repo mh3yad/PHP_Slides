@@ -487,7 +487,6 @@ pre.code-body {
 }
 
 .bullet-list li {
-  font-size: var(--body-size);
   font-weight: 600;
   color: var(--text-muted);
   line-height: 1.6;

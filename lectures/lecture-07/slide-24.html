@@ -17,8 +17,8 @@
     <div class="slide-content">
 
       <div class="eyebrow">الأمان والتحقق &middot; 4</div>
-      <h1 class="slide-title">الحماية من XSS و SQL Injection</h1>
-      <p class="slide-text">أخطر هجومين يستهدفان تطبيقات الويب عبر النماذج، وكيفية التصدي لهما نهائياً:</p>
+      <h1 class="slide-title">الحماية من XSS  </h1>
+      <p class="slide-text">أخطر هجوم يستهدف تطبيقات الويب عبر النماذج، وكيفية التصدي لهما نهائياً:</p>
       <div class="naming-grid">
         <div class="naming-card rules">
           <div class="naming-card-title">🛡️ هجوم XSS (Cross-Site Scripting)</div>
@@ -28,14 +28,7 @@
             <li>تشفير الوسوم يمنع المتصفح من تنفيذ الكود ويجعله يقرأه كنص جامد فقط</li>
           </ul>
         </div>
-        <div class="naming-card conventions">
-          <div class="naming-card-title">🛡️ هجوم SQL Injection</div>
-          <ul class="bullet-list">
-            <li><strong>الخطر:</strong> حقن أوامر SQL (مثل <code>' OR 1=1 --</code>) للتلاعب بقاعدة البيانات وسرقتها أو مسحها</li>
-            <li><strong>خط الدفاع:</strong> استخدام <strong>Prepared Statements و Parameter Binding</strong> عبر مكتبة PDO</li>
-            <li><strong>ممنوع منعاً باتاً:</strong> دمج مدخلات المستخدم مباشرة في نص استعلام SQL عبر علامة <code>.</code></li>
-          </ul>
-        </div>
+       
       </div>
     </div>
   </section>
