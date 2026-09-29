@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>الدرس: Exceptions و try / catch في PHP</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@700;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0d1117;
+  --bg2:#161b27;
+  --card:#1c2333;
+  --text:#e6edf3;
+  --text-muted:#9aa7b8;
+  --text-dim:#6e7a8a;
+  --accent-blue:#2f81f7;
+  --accent-teal:#39c5cf;
+  --accent-green:#3fb950;
+  --accent-orange:#d29922;
+  --accent-red:#f85149;
+  --accent-purple:#bc8cff;
+  --code-bg:#0b0f16;
+  --ln:#4b5263;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html,body{height:100%;}
+body{
+  background:var(--bg);
+  color:var(--text);
+  font-family:'Cairo',sans-serif;
+  font-weight:700;
+  overflow:hidden;
+  direction:rtl;
+}
+.deck{position:fixed;inset:0;}
+.slide{
+  position:absolute;inset:0;
+  display:none;
+  flex-direction:column;
+  align-items:center;
+  justify-content:flex-start;
+  text-align:center;
+  min-height:100vh;
+  padding:clamp(54px,7vh,96px) clamp(20px,3vw,64px) clamp(76px,10vh,128px);
+  overflow-y:auto;
+  overflow-x:hidden;
+  overscroll-behavior-y:contain;
+}
+.slide.active{display:flex;}
+h1{font-size:clamp(48px,6.4vw,104px);line-height:1.28;font-weight:900;}
+h2{font-size:clamp(36px,4.35vw,72px);line-height:1.32;font-weight:900;margin-bottom:14px;}
+.slide-tag{
+  color:var(--accent-teal);
+  letter-spacing:1px;
+  font-size:clamp(28px,2vw,36px);
+  margin-bottom:18px;
+  border:1px solid rgba(57,197,207,.35);
+  padding:6px 22px;border-radius:999px;
+  background:rgba(57,197,207,.08);
+}
+.subtitle{color:var(--text-muted);font-size:clamp(28px,2.4vw,42px);max-width:none;width:100%;line-height:1.8;}
+.mt-16{margin-top:22px;} .mt-24{margin-top:30px;}
+/* highlights */
+.highlight-blue{color:var(--accent-blue);}
+.highlight-teal{color:var(--accent-teal);}
+.highlight-green{color:var(--accent-green);}
+.highlight-orange{color:var(--accent-orange);}
+.highlight-red{color:var(--accent-red);}
+.highlight-purple{color:var(--accent-purple);}
+.gradient-text{background:linear-gradient(90deg,var(--accent-blue),var(--accent-purple));-webkit-background-clip:text;background-clip:text;color:transparent;}
+.rainbow-text{background:linear-gradient(90deg,#2f81f7,#39c5cf,#3fb950,#d29922,#f85149,#bc8cff);-webkit-background-clip:text;background-clip:text;color:transparent;}
+.rainbow-line{height:4px;width:180px;border-radius:2px;margin:22px auto 0;background:linear-gradient(90deg,#2f81f7,#39c5cf,#3fb950,#d29922,#f85149,#bc8cff);}
+/* glow blobs */
+.glow-blob{position:absolute;border-radius:50%;filter:blur(90px);opacity:.28;pointer-events:none;z-index:0;}
+.glow-blue{background:var(--accent-blue);width:420px;height:420px;}
+.glow-teal{background:var(--accent-teal);width:420px;height:420px;}
+.glow-purple{background:var(--accent-purple);width:420px;height:420px;}
+.glow-green{background:var(--accent-green);width:420px;height:420px;}
+.slide>*{position:relative;z-index:1;}
+/* code window (VSCode One Dark Pro) */
+.code-window{
+  direction:ltr;text-align:left;
+  background:var(--code-bg);
+  border:1px solid #30363d;
+  border-radius:12px;
+  max-width:none!important;width:100%;
+  margin:24px auto 0;
+  box-shadow:0 12px 40px rgba(0,0,0,.5);
+  font-family:'Cascadia Code','Fira Code',Consolas,monospace;
+}
+.code-titlebar{
+  display:flex;align-items:center;gap:8px;
+  background:#161b22;padding:13px 18px;
+  border-bottom:1px solid #21262d;
+}
+.code-dot{width:14px;height:14px;border-radius:50%;}
+.code-dot.red{background:#ff5f57;} .code-dot.yellow{background:#febc2e;} .code-dot.green{background:#28c840;}
+.code-filename{color:var(--text-dim);font-size:28px;margin-left:12px;font-family:'Cairo',sans-serif;font-weight:700;}
+.code-body{
+  padding:28px 32px;
+  font-size:clamp(28px,2.5vw,44px);
+  line-height:1.7;
+  white-space:pre-wrap;
+  overflow-wrap:anywhere;
+  word-break:break-word;
+  overflow-x:hidden;
+}
+.ln{color:var(--ln);user-select:none;margin-right:22px;}
+/* syntax colors - One Dark Pro (VSCode) */
+.tag{color:#e06c75;} .attr{color:#d19a66;} .str{color:#98c379;}
+.kw{color:#c678dd;} .fn{color:#61afef;} .prop{color:#e5c07b;}
+.punc{color:#56b6c2;} .comment{color:#5c6370;font-style:italic;} .num{color:#d19a66;}
+/* generic card */
+.card{
+  background:var(--card);border:1px solid #2b3446;border-radius:16px;
+  padding:34px 42px;max-width:none;width:100%;
+}
+/* topics list */
+.topics-list{
+  display:flex;flex-direction:column;gap:16px;margin-top:30px;width:100%;
+}
+.topic-item{
+  display:flex;align-items:center;gap:14px;
+  background:var(--card);border:1px solid #2b3446;border-radius:14px;
+  padding:20px 32px;font-size:clamp(28px,2.5vw,42px);
+  transition:transform .2s,border-color .2s;
+}
+.topic-item:hover{transform:translateX(-6px);border-color:var(--accent-teal);}
+.topic-num{
+  min-width:52px;height:52px;border-radius:12px;display:flex;align-items:center;justify-content:center;
+  font-weight:900;font-size:28px;color:#0d1117;background:var(--accent-teal);
+}
+/* vs cards */
+.vs-container{display:flex;align-items:center;gap:34px;margin-top:34px;flex-wrap:wrap;justify-content:center;width:100%;}
+.vs-card{background:var(--card);border:1px solid #2b3446;border-radius:18px;padding:34px 38px;flex:1 1 40%;width:auto;}
+.vs-name{font-size:clamp(30px,3vw,46px);font-weight:900;margin:6px 0;}
+.vs-desc{color:var(--text-muted);font-size:clamp(28px,2.1vw,36px);line-height:1.8;}
+.vs-plus{font-size:58px;font-weight:900;color:var(--accent-teal);animation:pulse 1.6s infinite;}
+@keyframes pulse{0%,100%{transform:scale(1);opacity:1;}50%{transform:scale(1.25);opacity:.6;}}
+/* flip cards */
+.flip-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;margin-top:32px;justify-content:center;width:100%;}
+.flip-card{position:relative;width:100%;height:280px;perspective:1000px;cursor:pointer;}
+.flip-front,.flip-back{
+  position:absolute;inset:0;backface-visibility:hidden;border-radius:16px;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;padding:16px;
+  transition:transform .6s;
+}
+.flip-front{background:var(--card);border:2px solid var(--accent-teal);}
+.flip-back{background:var(--bg2);border:2px solid var(--accent-purple);transform:rotateY(180deg);}
+.flip-card.flipped .flip-front{transform:rotateY(180deg);}
+.flip-card.flipped .flip-back{transform:rotateY(360deg);}
+.flip-title{font-size:clamp(28px,2.4vw,42px);font-weight:900;}
+.flip-subtitle{color:var(--text-muted);font-size:28px;line-height:1.8;}
+.flip-hint{font-size:28px;color:var(--text-dim);margin-top:8px;}
+.flip-detail{font-size:clamp(28px,2.2vw,38px);color:var(--text-muted);line-height:1.9;text-align:center;}
+/* clock diagram */
+.clock-wrap{margin-top:20px;direction:ltr;}
+.hstack{display:flex;align-items:center;justify-content:center;gap:clamp(30px,5vw,90px);margin-top:28px;flex-wrap:wrap;direction:ltr;width:100%;}
+.clock{width:min(440px,60vw);height:min(440px,60vw);}
+/* stats / revision */
+.stats-row{display:flex;gap:28px;margin-top:34px;flex-wrap:wrap;justify-content:center;width:100%;}
+.stat-card{background:var(--card);border:1px solid #2b3446;border-radius:16px;padding:30px 42px;min-width:300px;flex:1 1 40%;}
+.stat-number{font-size:clamp(32px,3.3vw,52px);font-weight:900;}
+.stat-label{font-size:28px;margin-top:8px;}
+.stat-desc{color:var(--text-muted);font-size:28px;margin-top:6px;line-height:1.8;}
+/* chrome */
+.branding{position:fixed;top:20px;right:26px;z-index:50;display:flex;align-items:center;gap:12px;color:var(--text-muted);font-size:18px;}
+.branding-icon{width:40px;height:40px;border-radius:10px;background:linear-gradient(135deg,var(--accent-blue),var(--accent-teal));display:flex;align-items:center;justify-content:center;color:#fff;font-weight:900;}
+.slide-nav{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);display:flex;gap:8px;z-index:50;}
+.nav-dot{width:10px;height:10px;border-radius:50%;background:#30363d;cursor:pointer;transition:.2s;}
+.nav-dot.active{background:var(--accent-teal);transform:scale(1.35);}
+.progress-bar{position:fixed;top:0;left:0;height:4px;background:linear-gradient(90deg,var(--accent-blue),var(--accent-teal));z-index:60;transition:width .3s;}
+.slide-counter{position:fixed;bottom:24px;right:26px;color:var(--text-dim);font-size:17px;z-index:50;}
+.nav-hints{position:fixed;bottom:24px;left:26px;color:var(--text-dim);font-size:16px;z-index:50;}
+kbd{background:#21262d;border:1px solid #30363d;border-radius:6px;padding:3px 9px;font-family:inherit;}
+/* Enlarge the small inline teaching notes used on a few slides. */
+.slide .subtitle[style*="font-size:14px"]{font-size:28px!important;}
+.topic-item span[style*="font-size:14px"]{font-size:28px!important;}
+.slide h2 span[style*="font-size:15px"]{font-size:28px!important;}
+.card > p[style]{font-size:28px!important;}
+.card > div[style]{font-size:28px!important;}
+/* particles */
+.particles{position:fixed;inset:0;z-index:0;pointer-events:none;}
+.particle{position:absolute;border-radius:50%;background:var(--accent-teal);opacity:.15;animation:floatUp linear infinite;}
+@keyframes floatUp{from{transform:translateY(110vh);}to{transform:translateY(-10vh);}}
+/* animations */
+.anim-1{animation:fadeInUp .5s .05s both;}
+.anim-2{animation:fadeInUp .5s .18s both;}
+.anim-3{animation:fadeInUp .5s .3s both;}
+.anim-4{animation:fadeInUp .5s .45s both;}
+.anim-5{animation:fadeInUp .5s .6s both;}
+@keyframes fadeInUp{from{opacity:0;transform:translateY(24px);}to{opacity:1;transform:translateY(0);}}
+@media (max-width:640px){
+  .slide{padding:58px 22px 84px;}
+  .flip-grid{grid-template-columns:minmax(240px,90vw);}
+  .vs-card{width:100%;}
+}
+</style>
+</head>
+<body>
+
+<div class="particles" id="particles"></div>
+<div class="branding"><div class="branding-icon">!</div> PHP Basics</div>
+<div class="slide-nav" id="slideNav"></div>
+<div class="progress-bar" id="progress"></div>
+<div class="slide-counter" id="counter"></div>
+<div class="nav-hints"><span><kbd>←</kbd> <kbd>→</kbd> للتنقل &nbsp; <kbd>F</kbd> ملء الشاشة</span></div>
+
+<div class="deck">
+
+<div class="slide active" data-slide="0">
+  <div class="glow-blob glow-blue" style="top:-120px;left:-120px;"></div>
+  
+<p class="slide-tag anim-1">درس PHP للمبتدئين</p>
+<h1 class="anim-2">الـ <span class="rainbow-text">Exceptions</span><br>و <span class="highlight-teal">try / catch</span> فـي PHP</h1>
+<div class="rainbow-line anim-3"></div>
+<p class="subtitle anim-4 mt-24">هنتعلم إزاي برنامجنا يتعامل مع الغلط من غير ما يقع 💥</p>
+  <script type="application/json" class="slide-notes">{"title": "Title", "script": "أهلًا بالجميع. النهاردة هنتعلم إزاي الكود بتاعنا يتعامل مع الغلط بشكل شيك.", "notes": ["رحّب بالطلبة"]}</script>
+</div>
+
+<div class="slide" data-slide="1">
+  <div class="glow-blob glow-teal" style="top:-100px;right:-100px;"></div>
+  
+<p class="slide-tag anim-1">مقدمة</p>
+<h2 class="anim-2">تخيل معايا الـ <span class="highlight-teal">ATM</span> 🏧</h2>
+<p class="subtitle anim-3">بتسحب فلوس أكتر من رصيدك... الماكينة <strong>مش بتقفل</strong> ولا بتضرب، بتقولك <bdi class="highlight-orange">"Not enough money"</bdi> وترجعلك الكارت 💳</p>
+<div class="card anim-4 mt-24"><p class="subtitle">الكود كمان محتاج يعمل كده: لما حاجة تغلط، يطلع <span class="highlight-green">رسالة واضحة</span> و يكمّل <span class="highlight-green">بأمان</span>. و ده شغل الـ <bdi class="highlight-purple">Exceptions</bdi> 🎯</p></div>
+  <script type="application/json" class="slide-notes">{"title": "Intro", "script": "الـ ATM مثال بسيط: لما في مشكلة بيقولك السبب وبيكمل شغل عادي.", "notes": ["اسألهم: إيه اللي بيحصل لو الـ ATM قفل على أي غلطة؟"]}</script>
+</div>
+
+<div class="slide" data-slide="2">
+  
+  
+<p class="slide-tag anim-1">خريطة الدرس</p>
+<h2 class="anim-2">إيه اللي هنغطيه <span class="highlight-blue">النهاردة؟</span></h2>
+<div class="topics-list anim-3">
+<div class="topic-item"><span class="topic-num">1</span> <bdi>Error</bdi> ولا <bdi class="highlight-teal">Exception</bdi>؟</div>
+<div class="topic-item"><span class="topic-num">2</span> <bdi class="highlight-green">try</bdi> و <bdi class="highlight-green">catch</bdi> — نمسك الغلط</div>
+<div class="topic-item"><span class="topic-num">3</span> <bdi class="highlight-orange">throw</bdi> — نرمي الغلط بنفسنا</div>
+<div class="topic-item"><span class="topic-num">4</span> نقرا تفاصيل الغلط: <bdi class="highlight-purple">getMessage()</bdi> و <bdi class="highlight-purple">getCode()</bdi></div>
+<div class="topic-item"><span class="topic-num">5</span> مراجعة سريعة 📝</div>
+<div class="topic-item"><span class="topic-num">6</span> الواجب 🏠</div></div>
+  <script type="application/json" class="slide-notes">{"title": "Topics", "script": "دي خريطة الدرس: أربع أفكار بسيطة، مراجعة، وواجب.", "notes": ["خلّي الطلبة يعرفوا إن الدرس بسيط"]}</script>
+</div>
+
+<div class="slide" data-slide="3">
+  <div class="glow-blob glow-purple" style="top:-100px;left:30%;"></div>
+  
+<p class="slide-tag anim-1">الموضوع 1</p>
+<h2 class="anim-2"><bdi class="highlight-red">Error Code</bdi> ولا <bdi class="highlight-teal">Exception</bdi>؟</h2>
+<p class="subtitle anim-3">الـ <bdi>Error</bdi> هو الغلط نفسه. الـ <bdi>Exception</bdi> هو طريقة PHP إنها <strong>تبلّغك</strong> بالغلط ده</p>
+<div class="vs-container anim-3">
+<div class="vs-card"><div class="vs-name highlight-red">Error Code 🏷️</div><div class="vs-desc">الدالة بترجع <bdi>false</bdi> أو <bdi>-1</bdi><br>و انت لازم تفتكر تفحصها 😴</div></div>
+<div class="vs-plus">VS</div>
+<div class="vs-card"><div class="vs-name highlight-teal">Exception 🚨</div><div class="vs-desc">الدالة بترمي <bdi>throw</bdi> غلط<br><strong>مينفعش</strong> تتجاهله</div></div></div>
+  <script type="application/json" class="slide-notes">{"title": "Error vs Exception", "script": "الأكواد القديمة كانت بترجع -1 أو false. الـ Exception أوضح وأأمن.", "notes": ["اكتب الفرق على السبورة"]}</script>
+</div>
+
+<div class="slide" data-slide="4">
+  <div class="glow-blob glow-teal" style="top:-100px;right:-100px;"></div>
+  
+<p class="slide-tag anim-1">مثال: تقسيم حساب المطعم 🍕</p>
+<h2 class="anim-2">ليه الـ <span class="highlight-teal">Exception</span> أحسن من <bdi class="highlight-red">-1</bdi>؟</h2><div class="code-window anim-3"><div class="code-titlebar"><div class="code-dot red"></div><div class="code-dot yellow"></div><div class="code-dot green"></div><span class="code-filename">bill.php</span></div><div class="code-body"><span class="ln">1</span><span class="kw">&lt;?php</span>
+<span class="ln">2</span><span class="kw">function</span> <span class="fn">splitBill</span><span class="punc">(</span><span class="tag">$total</span><span class="punc">,</span> <span class="tag">$people</span><span class="punc">)</span> <span class="punc">{</span>
+<span class="ln">3</span>    <span class="kw">if</span> <span class="punc">(</span><span class="tag">$people</span> <span class="punc">=</span><span class="punc">=</span> <span class="num">0</span><span class="punc">)</span> <span class="punc">{</span>
+<span class="ln">4</span>        <span class="kw">return</span> <span class="punc">-</span><span class="num">1</span><span class="punc">;</span>
+<span class="ln">5</span>    <span class="punc">}</span>
+<span class="ln">6</span>    <span class="kw">return</span> <span class="tag">$total</span> <span class="punc">/</span> <span class="tag">$people</span><span class="punc">;</span>
+<span class="ln">7</span><span class="punc">}</span>
+<span class="ln">8</span>
+<span class="ln">9</span><span class="kw">echo</span> <span class="fn">splitBill</span><span class="punc">(</span><span class="num">100</span><span class="punc">,</span> <span class="num">0</span><span class="punc">)</span><span class="punc">;</span></div></div><div class="code-window anim-3"><div class="code-titlebar"><div class="code-dot red"></div><div class="code-dot yellow"></div><div class="code-dot green"></div><span class="code-filename">Output</span></div><div class="code-body">-1</div></div><p class="subtitle anim-4 mt-16">الرقم <bdi class="highlight-red">-1</bdi> شكله عادي! 😵 محدش هيعرف إن فيه غلط. لكن لو رمينا <bdi class="highlight-green">Exception</bdi> الغلط بيبان و لازم حد يمسكه</p>
+  <script type="application/json" class="slide-notes">{"title": "Why exceptions", "script": "الـ -1 ممكن يتفهم إنه ناتج عادي. الـ Exception بيوضح إن في مشكلة.", "notes": ["اسألهم: لو الناتج فعلًا -1 هنعرف منين؟"]}</script>
+</div>
+
+<div class="slide" data-slide="5">
+  <div class="glow-blob glow-green" style="top:20%;left:-120px;"></div>
+  
+<p class="slide-tag anim-1">الموضوع 2</p>
+<h2 class="anim-2"><bdi class="highlight-green">try</bdi> و <bdi class="highlight-green">catch</bdi> ☕</h2>
+<p class="subtitle anim-3"><bdi class="highlight-green">try</bdi> = جرّب الكود الخطر 🧪 &nbsp;|&nbsp; <bdi class="highlight-orange">catch</bdi> = لو غلط، امسكه هنا 🥅</p><div class="code-window anim-3"><div class="code-titlebar"><div class="code-dot red"></div><div class="code-dot yellow"></div><div class="code-dot green"></div><span class="code-filename">coffee.php</span></div><div class="code-body"><span class="ln">1</span><span class="kw">&lt;?php</span>
+<span class="ln">2</span><span class="kw">function</span> <span class="fn">orderCoffee</span><span class="punc">(</span><span class="tag">$sugar</span><span class="punc">)</span> <span class="punc">{</span>
+<span class="ln">3</span>    <span class="kw">if</span> <span class="punc">(</span><span class="tag">$sugar</span> <span class="punc">&gt;</span> <span class="num">5</span><span class="punc">)</span> <span class="punc">{</span>
+<span class="ln">4</span>        <span class="kw">throw</span> <span class="kw">new</span> <span class="fn">Exception</span><span class="punc">(</span><span class="str">&quot;Too much sugar!&quot;</span><span class="punc">)</span><span class="punc">;</span>
+<span class="ln">5</span>    <span class="punc">}</span>
+<span class="ln">6</span>    <span class="kw">return</span> <span class="str">&quot;Coffee with $sugar sugar&quot;</span><span class="punc">;</span>
+<span class="ln">7</span><span class="punc">}</span>
+<span class="ln">8</span>
+<span class="ln">9</span><span class="kw">try</span> <span class="punc">{</span>
+<span class="ln">10</span>    <span class="kw">echo</span> <span class="fn">orderCoffee</span><span class="punc">(</span><span class="num">2</span><span class="punc">)</span> <span class="punc">.</span> <span class="str">&quot;\n&quot;</span><span class="punc">;</span>
+<span class="ln">11</span>    <span class="kw">echo</span> <span class="fn">orderCoffee</span><span class="punc">(</span><span class="num">9</span><span class="punc">)</span> <span class="punc">.</span> <span class="str">&quot;\n&quot;</span><span class="punc">;</span>
+<span class="ln">12</span><span class="punc">}</span> <span class="kw">catch</span> <span class="punc">(</span><span class="prop">Exception</span> <span class="tag">$e</span><span class="punc">)</span> <span class="punc">{</span>
+<span class="ln">13</span>    <span class="kw">echo</span> <span class="str">&quot;Sorry: &quot;</span> <span class="punc">.</span> <span class="tag">$e</span><span class="punc">-</span><span class="punc">&gt;</span><span class="fn">getMessage</span><span class="punc">(</span><span class="punc">)</span><span class="punc">;</span>
+<span class="ln">14</span><span class="punc">}</span></div></div><div class="code-window anim-3"><div class="code-titlebar"><div class="code-dot red"></div><div class="code-dot yellow"></div><div class="code-dot green"></div><span class="code-filename">Output</span></div><div class="code-body">Coffee with 2 sugar
+Sorry: Too much sugar!</div></div><p class="subtitle anim-4 mt-16">الأوردر التاني غلط، لكن البرنامج <strong>مقفلش</strong> — راح للـ <bdi class="highlight-orange">catch</bdi> و كمّل ✅</p>
+  <script type="application/json" class="slide-notes">{"title": "try / catch", "script": "try بنحط فيه الكود الخطر، و catch بيمسك الغلط لو حصل.", "notes": ["شغّل الكود بـ 2 وبعدين بـ 9"]}</script>
+</div>
+
+<div class="slide" data-slide="6">
+  <div class="glow-blob glow-blue" style="bottom:-120px;left:10%;"></div>
+  
+<p class="slide-tag anim-1">الموضوع 3</p>
+<h2 class="anim-2"><bdi class="highlight-orange">throw</bdi>: ارمي الغلط بنفسك 🏧</h2>
+<p class="subtitle anim-3">الشكل: <bdi class="highlight-orange">throw new Exception("message")</bdi></p><div class="code-window anim-3"><div class="code-titlebar"><div class="code-dot red"></div><div class="code-dot yellow"></div><div class="code-dot green"></div><span class="code-filename">atm.php</span></div><div class="code-body"><span class="ln">1</span><span class="kw">&lt;?php</span>
+<span class="ln">2</span><span class="kw">function</span> <span class="fn">withdraw</span><span class="punc">(</span><span class="tag">$balance</span><span class="punc">,</span> <span class="tag">$amount</span><span class="punc">)</span> <span class="punc">{</span>
+<span class="ln">3</span>    <span class="kw">if</span> <span class="punc">(</span><span class="tag">$amount</span> <span class="punc">&gt;</span> <span class="tag">$balance</span><span class="punc">)</span> <span class="punc">{</span>
+<span class="ln">4</span>        <span class="kw">throw</span> <span class="kw">new</span> <span class="fn">Exception</span><span class="punc">(</span><span class="str">&quot;Not enough money&quot;</span><span class="punc">)</span><span class="punc">;</span>
+<span class="ln">5</span>    <span class="punc">}</span>
+<span class="ln">6</span>    <span class="kw">return</span> <span class="tag">$balance</span> <span class="punc">-</span> <span class="tag">$amount</span><span class="punc">;</span>
+<span class="ln">7</span><span class="punc">}</span>
+<span class="ln">8</span>
+<span class="ln">9</span><span class="kw">try</span> <span class="punc">{</span>
+<span class="ln">10</span>    <span class="kw">echo</span> <span class="str">&quot;Start\n&quot;</span><span class="punc">;</span>
+<span class="ln">11</span>    <span class="fn">withdraw</span><span class="punc">(</span><span class="num">100</span><span class="punc">,</span> <span class="num">500</span><span class="punc">)</span><span class="punc">;</span>
+<span class="ln">12</span>    <span class="kw">echo</span> <span class="str">&quot;Done\n&quot;</span><span class="punc">;</span>
+<span class="ln">13</span><span class="punc">}</span> <span class="kw">catch</span> <span class="punc">(</span><span class="prop">Exception</span> <span class="tag">$e</span><span class="punc">)</span> <span class="punc">{</span>
+<span class="ln">14</span>    <span class="kw">echo</span> <span class="str">&quot;Error: &quot;</span> <span class="punc">.</span> <span class="tag">$e</span><span class="punc">-</span><span class="punc">&gt;</span><span class="fn">getMessage</span><span class="punc">(</span><span class="punc">)</span><span class="punc">;</span>
+<span class="ln">15</span><span class="punc">}</span></div></div><div class="code-window anim-3"><div class="code-titlebar"><div class="code-dot red"></div><div class="code-dot yellow"></div><div class="code-dot green"></div><span class="code-filename">Output</span></div><div class="code-body">Start
+Error: Not enough money</div></div><p class="subtitle anim-4 mt-16">لاحظ إن <bdi class="highlight-red">"Done"</bdi> مااتطبعتش! أول ما حصل <bdi>throw</bdi>، PHP <strong>قفزت</strong> على الـ <bdi>catch</bdi> على طول 🏃</p>
+  <script type="application/json" class="slide-notes">{"title": "throw", "script": "throw بيوقف الكود ويقفز لأقرب catch. اللي بعد throw بيتخطى.", "notes": ["اسألهم: ليه Done مااتطبعتش؟"]}</script>
+</div>
+
+<div class="slide" data-slide="7">
+  <div class="glow-blob glow-purple" style="top:-100px;left:30%;"></div>
+  
+<p class="slide-tag anim-1">الموضوع 4</p>
+<h2 class="anim-2">نقرا <span class="highlight-purple">تفاصيل الغلط</span> 🎬</h2>
+<p class="subtitle anim-3"><bdi class="highlight-purple">getMessage()</bdi> الرسالة &nbsp;|&nbsp; <bdi class="highlight-teal">getCode()</bdi> رقم الغلط &nbsp;|&nbsp; <bdi class="highlight-orange">getLine()</bdi> رقم السطر</p><div class="code-window anim-3"><div class="code-titlebar"><div class="code-dot red"></div><div class="code-dot yellow"></div><div class="code-dot green"></div><span class="code-filename">cinema.php</span></div><div class="code-body"><span class="ln">1</span><span class="kw">&lt;?php</span>
+<span class="ln">2</span><span class="kw">function</span> <span class="fn">checkAge</span><span class="punc">(</span><span class="tag">$age</span><span class="punc">)</span> <span class="punc">{</span>
+<span class="ln">3</span>    <span class="kw">if</span> <span class="punc">(</span><span class="tag">$age</span> <span class="punc">&lt;</span> <span class="num">18</span><span class="punc">)</span> <span class="punc">{</span>
+<span class="ln">4</span>        <span class="kw">throw</span> <span class="kw">new</span> <span class="fn">Exception</span><span class="punc">(</span><span class="str">&quot;Too young for this movie&quot;</span><span class="punc">,</span> <span class="num">101</span><span class="punc">)</span><span class="punc">;</span>
+<span class="ln">5</span>    <span class="punc">}</span>
+<span class="ln">6</span><span class="punc">}</span>
+<span class="ln">7</span>
+<span class="ln">8</span><span class="kw">try</span> <span class="punc">{</span>
+<span class="ln">9</span>    <span class="fn">checkAge</span><span class="punc">(</span><span class="num">15</span><span class="punc">)</span><span class="punc">;</span>
+<span class="ln">10</span><span class="punc">}</span> <span class="kw">catch</span> <span class="punc">(</span><span class="prop">Exception</span> <span class="tag">$e</span><span class="punc">)</span> <span class="punc">{</span>
+<span class="ln">11</span>    <span class="kw">echo</span> <span class="tag">$e</span><span class="punc">-</span><span class="punc">&gt;</span><span class="fn">getMessage</span><span class="punc">(</span><span class="punc">)</span> <span class="punc">.</span> <span class="str">&quot; | &quot;</span> <span class="punc">.</span> <span class="tag">$e</span><span class="punc">-</span><span class="punc">&gt;</span><span class="fn">getCode</span><span class="punc">(</span><span class="punc">)</span> <span class="punc">.</span> <span class="str">&quot; | line &quot;</span> <span class="punc">.</span> <span class="tag">$e</span><span class="punc">-</span><span class="punc">&gt;</span><span class="fn">getLine</span><span class="punc">(</span><span class="punc">)</span><span class="punc">;</span>
+<span class="ln">12</span><span class="punc">}</span></div></div><div class="code-window anim-3"><div class="code-titlebar"><div class="code-dot red"></div><div class="code-dot yellow"></div><div class="code-dot green"></div><span class="code-filename">Output</span></div><div class="code-body">Too young for this movie | 101 | line 4</div></div><p class="subtitle anim-4 mt-16">الرقم <bdi>4</bdi> هو السطر اللي فيه <bdi class="highlight-orange">throw</bdi> 🎯</p>
+  <script type="application/json" class="slide-notes">{"title": "Exception details", "script": "من الـ Exception نقدر نعرف الرسالة والكود والسطر.", "notes": ["غيّر الكود لـ 101 و 202 وشوفوا"]}</script>
+</div>
+
+<div class="slide" data-slide="8">
+  
+  
+<p class="slide-tag anim-1">مراجعة</p>
+<h2 class="anim-2">يلا نراجع <span class="highlight-blue">بسرعة</span> 📝</h2>
+<div class="flip-grid anim-3"><div class="flip-card" onclick="this.classList.toggle('flipped')"><div class="flip-front" style="border-color:var(--accent-teal);"><div class="flip-title">الـ <bdi>Exception</bdi> يعني إيه؟</div><div class="flip-hint">click to flip</div></div><div class="flip-back" style="border-color:var(--accent-teal);"><div class="flip-detail">طريقة PHP تبلّغك بالغلط<br><bdi>throw</bdi> بدل <bdi>-1</bdi></div></div></div><div class="flip-card" onclick="this.classList.toggle('flipped')"><div class="flip-front" style="border-color:var(--accent-green);"><div class="flip-title"><bdi>try / catch</bdi> بيعملوا إيه؟</div><div class="flip-hint">click to flip</div></div><div class="flip-back" style="border-color:var(--accent-green);"><div class="flip-detail"><bdi>try</bdi> بيجرّب الكود<br><bdi>catch</bdi> بيمسك الغلط</div></div></div><div class="flip-card" onclick="this.classList.toggle('flipped')"><div class="flip-front" style="border-color:var(--accent-orange);"><div class="flip-title"><bdi>throw</bdi> بيعمل إيه؟</div><div class="flip-hint">click to flip</div></div><div class="flip-back" style="border-color:var(--accent-orange);"><div class="flip-detail">بيرمي الغلط<br>و اللي بعده <strong>بيتخطى</strong></div></div></div><div class="flip-card" onclick="this.classList.toggle('flipped')"><div class="flip-front" style="border-color:var(--accent-purple);"><div class="flip-title">نعرف الرسالة إزاي؟</div><div class="flip-hint">click to flip</div></div><div class="flip-back" style="border-color:var(--accent-purple);"><div class="flip-detail"><bdi>$e->getMessage()</bdi><br><bdi>$e->getCode()</bdi></div></div></div></div>
+  <script type="application/json" class="slide-notes">{"title": "Revision", "script": "اطلب من الطلبة يجاوبوا قبل ما يقلبوا الكارت.", "notes": ["سيب وقت للإجابة"]}</script>
+</div>
+
+<div class="slide" data-slide="9">
+  <div class="glow-blob glow-blue" style="top:30%;left:30%;"></div>
+  
+<p class="slide-tag anim-1">الواجب 🏠</p>
+<h2 class="anim-2">جرب بنفسك على <span class="gradient-text">الكمبيوتر</span> 💻</h2>
+<div class="card anim-3" style="margin-top:24px;text-align:right;">
+<div style="display:flex;flex-direction:column;gap:22px;line-height:1.9;"><div style="text-align:right;"><span style="color:var(--accent-green);">●</span> <strong>سؤال 1 (سهل 🟢):</strong> اكتب <bdi>checkTicket($age)</bdi> بترمي <bdi>Exception</bdi> برسالة <bdi>"Too young"</bdi> لو السن أقل من 18. استدعيها جوه <bdi>try</bdi> و اطبع الرسالة بـ <bdi>getMessage()</bdi>.</div><div style="text-align:right;"><span style="color:var(--accent-green);">●</span> <strong>سؤال 2 (سهل 🟢):</strong> اكتب <bdi>buyItem($price, $money)</bdi> بترمي <bdi>Exception</bdi> برسالة <bdi>"Not enough money"</bdi> لو <bdi>$money</bdi> أقل من <bdi>$price</bdi>. جرّبها مرة بفلوس كفاية و مرة لأ.</div><div style="text-align:right;"><span style="color:var(--accent-orange);">●</span> <strong>سؤال 3 (متوسط 🟠):</strong> عندك <bdi>[2, 0, 5]</bdi> وده عدد الأصحاب. اعمل <bdi>foreach</bdi> و استدعي <bdi>splitBill(100, $n)</bdi>. لو <bdi>$n</bdi> صفر ارمي <bdi>Exception</bdi> بكود <bdi>100</bdi>. امسكه جوه الـ loop و اطبع الرسالة و الكود، و كمّل على الرقم اللي بعده.</div></div></div>
+<div class="rainbow-line anim-4 mt-24"></div>
+  <script type="application/json" class="slide-notes">{"title": "Homework", "script": "تلات أسئلة: اتنين سهلين وواحد متوسط.", "notes": ["شجعهم يجرّبوا في البيت"]}</script>
+</div>
+</div>
+
+<script>
+(function(){
+  var slides = Array.prototype.slice.call(document.querySelectorAll('.slide'));
+  var nav = document.getElementById('slideNav');
+  var progress = document.getElementById('progress');
+  var counter = document.getElementById('counter');
+  var current = 0;
+
+  slides.forEach(function(s, i){
+    var d = document.createElement('div');
+    d.className = 'nav-dot' + (i === 0 ? ' active' : '');
+    d.addEventListener('click', function(){ go(i); });
+    nav.appendChild(d);
+  });
+
+  function logNotes(i){
+    try{
+      var noteEl = slides[i].querySelector('.slide-notes');
+      if(noteEl){
+        var n = JSON.parse(noteEl.textContent);
+        console.log('%c📋 Slide ' + (i+1) + ': ' + n.title + '\n' + '━'.repeat(40) + '\n' + n.script + '\n\n  • ' + n.notes.join('\n  • ') + '\n' + '━'.repeat(40), 'color:#39c5cf;font-weight:bold;');
+      }
+    }catch(e){}
+  }
+
+  function go(i){
+    if(i < 0 || i >= slides.length) return;
+    slides[current].classList.remove('active');
+    current = i;
+    slides[current].classList.add('active');
+    var dots = nav.children;
+    for(var k = 0; k < dots.length; k++) dots[k].classList.toggle('active', k === current);
+    progress.style.width = ((current + 1) / slides.length * 100) + '%';
+    counter.textContent = (current + 1) + ' / ' + slides.length;
+    logNotes(current);
+  }
+
+  document.addEventListener('keydown', function(e){
+    if(e.key === 'ArrowRight') go(current - 1); // RTL deck
+    if(e.key === 'ArrowLeft') go(current + 1);
+    if(e.key === ' ') { e.preventDefault(); go(current + 1); }
+    if(e.key.toLowerCase() === 'f'){
+      if(document.fullscreenElement) document.exitFullscreen();
+      else document.documentElement.requestFullscreen().catch(function(){});
+    }
+  });
+
+  // particles
+  var pWrap = document.getElementById('particles');
+  for(var p = 0; p < 18; p++){
+    var el = document.createElement('div');
+    el.className = 'particle';
+    var size = 2 + Math.random() * 4;
+    el.style.width = size + 'px';
+    el.style.height = size + 'px';
+    el.style.left = Math.random() * 100 + '%';
+    el.style.animationDuration = (8 + Math.random() * 14) + 's';
+    el.style.animationDelay = (Math.random() * 10) + 's';
+    pWrap.appendChild(el);
+  }
+
+  progress.style.width = (1 / slides.length * 100) + '%';
+  counter.textContent = '1 / ' + slides.length;
+  logNotes(0);
+})();
+</script>
+</body>
+</html>
