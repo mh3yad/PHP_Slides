@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>مسائل PHP</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cairo:wght@400..900&family=JetBrains+Mono:wght@400;500;700&display=swap">
+<style>
+  html, body { margin: 0; height: 100%; background: #0B1210; overflow: hidden; }
+  p, h1, h2, h3 { margin: 0; }
+  #stage { position: fixed; left: 50%; top: 50%; width: 1920px; height: 1080px; transform-origin: center center; }
+  section { width: 1920px; height: 1080px; box-sizing: border-box; position: relative; overflow: hidden; }
+  section:not(.active) { display: none !important; }
+  aside { display: none; }
+  #bar { position: fixed; left: 0; right: 0; bottom: 0; display: flex; justify-content: center; align-items: center; gap: 16px; padding: 10px; font: 600 16px 'Cairo', Tahoma, sans-serif; color: #B9CCC5; background: rgba(11,18,16,.85); }
+  #bar button { font: inherit; color: #F2F5F3; background: #1B2A26; border: 1px solid #2C3E39; border-radius: 8px; padding: 6px 16px; cursor: pointer; }
+  #bar button:focus-visible { outline: 2px solid #F0B93A; }
+  #count { min-width: 64px; text-align: center; direction: ltr; }
+</style>
+</head>
+<body>
+<div id="stage">
+<section id="cover" data-transition="fade" style="background:#111B19;color:#F2F5F3;font-family:'Cairo', Tahoma, sans-serif;padding:128px;display:flex;flex-direction:column;justify-content:space-between;gap:48px">
+<p style="position:absolute;left:128px;top:96px;width:900px;font-family:'JetBrains Mono', 'Courier New', monospace;font-size:240px;font-weight:700;line-height:1;color:#1A2824;white-space:nowrap">&lt;?php</p>
+<p style="font-size:28px;font-weight:700;letter-spacing:4px;color:#F0B93A;text-align:right">PHP PROBLEM SOLVING</p>
+<div style="display:flex;flex-direction:column;align-items:flex-end;gap:24px">
+<h1 style="font-size:120px;font-weight:800;line-height:1.1;color:#F2F5F3;text-align:right">&#8295;5 مسائل PHP&#8297;</h1>
+<p style="width:1000px;font-size:40px;font-weight:500;line-height:1.5;color:#B9CCC5;text-align:right">&#8295;كل مسألة فيها شرح، ومثال على الناتج، وبعدها الحل خطوة خطوة بالكود كامل&#8297;</p>
+</div>
+<div style="display:flex;flex-direction:row-reverse;gap:24px">
+<div style="flex:1;display:flex;flex-direction:column;gap:12px;padding:28px;border:1px solid #2C3E39;border-radius:16px;background:#16231F">
+<p style="font-size:40px;font-weight:800;line-height:1;color:#F0B93A;text-align:right">1</p>
+<p style="font-size:28px;font-weight:600;color:#F2F5F3;text-align:right">&#8295;foreach&#8297;</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:12px;padding:28px;border:1px solid #2C3E39;border-radius:16px;background:#16231F">
+<p style="font-size:40px;font-weight:800;line-height:1;color:#F0B93A;text-align:right">2</p>
+<p style="font-size:28px;font-weight:600;color:#F2F5F3;text-align:right">&#8295;while و ternary&#8297;</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:12px;padding:28px;border:1px solid #2C3E39;border-radius:16px;background:#16231F">
+<p style="font-size:40px;font-weight:800;line-height:1;color:#F0B93A;text-align:right">3</p>
+<p style="font-size:28px;font-weight:600;color:#F2F5F3;text-align:right">&#8295;Arrow function&#8297;</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:12px;padding:28px;border:1px solid #2C3E39;border-radius:16px;background:#16231F">
+<p style="font-size:40px;font-weight:800;line-height:1;color:#F0B93A;text-align:right">4</p>
+<p style="font-size:28px;font-weight:600;color:#F2F5F3;text-align:right">&#8295;نظام Login&#8297;</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:12px;padding:28px;border:1px solid #2C3E39;border-radius:16px;background:#16231F">
+<p style="font-size:40px;font-weight:800;line-height:1;color:#F0B93A;text-align:right">5</p>
+<p style="font-size:28px;font-weight:600;color:#F2F5F3;text-align:right">&#8295;نظام Register&#8297;</p>
+</div>
+</div>
+</section>
+<section id="p1-problem" data-transition="fade" style="background:#F2F5F3;color:#12201D;font-family:'Cairo', Tahoma, sans-serif;padding:128px;display:flex;flex-direction:column;gap:56px">
+<div style="display:flex;flex-direction:column;gap:8px">
+<p style="font-size:28px;font-weight:700;color:#0B7A5F;text-align:right">&#8295;المسألة 1 من 5&#8297;</p>
+<h2 style="font-size:72px;font-weight:800;line-height:1.15;color:#12201D;text-align:right">&#8295;طباعة الأسامي بـ foreach&#8297;</h2>
+</div>
+<div style="display:flex;flex-direction:row-reverse;gap:64px;align-items:flex-start">
+<div style="flex:1;display:flex;flex-direction:column;gap:32px">
+<div style="display:flex;flex-direction:column;gap:8px">
+<p style="font-size:32px;font-weight:700;color:#0B7A5F;text-align:right">&#8295;المطلوب&#8297;</p>
+<p style="font-size:40px;font-weight:500;line-height:1.5;color:#12201D;text-align:right">&#8295;عندك 5 أسامي. خزّنهم في array واطبعهم كلهم واحد تحت التاني&#8297;</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:8px">
+<p style="font-size:32px;font-weight:700;color:#0B7A5F;text-align:right">&#8295;الفكرة&#8297;</p>
+<p style="font-size:32px;font-weight:500;line-height:1.5;color:#3B4C47;text-align:right">&#8295;الـ foreach بتعدّي على كل عنصر في الـ array لوحده، فمش محتاجين نعرف عددهم ولا نستخدم index&#8297;</p>
+</div>
+<div style="display:flex;flex-direction:row-reverse;align-items:center;gap:16px">
+<p style="font-size:28px;font-weight:600;color:#3B4C47;text-align:right">&#8295;هنستخدم&#8297;</p>
+<p style="font-family:'JetBrains Mono', 'Courier New', monospace;font-size:24px;font-weight:500;color:#12201D;background:#DCE6E1;padding:8px 20px;border-radius:12px">array</p>
+<p style="font-family:'JetBrains Mono', 'Courier New', monospace;font-size:24px;font-weight:500;color:#12201D;background:#DCE6E1;padding:8px 20px;border-radius:12px">foreach</p>
+<p style="font-family:'JetBrains Mono', 'Courier New', monospace;font-size:24px;font-weight:500;color:#12201D;background:#DCE6E1;padding:8px 20px;border-radius:12px">echo</p>
+</div>
+</div>
+<div style="width:700px;background:#16231F;border-radius:16px;padding:32px 40px;display:flex;flex-direction:column;gap:24px">
+<p style="font-size:28px;font-weight:600;color:#9FB5AD;text-align:right;padding-bottom:20px;border-bottom:1px solid #2C3E39">&#8295;مثال على الناتج&#8297;</p>
+<p style="font-family:'JetBrains Mono', 'Courier New', monospace;font-size:28px;line-height:1.5;color:#DCE8E3;text-align:left;white-space:nowrap">Ahmed<br>Mona<br>Youssef<br>Hassan<br>Nour</p>
+</div>
+</div>
+</section>
+<section id="p1-steps" data-transition="fade" style="background:#E3EBE7;color:#12201D;font-family:'Cairo', Tahoma, sans-serif;padding:128px;display:flex;flex-direction:column;gap:56px">
+<div style="display:flex;flex-direction:column;gap:8px">
+<p style="font-size:28px;font-weight:700;color:#0B7A5F;text-align:right">&#8295;المسألة 1 من 5&#8297;</p>
+<h2 style="font-size:72px;font-weight:800;line-height:1.15;color:#12201D;text-align:right">&#8295;خطوات الحل&#8297;</h2>
+</div>
+<div style="display:flex;flex-direction:column;gap:16px">
+<div style="display:flex;flex-direction:row-reverse;align-items:center;gap:32px;background:#FAFCFB;border:1px solid #C5D3CD;border-radius:16px;padding:20px 32px">
+<p style="flex:none;width:64px;height:64px;border-radius:50%;background:#0B7A5F;color:#F7FBF9;font-size:32px;font-weight:700;line-height:64px;text-align:center">1</p>
+<p style="flex:1;font-size:32px;font-weight:500;line-height:1.4;color:#12201D;text-align:right">&#8295;اعمل array اسمها <span style="color:#0B7A5F">&#8294;$names&#8297;</span> وحط فيها الـ 5 أسامي&#8297;</p>
+</div>
+<div style="display:flex;flex-direction:row-reverse;align-items:center;gap:32px;background:#FAFCFB;border:1px solid #C5D3CD;border-radius:16px;padding:20px 32px">
+<p style="flex:none;width:64px;height:64px;border-radius:50%;background:#0B7A5F;color:#F7FBF9;font-size:32px;font-weight:700;line-height:64px;text-align:center">2</p>
+<p style="flex:1;font-size:32px;font-weight:500;line-height:1.4;color:#12201D;text-align:right">&#8295;ابدأ الـ foreach بالشكل ده: <span style="color:#0B7A5F">&#8294;foreach ($names as $name)&#8297;</span>&#8297;</p>
+</div>
+<div style="display:flex;flex-direction:row-reverse;align-items:center;gap:32px;background:#FAFCFB;border:1px solid #C5D3CD;border-radius:16px;padding:20px 32px">
+<p style="flex:none;width:64px;height:64px;border-radius:50%;background:#0B7A5F;color:#F7FBF9;font-size:32px;font-weight:700;line-height:64px;text-align:center">3</p>
+<p style="flex:1;font-size:32px;font-weight:500;line-height:1.4;color:#12201D;text-align:right">&#8295;في كل لفة الاسم الحالي بيتحط في المتغير <span style="color:#0B7A5F">&#8294;$name&#8297;</span>&#8297;</p>
+</div>
+<div style="display:flex;flex-direction:row-reverse;align-items:center;gap:32px;background:#FAFCFB;border:1px solid #C5D3CD;border-radius:16px;padding:20px 32px">
+<p style="flex:none;width:64px;height:64px;border-radius:50%;background:#0B7A5F;color:#F7FBF9;font-size:32px;font-weight:700;line-height:64px;text-align:center">4</p>
+<p style="flex:1;font-size:32px;font-weight:500;line-height:1.4;color:#12201D;text-align:right">&#8295;اطبع <span style="color:#0B7A5F">&#8294;$name&#8297;</span> وبعده <span style="color:#0B7A5F">&#8294;&lt;br&gt;&#8297;</span> عشان كل اسم ينزل في سطر جديد&#8297;</p>
+</div>
+</div>
+</section>
+<section id="p1-code" data-transition="fade" style="background:#111B19;color:#E8F0EC;font-family:'Cairo', Tahoma, sans-serif;padding:128px;display:flex;flex-direction:column;gap:32px">
+<div style="display:flex;flex-direction:row-reverse;align-items:center;justify-content:space-between">
+<div style="display:flex;flex-direction:column;gap:4px">
+<p style="font-size:28px;font-weight:700;color:#F0B93A;text-align:right">&#8295;المسألة 1 من 5&#8297;</p>
+<h2 style="font-size:40px;font-weight:800;line-height:1.2;color:#F2F5F3;text-align:right">&#8295;الحل: الكود كامل&#8297;</h2>
+</div>
+<p style="font-family:'JetBrains Mono', 'Courier New', monospace;font-size:28px;font-weight:500;color:#111B19;background:#F0B93A;padding:8px 24px;border-radius:12px">names.php</p>
+</div>
+<div style="background:#1B2A26;border:1px solid #2C3E39;border-radius:16px;padding:32px 40px">
+<p style="font-family:'JetBrains Mono', 'Courier New', monospace;font-size:32px;line-height:1.45;color:#DCE8E3;text-align:left;white-space:nowrap"><span style="color:#F0B93A">&lt;?php</span><br>$names = [<span style="color:#8FD6B4">"Ahmed"</span>, <span style="color:#8FD6B4">"Mona"</span>, <span style="color:#8FD6B4">"Youssef"</span>, <span style="color:#8FD6B4">"Hassan"</span>, <span style="color:#8FD6B4">"Nour"</span>];<br><br><span style="color:#9CC9F0">foreach</span> ($names as $name) {<br>&#160;&#160;&#160;&#160;<span style="color:#9CC9F0">echo</span> $name . <span style="color:#8FD6B4">"&lt;br&gt;"</span>;<br>}</p>
+</div>
+</section>
+<section id="p2-problem" data-transition="fade" style="background:#F2F5F3;color:#12201D;font-family:'Cairo', Tahoma, sans-serif;padding:128px;display:flex;flex-direction:column;gap:56px">
+<div style="display:flex;flex-direction:column;gap:8px">
+<p style="font-size:28px;font-weight:700;color:#0B7A5F;text-align:right">&#8295;المسألة 2 من 5&#8297;</p>
+<h2 style="font-size:72px;font-weight:800;line-height:1.15;color:#12201D;text-align:right">&#8295;حصالة أحمد بـ while و ternary&#8297;</h2>
+</div>
+<div style="display:flex;flex-direction:row-reverse;gap:64px;align-items:flex-start">
+<div style="flex:1;display:flex;flex-direction:column;gap:32px">
+<div style="display:flex;flex-direction:column;gap:8px">
+<p style="font-size:32px;font-weight:700;color:#0B7A5F;text-align:right">&#8295;المطلوب&#8297;</p>
+<p style="font-size:40px;font-weight:500;line-height:1.5;color:#12201D;text-align:right">&#8295;أحمد عايز يشتري سماعة بـ 300 جنيه وبيوفر 50 جنيه كل أسبوع. اطبع رصيد الحصالة كل أسبوع لحد ما يوصل للمبلغ&#8297;</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:8px">
+<p style="font-size:32px;font-weight:700;color:#0B7A5F;text-align:right">&#8295;الفكرة&#8297;</p>
+<p style="font-size:32px;font-weight:500;line-height:1.5;color:#3B4C47;text-align:right">&#8295;الـ while بتكرر طول ما الرصيد أقل من الهدف، والـ ternary بتختار الرسالة: لسه بيوفر ولا الهدف اتحقق&#8297;</p>
+</div>
+<div style="display:flex;flex-direction:row-reverse;align-items:center;gap:16px">
+<p style="font-size:28px;font-weight:600;color:#3B4C47;text-align:right">&#8295;هنستخدم&#8297;</p>
+<p style="font-family:'JetBrains Mono', 'Courier New', monospace;font-size:24px;font-weight:500;color:#12201D;background:#DCE6E1;padding:8px 20px;border-radius:12px">while</p>
+<p style="font-family:'JetBrains Mono', 'Courier New', monospace;font-size:24px;font-weight:500;color:#12201D;background:#DCE6E1;padding:8px 20px;border-radius:12px">? :</p>
+<p style="font-family:'JetBrains Mono', 'Courier New', monospace;font-size:24px;font-weight:500;color:#12201D;background:#DCE6E1;padding:8px 20px;border-radius:12px">+=</p>
+</div>
+</div>
+<div style="width:700px;background:#16231F;border-radius:16px;padding:32px 40px;display:flex;flex-direction:column;gap:24px">
+<p style="font-size:28px;font-weight:600;color:#9FB5AD;text-align:right;padding-bottom:20px;border-bottom:1px solid #2C3E39">&#8295;مثال على الناتج&#8297;</p>
+<p style="font-family:'JetBrains Mono', 'Courier New', monospace;font-size:28px;line-height:1.5;color:#DCE8E3;text-align:left;white-space:nowrap">Week 1: 50 EGP - Keep saving<br>Week 2: 100 EGP - Keep saving<br>Week 3: 150 EGP - Keep saving<br>Week 4: 200 EGP - Keep saving<br>Week 5: 250 EGP - Keep saving<br>Week 6: 300 EGP - Goal reached!</p>
+</div>
+</div>
+</section>
+<section id="p2-steps" data-transition="fade" style="background:#E3EBE7;color:#12201D;font-family:'Cairo', Tahoma, sans-serif;padding:128px;display:flex;flex-direction:column;gap:56px">
+<div style="display:flex;flex-direction:column;gap:8px">
+<p style="font-size:28px;font-weight:700;color:#0B7A5F;text-align:right">&#8295;المسألة 2 من 5&#8297;</p>
+<h2 style="font-size:72px;font-weight:800;line-height:1.15;color:#12201D;text-align:right">&#8295;خطوات الحل&#8297;</h2>
+</div>
+<div style="display:flex;flex-direction:column;gap:16px">
+<div style="display:flex;flex-direction:row-reverse;align-items:center;gap:32px;background:#FAFCFB;border:1px solid #C5D3CD;border-radius:16px;padding:20px 32px">
+<p style="flex:none;width:64px;height:64px;border-radius:50%;background:#0B7A5F;color:#F7FBF9;font-size:32px;font-weight:700;line-height:64px;text-align:center">1</p>
+<p style="flex:1;font-size:32px;font-weight:500;line-height:1.4;color:#12201D;text-align:right">&#8295;جهّز المتغيرات: <span style="color:#0B7A5F">&#8294;$goal = 300&#8297;</span> و <span style="color:#0B7A5F">&#8294;$weekly = 50&#8297;</span> و <span style="color:#0B7A5F">&#8294;$saved = 0&#8297;</span> و <span style="color:#0B7A5F">&#8294;$week = 0&#8297;</span>&#8297;</p>
+</div>
+<div style="display:flex;flex-direction:row-reverse;align-items:center;gap:32px;background:#FAFCFB;border:1px solid #C5D3CD;border-radius:16px;padding:20px 32px">
+<p style="flex:none;width:64px;height:64px;border-radius:50%;background:#0B7A5F;color:#F7FBF9;font-size:32px;font-weight:700;line-height:64px;text-align:center">2</p>
+<p style="flex:1;font-size:32px;font-weight:500;line-height:1.4;color:#12201D;text-align:right">&#8295;الـ while بتكرر طول ما <span style="color:#0B7A5F">&#8294;$saved &lt; $goal&#8297;</span>&#8297;</p>
+</div>
+<div style="display:flex;flex-direction:row-reverse;align-items:center;gap:32px;background:#FAFCFB;border:1px solid #C5D3CD;border-radius:16px;padding:20px 32px">
+<p style="flex:none;width:64px;height:64px;border-radius:50%;background:#0B7A5F;color:#F7FBF9;font-size:32px;font-weight:700;line-height:64px;text-align:center">3</p>
+<p style="flex:1;font-size:32px;font-weight:500;line-height:1.4;color:#12201D;text-align:right">&#8295;في كل لفة زوّد رقم الأسبوع <span style="color:#0B7A5F">&#8294;$week++&#8297;</span> وزوّد الرصيد <span style="color:#0B7A5F">&#8294;$saved += $weekly&#8297;</span>&#8297;</p>
+</div>
+<div style="display:flex;flex-direction:row-reverse;align-items:center;gap:32px;background:#FAFCFB;border:1px solid #C5D3CD;border-radius:16px;padding:20px 32px">
+<p style="flex:none;width:64px;height:64px;border-radius:50%;background:#0B7A5F;color:#F7FBF9;font-size:32px;font-weight:700;line-height:64px;text-align:center">4</p>
+<p style="flex:1;font-size:32px;font-weight:500;line-height:1.4;color:#12201D;text-align:right">&#8295;الـ ternary بتختار الرسالة: لو <span style="color:#0B7A5F">&#8294;$saved &gt;= $goal&#8297;</span> تطلع <span style="color:#0B7A5F">&#8294;Goal reached!&#8297;</span> وإلا تطلع <span style="color:#0B7A5F">&#8294;Keep saving&#8297;</span>&#8297;</p>
+</div>
+<div style="display:flex;flex-direction:row-reverse;align-items:center;gap:32px;background:#FAFCFB;border:1px solid #C5D3CD;border-radius:16px;padding:20px 32px">
+<p style="flex:none;width:64px;height:64px;border-radius:50%;background:#0B7A5F;color:#F7FBF9;font-size:32px;font-weight:700;line-height:64px;text-align:center">5</p>
+<p style="flex:1;font-size:32px;font-weight:500;line-height:1.4;color:#12201D;text-align:right">&#8295;اطبع الأسبوع والرصيد والرسالة، وبعدها <span style="color:#0B7A5F">&#8294;&lt;br&gt;&#8297;</span> للسطر الجديد&#8297;</p>
+</div>
+</div>
+</section>
+<section id="p2-code" data-transition="fade" style="background:#111B19;color:#E8F0EC;font-family:'Cairo', Tahoma, sans-serif;padding:128px;display:flex;flex-direction:column;gap:32px">
+<div style="display:flex;flex-direction:row-reverse;align-items:center;justify-content:space-between">
+<div style="display:flex;flex-direction:column;gap:4px">
+<p style="font-size:28px;font-weight:700;color:#F0B93A;text-align:right">&#8295;المسألة 2 من 5&#8297;</p>
+<h2 style="font-size:40px;font-weight:800;line-height:1.2;color:#F2F5F3;text-align:right">&#8295;الحل: الكود كامل&#8297;</h2>
+</div>
+<p style="font-family:'JetBrains Mono', 'Courier New', monospace;font-size:28px;font-weight:500;color:#111B19;background:#F0B93A;padding:8px 24px;border-radius:12px">savings.php</p>
+</div>
+<div style="background:#1B2A26;border:1px solid #2C3E39;border-radius:16px;padding:32px 40px">
+<p style="font-family:'JetBrains Mono', 'Courier New', monospace;font-size:28px;line-height:1.4;color:#DCE8E3;text-align:left;white-space:nowrap"><span style="color:#F0B93A">&lt;?php</span><br>$goal = 300; <span style="color:#7E968E">// headphones price</span><br>$weekly = 50; <span style="color:#7E968E">// saved every week</span><br>$saved = 0;<br>$week = 0;<br><br><span style="color:#9CC9F0">while</span> ($saved &lt; $goal) {<br>&#160;&#160;&#160;&#160;$week++;<br>&#160;&#160;&#160;&#160;$saved += $weekly;<br><br>&#160;&#160;&#160;&#160;$status = ($saved &gt;= $goal) ? <span style="color:#8FD6B4">"Goal reached!"</span> : <span style="color:#8FD6B4">"Keep saving"</span>;<br><br>&#160;&#160;&#160;&#160;<span style="color:#9CC9F0">echo</span> <span style="color:#8FD6B4">"Week $week: $saved EGP - $status&lt;br&gt;"</span>;<br>}</p>
+</div>
+</section>
+<section id="p3-problem" data-transition="fade" style="background:#F2F5F3;color:#12201D;font-family:'Cairo', Tahoma, sans-serif;padding:128px;display:flex;flex-direction:column;gap:56px">
+<div style="display:flex;flex-direction:column;gap:8px">
+<p style="font-size:28px;font-weight:700;color:#0B7A5F;text-align:right">&#8295;المسألة 3 من 5&#8297;</p>
+<h2 style="font-size:72px;font-weight:800;line-height:1.15;color:#12201D;text-align:right">&#8295;من function لـ arrow function&#8297;</h2>
+</div>
+<div style="display:flex;flex-direction:row-reverse;gap:64px;align-items:flex-start">
+<div style="flex:1;display:flex;flex-direction:column;gap:32px">
+<div style="display:flex;flex-direction:column;gap:8px">
+<p style="font-size:32px;font-weight:700;color:#0B7A5F;text-align:right">&#8295;المطلوب&#8297;</p>
+<p style="font-size:40px;font-weight:500;line-height:1.5;color:#12201D;text-align:right">&#8295;اكتب function بتاخد سعر منتج وترجّع السعر بعد ضريبة 14%. وبعدين اكتبها تاني كـ arrow function بنفس النتيجة&#8297;</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:8px">
+<p style="font-size:32px;font-weight:700;color:#0B7A5F;text-align:right">&#8295;الفكرة&#8297;</p>
+<p style="font-size:32px;font-weight:500;line-height:1.5;color:#3B4C47;text-align:right">&#8295;الـ arrow function (fn) نسخة مختصرة من الـ function، مناسبة للدوال اللي جواها تعبير واحد بس، وموجودة من PHP 7.4&#8297;</p>
+</div>
+<div style="display:flex;flex-direction:row-reverse;align-items:center;gap:16px">
+<p style="font-size:28px;font-weight:600;color:#3B4C47;text-align:right">&#8295;هنستخدم&#8297;</p>
+<p style="font-family:'JetBrains Mono', 'Courier New', monospace;font-size:24px;font-weight:500;color:#12201D;background:#DCE6E1;padding:8px 20px;border-radius:12px">function</p>
+<p style="font-family:'JetBrains Mono', 'Courier New', monospace;font-size:24px;font-weight:500;color:#12201D;background:#DCE6E1;padding:8px 20px;border-radius:12px">fn</p>
+<p style="font-family:'JetBrains Mono', 'Courier New', monospace;font-size:24px;font-weight:500;color:#12201D;background:#DCE6E1;padding:8px 20px;border-radius:12px">=&gt;</p>
+</div>
+</div>
+<div style="width:700px;background:#16231F;border-radius:16px;padding:32px 40px;display:flex;flex-direction:column;gap:24px">
+<p style="font-size:28px;font-weight:600;color:#9FB5AD;text-align:right;padding-bottom:20px;border-bottom:1px solid #2C3E39">&#8295;مثال على الناتج&#8297;</p>
+<p style="font-family:'JetBrains Mono', 'Courier New', monospace;font-size:28px;line-height:1.5;color:#DCE8E3;text-align:left;white-space:nowrap">114<br>285</p>
+<p style="font-size:24px;font-weight:500;line-height:1.5;color:#9FB5AD;text-align:right">&#8295;الدالة العادية والـ arrow function بيطبعوا نفس الأرقام&#8297;</p>
+</div>
+</div>
+</section>
+<section id="p3-steps" data-transition="fade" style="background:#E3EBE7;color:#12201D;font-family:'Cairo', Tahoma, sans-serif;padding:128px;display:flex;flex-direction:column;gap:56px">
+<div style="display:flex;flex-direction:column;gap:8px">
+<p style="font-size:28px;font-weight:700;color:#0B7A5F;text-align:right">&#8295;المسألة 3 من 5&#8297;</p>
+<h2 style="font-size:72px;font-weight:800;line-height:1.15;color:#12201D;text-align:right">&#8295;خطوات الحل&#8297;</h2>
+</div>
+<div style="display:flex;flex-direction:column;gap:16px">
+<div style="display:flex;flex-direction:row-reverse;align-items:center;gap:32px;background:#FAFCFB;border:1px solid #C5D3CD;border-radius:16px;padding:20px 32px">
+<p style="flex:none;width:64px;height:64px;border-radius:50%;background:#0B7A5F;color:#F7FBF9;font-size:32px;font-weight:700;line-height:64px;text-align:center">1</p>
+<p style="flex:1;font-size:32px;font-weight:500;line-height:1.4;color:#12201D;text-align:right">&#8295;اكتب الدالة العادية: <span style="color:#0B7A5F">&#8294;function addTax($price)&#8297;</span>&#8297;</p>
+</div>
+<div style="display:flex;flex-direction:row-reverse;align-items:center;gap:32px;background:#FAFCFB;border:1px solid #C5D3CD;border-radius:16px;padding:20px 32px">
+<p style="flex:none;width:64px;height:64px;border-radius:50%;background:#0B7A5F;color:#F7FBF9;font-size:32px;font-weight:700;line-height:64px;text-align:center">2</p>
+<p style="flex:1;font-size:32px;font-weight:500;line-height:1.4;color:#12201D;text-align:right">&#8295;جواها <span style="color:#0B7A5F">&#8294;return $price * 1.14&#8297;</span> عشان تضيف ضريبة 14%&#8297;</p>
+</div>
+<div style="display:flex;flex-direction:row-reverse;align-items:center;gap:32px;background:#FAFCFB;border:1px solid #C5D3CD;border-radius:16px;padding:20px 32px">
+<p style="flex:none;width:64px;height:64px;border-radius:50%;background:#0B7A5F;color:#F7FBF9;font-size:32px;font-weight:700;line-height:64px;text-align:center">3</p>
+<p style="flex:1;font-size:32px;font-weight:500;line-height:1.4;color:#12201D;text-align:right">&#8295;جرّبها بسعرين: <span style="color:#0B7A5F">&#8294;addTax(100)&#8297;</span> و <span style="color:#0B7A5F">&#8294;addTax(250)&#8297;</span>&#8297;</p>
+</div>
+<div style="display:flex;flex-direction:row-reverse;align-items:center;gap:32px;background:#FAFCFB;border:1px solid #C5D3CD;border-radius:16px;padding:20px 32px">
+<p style="flex:none;width:64px;height:64px;border-radius:50%;background:#0B7A5F;color:#F7FBF9;font-size:32px;font-weight:700;line-height:64px;text-align:center">4</p>
+<p style="flex:1;font-size:32px;font-weight:500;line-height:1.4;color:#12201D;text-align:right">&#8295;حوّلها: اكتب <span style="color:#0B7A5F">&#8294;$addTax = fn($price) =&gt;&#8297;</span> وبعدها التعبير مباشرة من غير return ولا أقواس <span style="color:#0B7A5F">&#8294;{}&#8297;</span>&#8297;</p>
+</div>
+<div style="display:flex;flex-direction:row-reverse;align-items:center;gap:32px;background:#FAFCFB;border:1px solid #C5D3CD;border-radius:16px;padding:20px 32px">
+<p style="flex:none;width:64px;height:64px;border-radius:50%;background:#0B7A5F;color:#F7FBF9;font-size:32px;font-weight:700;line-height:64px;text-align:center">5</p>
+<p style="flex:1;font-size:32px;font-weight:500;line-height:1.4;color:#12201D;text-align:right">&#8295;ناديها بالمتغير <span style="color:#0B7A5F">&#8294;$addTax(100)&#8297;</span> والناتج نفس ناتج الدالة العادية&#8297;</p>
+</div>
+</div>
+</section>
+<section id="p3-code" data-transition="fade" style="background:#111B19;color:#E8F0EC;font-family:'Cairo', Tahoma, sans-serif;padding:128px;display:flex;flex-direction:column;gap:32px">
+<div style="display:flex;flex-direction:row-reverse;align-items:center;justify-content:space-between">
+<div style="display:flex;flex-direction:column;gap:4px">
+<p style="font-size:28px;font-weight:700;color:#F0B93A;text-align:right">&#8295;المسألة 3 من 5&#8297;</p>
+<h2 style="font-size:40px;font-weight:800;line-height:1.2;color:#F2F5F3;text-align:right">&#8295;الحل: الكود كامل&#8297;</h2>
+</div>
+<p style="font-family:'JetBrains Mono', 'Courier New', monospace;font-size:28px;font-weight:500;color:#111B19;background:#F0B93A;padding:8px 24px;border-radius:12px">tax.php</p>
+</div>
+<div style="display:flex;flex-direction:row-reverse;gap:32px;align-items:flex-start">
+<div style="flex:1;display:flex;flex-direction:column;gap:20px">
+<p style="font-size:32px;font-weight:700;color:#F2F5F3;text-align:right">&#8295;الـ function العادية&#8297;</p>
+<div style="background:#1B2A26;border:1px solid #2C3E39;border-radius:16px;padding:32px">
+<p style="font-family:'JetBrains Mono', 'Courier New', monospace;font-size:28px;line-height:1.4;color:#DCE8E3;text-align:left;white-space:nowrap"><span style="color:#F0B93A">&lt;?php</span><br><span style="color:#9CC9F0">function</span> addTax($price) {<br>&#160;&#160;&#160;&#160;<span style="color:#9CC9F0">return</span> $price * 1.14;<br>}<br><br><span style="color:#9CC9F0">echo</span> addTax(100) . <span style="color:#8FD6B4">"&lt;br&gt;"</span>;<br><span style="color:#9CC9F0">echo</span> addTax(250) . <span style="color:#8FD6B4">"&lt;br&gt;"</span>;</p>
+</div>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:20px">
+<p style="font-size:32px;font-weight:700;color:#F2F5F3;text-align:right">&#8295;الـ arrow function&#8297;</p>
+<div style="background:#1B2A26;border:1px solid #2C3E39;border-radius:16px;padding:32px">
+<p style="font-family:'JetBrains Mono', 'Courier New', monospace;font-size:28px;line-height:1.4;color:#DCE8E3;text-align:left;white-space:nowrap"><span style="color:#F0B93A">&lt;?php</span><br>$addTax = <span style="color:#9CC9F0">fn</span>($price) =&gt; $price * 1.14;<br><br><span style="color:#9CC9F0">echo</span> $addTax(100) . <span style="color:#8FD6B4">"&lt;br&gt;"</span>;<br><span style="color:#9CC9F0">echo</span> $addTax(250) . <span style="color:#8FD6B4">"&lt;br&gt;"</span>;</p>
+</div>
+</div>
+</div>
+</section>
+<section id="p4-problem" data-transition="fade" style="background:#F2F5F3;color:#12201D;font-family:'Cairo', Tahoma, sans-serif;padding:128px;display:flex;flex-direction:column;gap:56px">
+<div style="display:flex;flex-direction:column;gap:8px">
+<p style="font-size:28px;font-weight:700;color:#0B7A5F;text-align:right">&#8295;المسألة 4 من 5&#8297;</p>
+<h2 style="font-size:72px;font-weight:800;line-height:1.15;color:#12201D;text-align:right">&#8295;نظام Login بـ POST&#8297;</h2>
+</div>
+<div style="display:flex;flex-direction:row-reverse;gap:64px;align-items:flex-start">
+<div style="flex:1;display:flex;flex-direction:column;gap:32px">
+<div style="display:flex;flex-direction:column;gap:8px">
+<p style="font-size:32px;font-weight:700;color:#0B7A5F;text-align:right">&#8295;المطلوب&#8297;</p>
+<p style="font-size:40px;font-weight:500;line-height:1.5;color:#12201D;text-align:right">&#8295;اعمل فورم فيه Email و Password. لو البيانات صح اعرض في صفحة جديدة رسالة النجاح، وإلا اعرض رسالة الخطأ&#8297;</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:8px">
+<p style="font-size:32px;font-weight:700;color:#0B7A5F;text-align:right">&#8295;الفكرة&#8297;</p>
+<p style="font-size:32px;font-weight:500;line-height:1.5;color:#3B4C47;text-align:right">&#8295;الفورم بيبعت البيانات بـ POST، والصفحة الجديدة بتقارنها بالبيانات الصح&#8297;</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:12px;background:#E3EBE7;border-radius:16px;padding:24px 32px">
+<p style="font-size:28px;font-weight:700;color:#12201D;text-align:right">&#8295;البيانات الصح&#8297;</p>
+<p style="font-family:'JetBrains Mono', 'Courier New', monospace;font-size:28px;line-height:1.5;color:#12201D;text-align:left;white-space:nowrap">Email: admin@gmail.com<br>Password: 12345678@AA</p>
+</div>
+</div>
+<div style="width:700px;background:#16231F;border-radius:16px;padding:32px 40px;display:flex;flex-direction:column;gap:24px">
+<p style="font-size:28px;font-weight:600;color:#9FB5AD;text-align:right;padding-bottom:20px;border-bottom:1px solid #2C3E39">&#8295;مثال على الناتج في الصفحة الجديدة&#8297;</p>
+<p style="font-size:28px;font-weight:500;color:#9FB5AD;text-align:right">&#8295;لو البيانات صح&#8297;</p>
+<p style="font-family:'JetBrains Mono', 'Courier New', monospace;font-size:28px;color:#8FD6B4;text-align:left;white-space:nowrap">Logged in successfully</p>
+<p style="font-size:28px;font-weight:500;color:#9FB5AD;text-align:right">&#8295;لو أي حاجة غلط&#8297;</p>
+<p style="font-family:'JetBrains Mono', 'Courier New', monospace;font-size:28px;color:#F4A58C;text-align:left;white-space:nowrap">Wrong credentials</p>
+</div>
+</div>
+</section>
+<section id="p4-steps" data-transition="fade" style="background:#E3EBE7;color:#12201D;font-family:'Cairo', Tahoma, sans-serif;padding:128px;display:flex;flex-direction:column;gap:56px">
+<div style="display:flex;flex-direction:column;gap:8px">
+<p style="font-size:28px;font-weight:700;color:#0B7A5F;text-align:right">&#8295;المسألة 4 من 5&#8297;</p>
+<h2 style="font-size:72px;font-weight:800;line-height:1.15;color:#12201D;text-align:right">&#8295;خطوات الحل&#8297;</h2>
+</div>
+<div style="display:flex;flex-direction:column;gap:16px">
+<div style="display:flex;flex-direction:row-reverse;align-items:center;gap:32px;background:#FAFCFB;border:1px solid #C5D3CD;border-radius:16px;padding:20px 32px">
+<p style="flex:none;width:64px;height:64px;border-radius:50%;background:#0B7A5F;color:#F7FBF9;font-size:32px;font-weight:700;line-height:64px;text-align:center">1</p>
+<p style="flex:1;font-size:32px;font-weight:500;line-height:1.4;color:#12201D;text-align:right">&#8295;اعمل <span style="color:#0B7A5F">&#8294;login.php&#8297;</span> فيه فورم بخانتين: <span style="color:#0B7A5F">&#8294;email&#8297;</span> و <span style="color:#0B7A5F">&#8294;password&#8297;</span>&#8297;</p>
+</div>
+<div style="display:flex;flex-direction:row-reverse;align-items:center;gap:32px;background:#FAFCFB;border:1px solid #C5D3CD;border-radius:16px;padding:20px 32px">
+<p style="flex:none;width:64px;height:64px;border-radius:50%;background:#0B7A5F;color:#F7FBF9;font-size:32px;font-weight:700;line-height:64px;text-align:center">2</p>
+<p style="flex:1;font-size:32px;font-weight:500;line-height:1.4;color:#12201D;text-align:right">&#8295;حط في الفورم <span style="color:#0B7A5F">&#8294;method="POST"&#8297;</span> و <span style="color:#0B7A5F">&#8294;action="result.php"&#8297;</span>&#8297;</p>
+</div>
+<div style="display:flex;flex-direction:row-reverse;align-items:center;gap:32px;background:#FAFCFB;border:1px solid #C5D3CD;border-radius:16px;padding:20px 32px">
+<p style="flex:none;width:64px;height:64px;border-radius:50%;background:#0B7A5F;color:#F7FBF9;font-size:32px;font-weight:700;line-height:64px;text-align:center">3</p>
+<p style="flex:1;font-size:32px;font-weight:500;line-height:1.4;color:#12201D;text-align:right">&#8295;في <span style="color:#0B7A5F">&#8294;result.php&#8297;</span> اقرا القيم المبعوتة من <span style="color:#0B7A5F">&#8294;$_POST&#8297;</span>&#8297;</p>
+</div>
+<div style="display:flex;flex-direction:row-reverse;align-items:center;gap:32px;background:#FAFCFB;border:1px solid #C5D3CD;border-radius:16px;padding:20px 32px">
+<p style="flex:none;width:64px;height:64px;border-radius:50%;background:#0B7A5F;color:#F7FBF9;font-size:32px;font-weight:700;line-height:64px;text-align:center">4</p>
+<p style="flex:1;font-size:32px;font-weight:500;line-height:1.4;color:#12201D;text-align:right">&#8295;قارن الإيميل والباسورد بالقيم الصح باستخدام <span style="color:#0B7A5F">&#8294;&amp;&amp;&#8297;</span>&#8297;</p>
+</div>
+<div style="display:flex;flex-direction:row-reverse;align-items:center;gap:32px;background:#FAFCFB;border:1px solid #C5D3CD;border-radius:16px;padding:20px 32px">
+<p style="flex:none;width:64px;height:64px;border-radius:50%;background:#0B7A5F;color:#F7FBF9;font-size:32px;font-weight:700;line-height:64px;text-align:center">5</p>
+<p style="flex:1;font-size:32px;font-weight:500;line-height:1.4;color:#12201D;text-align:right">&#8295;لو الاتنين صح اطبع <span style="color:#0B7A5F">&#8294;Logged in successfully&#8297;</span> وإلا اطبع <span style="color:#0B7A5F">&#8294;Wrong credentials&#8297;</span>&#8297;</p>
+</div>
+</div>
+</section>
+<section id="p4-code-login" data-transition="fade" style="background:#111B19;color:#E8F0EC;font-family:'Cairo', Tahoma, sans-serif;padding:128px;display:flex;flex-direction:column;gap:32px">
+<div style="display:flex;flex-direction:row-reverse;align-items:center;justify-content:space-between">
+<div style="display:flex;flex-direction:column;gap:4px">
+<p style="font-size:28px;font-weight:700;color:#F0B93A;text-align:right">&#8295;المسألة 4 من 5&#8297;</p>
+<h2 style="font-size:40px;font-weight:800;line-height:1.2;color:#F2F5F3;text-align:right">&#8295;الحل: الكود (ملف 1 من 2)&#8297;</h2>
+</div>
+<p style="font-family:'JetBrains Mono', 'Courier New', monospace;font-size:28px;font-weight:500;color:#111B19;background:#F0B93A;padding:8px 24px;border-radius:12px">login.php</p>
+</div>
+<div style="background:#1B2A26;border:1px solid #2C3E39;border-radius:16px;padding:32px 40px">
+<p style="font-family:'JetBrains Mono', 'Courier New', monospace;font-size:28px;line-height:1.4;color:#DCE8E3;text-align:left;white-space:nowrap">&lt;!DOCTYPE html&gt;<br>&lt;html&gt;<br>&lt;body&gt;<br>&#160;&#160;&#160;&#160;&lt;h2&gt;Login&lt;/h2&gt;<br><br>&#160;&#160;&#160;&#160;&lt;form action="result.php" method="POST"&gt;<br>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;input type="email" name="email" placeholder="Email" required&gt;<br>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;br&gt;&lt;br&gt;<br>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;input type="password" name="password" placeholder="Password" required&gt;<br>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;br&gt;&lt;br&gt;<br>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;button type="submit"&gt;Login&lt;/button&gt;<br>&#160;&#160;&#160;&#160;&lt;/form&gt;<br>&lt;/body&gt;<br>&lt;/html&gt;</p>
+</div>
+</section>
+<section id="p4-code-result" data-transition="fade" style="background:#111B19;color:#E8F0EC;font-family:'Cairo', Tahoma, sans-serif;padding:128px;display:flex;flex-direction:column;gap:32px">
+<div style="display:flex;flex-direction:row-reverse;align-items:center;justify-content:space-between">
+<div style="display:flex;flex-direction:column;gap:4px">
+<p style="font-size:28px;font-weight:700;color:#F0B93A;text-align:right">&#8295;المسألة 4 من 5&#8297;</p>
+<h2 style="font-size:40px;font-weight:800;line-height:1.2;color:#F2F5F3;text-align:right">&#8295;الحل: الكود (ملف 2 من 2)&#8297;</h2>
+</div>
+<p style="font-family:'JetBrains Mono', 'Courier New', monospace;font-size:28px;font-weight:500;color:#111B19;background:#F0B93A;padding:8px 24px;border-radius:12px">result.php</p>
+</div>
+<div style="background:#1B2A26;border:1px solid #2C3E39;border-radius:16px;padding:32px 40px">
+<p style="font-family:'JetBrains Mono', 'Courier New', monospace;font-size:28px;line-height:1.4;color:#DCE8E3;text-align:left;white-space:nowrap"><span style="color:#F0B93A">&lt;?php</span><br>$email = $_POST[<span style="color:#8FD6B4">"email"</span>] ?? <span style="color:#8FD6B4">""</span>;<br>$password = $_POST[<span style="color:#8FD6B4">"password"</span>] ?? <span style="color:#8FD6B4">""</span>;<br><br><span style="color:#9CC9F0">if</span> ($email === <span style="color:#8FD6B4">"admin@gmail.com"</span> &amp;&amp; $password === <span style="color:#8FD6B4">"12345678@AA"</span>) {<br>&#160;&#160;&#160;&#160;<span style="color:#9CC9F0">echo</span> <span style="color:#8FD6B4">"Logged in successfully"</span>;<br>} <span style="color:#9CC9F0">else</span> {<br>&#160;&#160;&#160;&#160;<span style="color:#9CC9F0">echo</span> <span style="color:#8FD6B4">"Wrong credentials"</span>;<br>}</p>
+</div>
+</section>
+<section id="p5-problem" data-transition="fade" style="background:#F2F5F3;color:#12201D;font-family:'Cairo', Tahoma, sans-serif;padding:128px;display:flex;flex-direction:column;gap:56px">
+<div style="display:flex;flex-direction:column;gap:8px">
+<p style="font-size:28px;font-weight:700;color:#0B7A5F;text-align:right">&#8295;المسألة 5 من 5&#8297;</p>
+<h2 style="font-size:72px;font-weight:800;line-height:1.15;color:#12201D;text-align:right">&#8295;نظام Register وصفحة التأكيد&#8297;</h2>
+</div>
+<div style="display:flex;flex-direction:row-reverse;gap:64px;align-items:flex-start">
+<div style="flex:1;display:flex;flex-direction:column;gap:32px">
+<div style="display:flex;flex-direction:column;gap:8px">
+<p style="font-size:32px;font-weight:700;color:#0B7A5F;text-align:right">&#8295;المطلوب&#8297;</p>
+<p style="font-size:40px;font-weight:500;line-height:1.5;color:#12201D;text-align:right">&#8295;فورم تسجيل: الاسم، الإيميل، تاريخ الميلاد، الباسورد وإعادته. بعد ما يخلص يتحوّل لصفحة registered وتتطبع بياناته بـ for loop&#8297;</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:8px">
+<p style="font-size:32px;font-weight:700;color:#0B7A5F;text-align:right">&#8295;الفكرة&#8297;</p>
+<p style="font-size:32px;font-weight:500;line-height:1.5;color:#3B4C47;text-align:right">&#8295;الباسورد لازم يساوي إعادته. والـ redirect بيبدأ request جديد، فبنحفظ البيانات في session&#8297;</p>
+</div>
+<div style="display:flex;flex-direction:row-reverse;align-items:center;gap:16px">
+<p style="font-size:28px;font-weight:600;color:#3B4C47;text-align:right">&#8295;هنستخدم&#8297;</p>
+<p style="font-family:'JetBrains Mono', 'Courier New', monospace;font-size:24px;font-weight:500;color:#12201D;background:#DCE6E1;padding:8px 20px;border-radius:12px">POST</p>
+<p style="font-family:'JetBrains Mono', 'Courier New', monospace;font-size:24px;font-weight:500;color:#12201D;background:#DCE6E1;padding:8px 20px;border-radius:12px">session</p>
+<p style="font-family:'JetBrains Mono', 'Courier New', monospace;font-size:24px;font-weight:500;color:#12201D;background:#DCE6E1;padding:8px 20px;border-radius:12px">header</p>
+<p style="font-family:'JetBrains Mono', 'Courier New', monospace;font-size:24px;font-weight:500;color:#12201D;background:#DCE6E1;padding:8px 20px;border-radius:12px">for</p>
+</div>
+</div>
+<div style="width:700px;background:#16231F;border-radius:16px;padding:32px 40px;display:flex;flex-direction:column;gap:24px">
+<p style="font-size:28px;font-weight:600;color:#9FB5AD;text-align:right;padding-bottom:20px;border-bottom:1px solid #2C3E39">&#8295;مثال على الناتج في registered.php&#8297;</p>
+<p style="font-family:'JetBrains Mono', 'Courier New', monospace;font-size:28px;line-height:1.5;color:#8FD6B4;text-align:left;white-space:nowrap">Registered successfully</p>
+<p style="font-family:'JetBrains Mono', 'Courier New', monospace;font-size:28px;line-height:1.5;color:#DCE8E3;text-align:left;white-space:nowrap">Name: Sara Hassan<br>Email: sara@example.com<br>Date of birth: 2000-05-14<br>Password: ********</p>
+<p style="font-size:28px;font-weight:500;color:#9FB5AD;text-align:right">&#8295;لو الباسورد مش متطابق&#8297;</p>
+<p style="font-family:'JetBrains Mono', 'Courier New', monospace;font-size:28px;color:#F4A58C;text-align:left;white-space:nowrap">Passwords do not match</p>
+</div>
+</div>
+</section>
+<section id="p5-steps" data-transition="fade" style="background:#E3EBE7;color:#12201D;font-family:'Cairo', Tahoma, sans-serif;padding:128px;display:flex;flex-direction:column;gap:56px">
+<div style="display:flex;flex-direction:column;gap:8px">
+<p style="font-size:28px;font-weight:700;color:#0B7A5F;text-align:right">&#8295;المسألة 5 من 5&#8297;</p>
+<h2 style="font-size:72px;font-weight:800;line-height:1.15;color:#12201D;text-align:right">&#8295;خطوات الحل&#8297;</h2>
+</div>
+<div style="display:flex;flex-direction:column;gap:16px">
+<div style="display:flex;flex-direction:row-reverse;align-items:center;gap:32px;background:#FAFCFB;border:1px solid #C5D3CD;border-radius:16px;padding:20px 32px">
+<p style="flex:none;width:64px;height:64px;border-radius:50%;background:#0B7A5F;color:#F7FBF9;font-size:32px;font-weight:700;line-height:64px;text-align:center">1</p>
+<p style="flex:1;font-size:32px;font-weight:500;line-height:1.4;color:#12201D;text-align:right">&#8295;اعمل فورم في <span style="color:#0B7A5F">&#8294;register.php&#8297;</span> فيه 5 خانات: الاسم، الإيميل، تاريخ الميلاد، الباسورد، وإعادته&#8297;</p>
+</div>
+<div style="display:flex;flex-direction:row-reverse;align-items:center;gap:32px;background:#FAFCFB;border:1px solid #C5D3CD;border-radius:16px;padding:20px 32px">
+<p style="flex:none;width:64px;height:64px;border-radius:50%;background:#0B7A5F;color:#F7FBF9;font-size:32px;font-weight:700;line-height:64px;text-align:center">2</p>
+<p style="flex:1;font-size:32px;font-weight:500;line-height:1.4;color:#12201D;text-align:right">&#8295;لما الفورم يتبعت بـ POST قارن <span style="color:#0B7A5F">&#8294;$_POST["password"]&#8297;</span> مع <span style="color:#0B7A5F">&#8294;$_POST["confirm"]&#8297;</span>&#8297;</p>
+</div>
+<div style="display:flex;flex-direction:row-reverse;align-items:center;gap:32px;background:#FAFCFB;border:1px solid #C5D3CD;border-radius:16px;padding:20px 32px">
+<p style="flex:none;width:64px;height:64px;border-radius:50%;background:#0B7A5F;color:#F7FBF9;font-size:32px;font-weight:700;line-height:64px;text-align:center">3</p>
+<p style="flex:1;font-size:32px;font-weight:500;line-height:1.4;color:#12201D;text-align:right">&#8295;لو مش متطابقين اعرض رسالة الخطأ في نفس الصفحة&#8297;</p>
+</div>
+<div style="display:flex;flex-direction:row-reverse;align-items:center;gap:32px;background:#FAFCFB;border:1px solid #C5D3CD;border-radius:16px;padding:20px 32px">
+<p style="flex:none;width:64px;height:64px;border-radius:50%;background:#0B7A5F;color:#F7FBF9;font-size:32px;font-weight:700;line-height:64px;text-align:center">4</p>
+<p style="flex:1;font-size:32px;font-weight:500;line-height:1.4;color:#12201D;text-align:right">&#8295;لو متطابقين خزّن البيانات في <span style="color:#0B7A5F">&#8294;$_SESSION&#8297;</span> وحوّل لـ <span style="color:#0B7A5F">&#8294;registered.php&#8297;</span> بـ <span style="color:#0B7A5F">&#8294;header&#8297;</span>&#8297;</p>
+</div>
+<div style="display:flex;flex-direction:row-reverse;align-items:center;gap:32px;background:#FAFCFB;border:1px solid #C5D3CD;border-radius:16px;padding:20px 32px">
+<p style="flex:none;width:64px;height:64px;border-radius:50%;background:#0B7A5F;color:#F7FBF9;font-size:32px;font-weight:700;line-height:64px;text-align:center">5</p>
+<p style="flex:1;font-size:32px;font-weight:500;line-height:1.4;color:#12201D;text-align:right">&#8295;في <span style="color:#0B7A5F">&#8294;registered.php&#8297;</span> لف على البيانات بـ <span style="color:#0B7A5F">&#8294;for&#8297;</span> واطبع كل خانة (الباسورد بنجوم)&#8297;</p>
+</div>
+</div>
+</section>
+<section id="p5-code-register-1" data-transition="fade" style="background:#111B19;color:#E8F0EC;font-family:'Cairo', Tahoma, sans-serif;padding:128px;display:flex;flex-direction:column;gap:32px">
+<div style="display:flex;flex-direction:row-reverse;align-items:center;justify-content:space-between">
+<div style="display:flex;flex-direction:column;gap:4px">
+<p style="font-size:28px;font-weight:700;color:#F0B93A;text-align:right">&#8295;المسألة 5 من 5&#8297;</p>
+<h2 style="font-size:40px;font-weight:800;line-height:1.2;color:#F2F5F3;text-align:right">&#8295;الحل: الكود (ملف 1 من 2، الجزء الأول)&#8297;</h2>
+</div>
+<p style="font-family:'JetBrains Mono', 'Courier New', monospace;font-size:28px;font-weight:500;color:#111B19;background:#F0B93A;padding:8px 24px;border-radius:12px">register.php (1/2)</p>
+</div>
+<div style="background:#1B2A26;border:1px solid #2C3E39;border-radius:16px;padding:24px 40px">
+<p style="font-family:'JetBrains Mono', 'Courier New', monospace;font-size:24px;line-height:1.3;color:#DCE8E3;text-align:left;white-space:nowrap"><span style="color:#F0B93A">&lt;?php</span><br>session_start();<br>$error = <span style="color:#8FD6B4">""</span>;<br><br><span style="color:#9CC9F0">if</span> ($_SERVER[<span style="color:#8FD6B4">"REQUEST_METHOD"</span>] === <span style="color:#8FD6B4">"POST"</span>) {<br>&#160;&#160;&#160;&#160;<span style="color:#9CC9F0">if</span> ($_POST[<span style="color:#8FD6B4">"password"</span>] !== $_POST[<span style="color:#8FD6B4">"confirm"</span>]) {<br>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;$error = <span style="color:#8FD6B4">"Passwords do not match"</span>;<br>&#160;&#160;&#160;&#160;} <span style="color:#9CC9F0">else</span> {<br>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;$_SESSION[<span style="color:#8FD6B4">"data"</span>] = [<br>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<span style="color:#8FD6B4">"Name"</span> =&gt; $_POST[<span style="color:#8FD6B4">"name"</span>],<br>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<span style="color:#8FD6B4">"Email"</span> =&gt; $_POST[<span style="color:#8FD6B4">"email"</span>],<br>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<span style="color:#8FD6B4">"Date of birth"</span> =&gt; $_POST[<span style="color:#8FD6B4">"birth"</span>],<br>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<span style="color:#8FD6B4">"Password"</span> =&gt; <span style="color:#8FD6B4">"********"</span>,<br>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;];<br>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;header(<span style="color:#8FD6B4">"Location: registered.php"</span>);<br>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<span style="color:#9CC9F0">exit</span>;<br>&#160;&#160;&#160;&#160;}<br>}<br><span style="color:#F0B93A">?&gt;</span></p>
+</div>
+</section>
+<section id="p5-code-register-2" data-transition="fade" style="background:#111B19;color:#E8F0EC;font-family:'Cairo', Tahoma, sans-serif;padding:128px;display:flex;flex-direction:column;gap:32px">
+<div style="display:flex;flex-direction:row-reverse;align-items:center;justify-content:space-between">
+<div style="display:flex;flex-direction:column;gap:4px">
+<p style="font-size:28px;font-weight:700;color:#F0B93A;text-align:right">&#8295;المسألة 5 من 5&#8297;</p>
+<h2 style="font-size:40px;font-weight:800;line-height:1.2;color:#F2F5F3;text-align:right">&#8295;الحل: الكود (ملف 1 من 2، الجزء التاني)&#8297;</h2>
+</div>
+<p style="font-family:'JetBrains Mono', 'Courier New', monospace;font-size:28px;font-weight:500;color:#111B19;background:#F0B93A;padding:8px 24px;border-radius:12px">register.php (2/2)</p>
+</div>
+<div style="background:#1B2A26;border:1px solid #2C3E39;border-radius:16px;padding:32px 40px">
+<p style="font-family:'JetBrains Mono', 'Courier New', monospace;font-size:24px;line-height:1.4;color:#DCE8E3;text-align:left;white-space:nowrap">&lt;!DOCTYPE html&gt;<br>&lt;html&gt;<br>&lt;body&gt;<br>&#160;&#160;&#160;&#160;&lt;h2&gt;Register&lt;/h2&gt;<br>&#160;&#160;&#160;&#160;<span style="color:#F0B93A">&lt;?php</span> <span style="color:#9CC9F0">if</span> ($error) <span style="color:#9CC9F0">echo</span> <span style="color:#8FD6B4">"&lt;p style='color:red'&gt;$error&lt;/p&gt;"</span>; <span style="color:#F0B93A">?&gt;</span><br><br>&#160;&#160;&#160;&#160;&lt;form method="POST"&gt;<br>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;input type="text" name="name" placeholder="Name" required&gt;&lt;br&gt;&lt;br&gt;<br>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;input type="email" name="email" placeholder="Email" required&gt;&lt;br&gt;&lt;br&gt;<br>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;input type="date" name="birth" required&gt;&lt;br&gt;&lt;br&gt;<br>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;input type="password" name="password" placeholder="Password" required&gt;&lt;br&gt;&lt;br&gt;<br>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;input type="password" name="confirm" placeholder="Retype password" required&gt;&lt;br&gt;&lt;br&gt;<br>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;button type="submit"&gt;Register&lt;/button&gt;<br>&#160;&#160;&#160;&#160;&lt;/form&gt;<br>&lt;/body&gt;<br>&lt;/html&gt;</p>
+</div>
+</section>
+<section id="p5-code-registered" data-transition="fade" style="background:#111B19;color:#E8F0EC;font-family:'Cairo', Tahoma, sans-serif;padding:128px;display:flex;flex-direction:column;gap:32px">
+<div style="display:flex;flex-direction:row-reverse;align-items:center;justify-content:space-between">
+<div style="display:flex;flex-direction:column;gap:4px">
+<p style="font-size:28px;font-weight:700;color:#F0B93A;text-align:right">&#8295;المسألة 5 من 5&#8297;</p>
+<h2 style="font-size:40px;font-weight:800;line-height:1.2;color:#F2F5F3;text-align:right">&#8295;الحل: الكود (ملف 2 من 2)&#8297;</h2>
+</div>
+<p style="font-family:'JetBrains Mono', 'Courier New', monospace;font-size:28px;font-weight:500;color:#111B19;background:#F0B93A;padding:8px 24px;border-radius:12px">registered.php</p>
+</div>
+<div style="background:#1B2A26;border:1px solid #2C3E39;border-radius:16px;padding:32px 40px">
+<p style="font-family:'JetBrains Mono', 'Courier New', monospace;font-size:24px;line-height:1.4;color:#DCE8E3;text-align:left;white-space:nowrap"><span style="color:#F0B93A">&lt;?php</span><br>session_start();<br><br><span style="color:#9CC9F0">if</span> (!isset($_SESSION[<span style="color:#8FD6B4">"data"</span>])) {<br>&#160;&#160;&#160;&#160;header(<span style="color:#8FD6B4">"Location: register.php"</span>);<br>&#160;&#160;&#160;&#160;<span style="color:#9CC9F0">exit</span>;<br>}<br><br>$labels = array_keys($_SESSION[<span style="color:#8FD6B4">"data"</span>]);<br>$values = array_values($_SESSION[<span style="color:#8FD6B4">"data"</span>]);<br><span style="color:#F0B93A">?&gt;</span><br>&lt;h2&gt;Registered successfully&lt;/h2&gt;<br><br><span style="color:#F0B93A">&lt;?php</span> <span style="color:#9CC9F0">for</span> ($i = 0; $i &lt; count($values); $i++) { <span style="color:#F0B93A">?&gt;</span><br>&#160;&#160;&#160;&#160;&lt;p&gt;&lt;b&gt;<span style="color:#F0B93A">&lt;?=</span> $labels[$i] <span style="color:#F0B93A">?&gt;</span>:&lt;/b&gt; <span style="color:#F0B93A">&lt;?=</span> htmlspecialchars($values[$i]) <span style="color:#F0B93A">?&gt;</span>&lt;/p&gt;<br><span style="color:#F0B93A">&lt;?php</span> } <span style="color:#F0B93A">?&gt;</span></p>
+</div>
+</section>
+</div>
+<div id="bar">
+  <button id="next" type="button">التالي</button>
+  <span id="count"></span>
+  <button id="prev" type="button">السابق</button>
+</div>
+<script>
+(function () {
+  var slides = Array.prototype.slice.call(document.querySelectorAll('#stage > section'));
+  var stage = document.getElementById('stage');
+  var count = document.getElementById('count');
+  var i = 0;
+  try {
+    var h = parseInt((location.hash || '').replace('#', ''), 10);
+    if (h >= 1 && h <= slides.length) i = h - 1;
+  } catch (e) {}
+  function fit() {
+    var s = Math.min(window.innerWidth / 1920, (window.innerHeight - 48) / 1080);
+    stage.style.transform = 'translate(-50%, -50%) scale(' + s + ')';
+    stage.style.top = 'calc(50% - 24px)';
+  }
+  function show(n) {
+    i = Math.max(0, Math.min(slides.length - 1, n));
+    slides.forEach(function (el, k) { el.classList.toggle('active', k === i); });
+    count.textContent = (i + 1) + ' / ' + slides.length;
+    try { history.replaceState(null, '', '#' + (i + 1)); } catch (e) {}
+  }
+  document.getElementById('next').onclick = function () { show(i + 1); };
+  document.getElementById('prev').onclick = function () { show(i - 1); };
+  document.addEventListener('keydown', function (e) {
+    var k = e.key;
+    if (k === 'ArrowLeft' || k === 'PageDown' || k === ' ' || k === 'Enter') { e.preventDefault(); show(i + 1); }
+    else if (k === 'ArrowRight' || k === 'PageUp' || k === 'Backspace') { e.preventDefault(); show(i - 1); }
+    else if (k === 'Home') { show(0); }
+    else if (k === 'End') { show(slides.length - 1); }
+  });
+  window.addEventListener('resize', fit);
+  fit();
+  show(i);
+})();
+</script>
+</body>
+</html>
